@@ -762,6 +762,22 @@ pre code {
   padding-left: 15px;
 }
 
+.profil-container {
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.projet-container {
+  position: relative;
+  margin-left: 13%;
+  margin-right: 13%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 @media (min-width: 576px) {
   .container {
     padding-right: 15px;
