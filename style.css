@@ -14,8 +14,6 @@
 
 @font-face {
     font-family: "Flaticon";
-    src: url("fonts/Flaticon.eot");
-    src: url("fonts/Flaticon.eot?#iefix") format("embedded-opentype"), url("fonts/Flaticon.woff") format("woff"), url("fonts/Flaticon.ttf") format("truetype"), url("fonts/Flaticon.svg#Flaticon") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -23,7 +21,6 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family: "Flaticon";
-        src: url("fonts/Flaticon.svg#Flaticon") format("svg");
     }
 }
 
@@ -141,15 +138,15 @@ hr.invis2 {
     left: 0;
     width: 100%;
     display: block;
-    background-color: #ffffff;
+    background-color: #1c0f2a;
     opacity: 1;
     z-index: 11;
 }
 
 .transparent-header {
-    background-color: transparent;
-    position: absolute;
-    padding:20px 0;
+    background-color: #1c0f2a;
+    position: fixed;
+    padding:10px 0;
     z-index: 100;
 }
 

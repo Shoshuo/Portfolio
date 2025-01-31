@@ -1,13 +1,10 @@
-/**************************************
-    Template Name: Micrology
-    Created By: HTML.Design
-    https://html.design
-**************************************/
-
 /*********** RESPONSIVE ***********/
 
 @media (max-width: 992px) {
 
+    .body{
+        width: 100%;
+    }
     .onmartop {
         margin-top: 30px;
     }
@@ -21,9 +18,8 @@
         padding:4rem 0;
     }
     .transparent-header {
-        background-color: #090c1e !important;
+        background-color: #1c0f2a !important;
         padding: 10px 10px !important;
-        position: relative !important;
     }
     .header .dropdown-menu {
         min-width: auto;
@@ -60,10 +56,20 @@
         margin-bottom: 10px;
         padding:4px;
     }
+
+    .modal {
+        width:80%;
+    }
 }
 
 @media (max-width: 768px) {
 
+    .body{
+        width: 100%;
+    }
+    .timeline{
+        /*display:none;*/
+    }
     .grd7 {
         background-color: #f32e59 !important;
         background-image: none !important; 
@@ -87,6 +93,9 @@
     }
     .hero h2 {
         font-size: 34px;
+    }
+    .atom {
+        scale: 1;
     }
 }
 

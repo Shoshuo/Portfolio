@@ -408,7 +408,7 @@ a:focus, a:hover {
 }
 
 a:not([href]):not([tabindex]) {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 
