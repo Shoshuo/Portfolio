@@ -138,7 +138,7 @@ hr.invis2 {
     left: 0;
     width: 100%;
     display: block;
-    background-color: #1c0f2a;
+    background: linear-gradient(to right, #1c0f2a, #363688);
     opacity: 1;
     z-index: 11;
 }
@@ -156,9 +156,9 @@ hr.invis2 {
     z-index: 100;
 }
 
-.white-header.header .menu-right a, 
+.white-header.header .menu-right a,
 .white-header.header .head-social a,
-.white-header.header .menu-right a, 
+.white-header.header .menu-right a,
 .white-header.header .head-social a,
 .white-header .navbar-inverse .navbar-nav .nav-link {
     color:#999999;
@@ -451,9 +451,9 @@ hr.invis2 {
 
 .section {
     background-color:#ffffff;
-    padding:8rem 0;
+    padding: 5rem 0;
     position: relative;
-    z-index: 10;
+    /*z-index: 10;*/
 }
 
 section::before,
@@ -511,7 +511,7 @@ section::after {
     display: block;
     position: relative;
 }
-.section-title h2 {   
+.section-title h2 {
     font-size: 31px;
     letter-spacing: 0;
     padding:0;
@@ -784,7 +784,7 @@ section::after {
     z-index: 1;
     text-align: center;
     position: relative;
-    background: #1c0f2a;
+    background: linear-gradient(to bottom, #1c0f2a, #363688, purple, darkmagenta);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -944,7 +944,7 @@ section::after {
     color:#ffffff !important;
 }
 
-.btn-sm, 
+.btn-sm,
 .btn-group-sm > .btn {
     font-size: 13px !important;
     padding: 0.9rem 2.5rem;
@@ -1310,7 +1310,7 @@ div.sidewrapper.sidenav {
 
 .footer.lb a,
 .footer.lb h4 i,
-.footer.lb .foot-link ul li a, 
+.footer.lb .foot-link ul li a,
 .footer.lb .widget-title {
     color:rgba(0,0,0,0.8);
 }
@@ -1386,7 +1386,7 @@ div.sidewrapper.sidenav {
 
 .foot-link ul li:last-child:after {
     content: ""
-} 
+}
 .footer-logo {
     margin-bottom: 2rem
 }
@@ -1430,3 +1430,97 @@ a,
     transition: all .4s ease-in-out;
 }
 
+.btn-pdf {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 10px 25px;
+    font-family: Poppins;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    font-size: 90%;
+}
+
+.openModalPdf {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, darkblue, #5c5cd2 100%);
+    width: 180px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    margin-right: 20px;
+}
+
+.openModalPdf span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.openModalPdf:before,
+.openModalPdf:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+}
+.openModalPdf:before {
+    height: 0%;
+    width: 2px;
+}
+.openModalPdf:after {
+    width: 0%;
+    height: 2px;
+}
+.openModalPdf:hover{
+    background: transparent;
+    box-shadow: none;
+}
+.openModalPdf:hover:before {
+    height: 100%;
+}
+.openModalPdf:hover:after {
+    width: 100%;
+}
+.openModalPdf span:hover{
+    color: rgba(2,126,251,1);
+}
+.openModalPdf span:before,
+.openModalPdf span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+}
+.openModalPdf span:before {
+    width: 2px;
+    height: 0%;
+}
+.openModalPdf span:after {
+    width: 0%;
+    height: 2px;
+}
+.openModalPdf span:hover:before {
+    height: 100%;
+}
+.openModalPdf span:hover:after {
+    width: 100%;
+}
+
+.pdf {
+    width: 100%;
+    text-align: center;
+}

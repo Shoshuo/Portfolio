@@ -33,3 +33,55 @@
     color: black;
     cursor: pointer;
 }
+
+/*Modals pour PDF*/
+
+#overlayPdf, #modalPdf {
+    display: none;
+}
+
+#overlayPdf {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+#modalPdf {
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    padding-left: 35px;
+    padding-right: 35px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    height: 85%;
+    border-radius: 10px;
+    z-index: 10000;
+}
+
+#modalPdf.active, #overlayPdf.active {
+    display: block;
+}
+
+#pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+#closeModalPdf {
+    /*background: transparent;*/
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    color: black;
+    cursor: pointer;
+}

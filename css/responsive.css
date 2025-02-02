@@ -3,6 +3,16 @@
 @media (max-width: 992px) {
 
     .body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .hero{
+        width: 100%;
+    }
+    .section lb {
+        width: 100%;
+    }
+    .section {
         width: 100%;
     }
     .onmartop {
@@ -60,15 +70,33 @@
     .modal {
         width:80%;
     }
+
+    .ModalPdf {
+        width:80%;
+    }
 }
 
 @media (max-width: 768px) {
 
     .body{
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .hero{
+        width: 100%;
+    }
+    .section lb {
+        width: 100%;
+    }
+    .section {
         width: 100%;
     }
     .timeline{
         /*display:none;*/
+    }
+    .timeline ul li div {
+        position: initial;
+        width: 300px;
     }
     .grd7 {
         background-color: #f32e59 !important;
@@ -95,7 +123,7 @@
         font-size: 34px;
     }
     .atom {
-        scale: 1;
+        scale: 1.5;
     }
 }
 
