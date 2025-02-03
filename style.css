@@ -456,6 +456,13 @@ hr.invis2 {
     /*z-index: 10;*/
 }
 
+.section-lb {
+    background-color: lightgrey;
+    padding: 5rem 0;
+    position: relative;
+    /*z-index: -10;*/
+}
+
 section::before,
 section::after {
     position: absolute;

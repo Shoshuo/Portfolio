@@ -15,6 +15,9 @@
     .section {
         width: 100%;
     }
+    .card-interest-all {
+        width: 100%;
+    }
     .onmartop {
         margin-top: 30px;
     }
@@ -76,7 +79,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
 
     .body{
         overflow-x: hidden;
@@ -97,6 +100,9 @@
     .timeline ul li div {
         position: initial;
         width: 300px;
+    }
+    .card-interest-all {
+        width: 100%;
     }
     .grd7 {
         background-color: #f32e59 !important;

@@ -35,7 +35,7 @@ h1 {
     width: 6px;
     margin: 0 auto;
     padding-top: 50px;
-    background: lightgrey;
+    background: grey;
 }
 
 .timeline ul li::after {
