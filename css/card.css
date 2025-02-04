@@ -56,7 +56,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
+    background: white;
     transform-style: preserve-3d;
     position: relative;
     display: flex;
@@ -83,6 +83,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -92,7 +93,6 @@
     display: flex;
     align-items: center; /* Centre verticalement */
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -168,7 +168,7 @@
 .skillcard-html {
     width: 350px;
     height: 220px;
-    background: #bcb3b3;
+    background: white;
     transform-style: preserve-3d;
     position: relative;
     display: flex;
@@ -178,7 +178,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: grey solid 2px;
     border-radius: 40px;
     cursor: pointer;
     /*transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);*/
@@ -195,6 +195,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -204,7 +205,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -282,8 +282,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -292,7 +291,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: gray solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -309,6 +308,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -318,7 +318,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -397,7 +396,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
+    background: white;
     transform-style: preserve-3d;
     position: relative;
     display: flex;
@@ -407,7 +406,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: gray solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -424,6 +423,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -433,7 +433,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
+    color: black;
 }
 
 .icon {
@@ -512,8 +512,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -522,7 +521,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: gray solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -539,6 +538,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -548,7 +548,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -627,8 +626,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -637,7 +635,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: gray solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -654,6 +652,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -663,7 +662,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -742,8 +740,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -752,7 +749,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: grey solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -769,6 +766,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -778,7 +776,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -857,8 +854,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -867,7 +863,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: grey solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -884,6 +880,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -893,7 +890,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -972,8 +968,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -982,7 +977,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: grey solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -999,6 +994,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -1008,7 +1004,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -1087,8 +1082,7 @@
     width: 350px;
     height: 220px;
     perspective: 1000px;
-    background: #bcb3b3;
-    transform-style: preserve-3d;
+    background: white;    transform-style: preserve-3d;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -1097,7 +1091,7 @@
     font-size: 1.5em;
     color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    border: white solid 2px;
+    border: grey solid 2px;
     border-radius: 40px;
     cursor: pointer;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -1114,6 +1108,7 @@
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
+    border: solid 3px gray;
     transition: all 2s ease-in-out;
 }
 
@@ -1123,7 +1118,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: underline;
 }
 
 .icon {
@@ -1187,6 +1181,457 @@
 
 .c-txt:not(:hover),
 .go-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+.skillcard-phpstorm {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: white;    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: grey solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-phpstorm::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: cornflowerblue;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    border: solid 3px gray;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phpstorm-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-phpstorm-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-phpstorm-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-phpstorm-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-phpstorm:hover::before {
+    transform: scale(7) translate(-20px);
+}
+.skillcard-phpstorm:hover .skillcard-phpstorm-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-phpstorm:hover .phpstorm-icon,
+.skillcard-phpstorm:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.phpstorm-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+.skillcard-webstorm {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: white;    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: grey solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-webstorm::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: cornflowerblue;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    border: solid 3px gray;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.webstorm-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-webstorm-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-webstorm-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-webstorm-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-webstorm:hover::before {
+    transform: scale(7) translate(-20px);
+}
+.skillcard-webstorm:hover .skillcard-webstorm-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-webstorm:hover .webstorm-icon,
+.skillcard-webstorm:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.webstorm-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+.skillcard-rider {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: white;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: grey solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-rider::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: cornflowerblue;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    border: solid 3px gray;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rider-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-rider-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-rider-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-rider-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-rider:hover::before {
+    transform: scale(7) translate(-20px);
+}
+.skillcard-rider:hover .skillcard-rider-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-rider:hover .rider-icon,
+.skillcard-rider:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.rider-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+.skillcard-vscode {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: white;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: gray solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-vscode::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: cornflowerblue;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    border: solid 3px gray;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vscode-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-vscode-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-vscode-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-vscode-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-vscode:hover::before {
+    transform: scale(7) translate(-20px);
+}
+.skillcard-vscode:hover .skillcard-vscode-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-vscode:hover .vscode-icon,
+.skillcard-vscode:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.vscode-icon:not(:hover) {
     opacity: 1;
     transform: scale(1);
     transition: all 3s ease-out;
