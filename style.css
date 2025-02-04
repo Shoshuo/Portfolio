@@ -859,6 +859,10 @@ section::after {
     z-index: 10;
 }
 
+.skill-title {
+    text-decoration-line: underline;
+}
+
 .portfolio-ver-01 {
     background-color:#ffffff;
 }

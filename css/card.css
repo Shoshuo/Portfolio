@@ -1,8 +1,10 @@
 /* From Uiverse.io by SteveBloX */
 .card-interest-all {
     box-sizing: border-box;
-    display: contents;
-    justify-content: space-between;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card-interest {
@@ -43,6 +45,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
 
 
@@ -363,6 +366,9 @@
 }
 
 /*Animation*/
+.skillcard-css:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-css:hover .skillcard-css-content {
     transform: rotateX(0deg);
 }
@@ -475,6 +481,9 @@
 }
 
 /*Animation*/
+.skillcard-js:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-js:hover .skillcard-js-content {
     transform: rotateX(0deg);
 }
@@ -587,6 +596,9 @@
 }
 
 /*Animation*/
+.skillcard-php:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-php:hover .skillcard-php-content {
     transform: rotateX(0deg);
 }
@@ -699,6 +711,9 @@
 }
 
 /*Animation*/
+.skillcard-sql:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-sql:hover .skillcard-sql-content {
     transform: rotateX(0deg);
 }
@@ -811,6 +826,9 @@
 }
 
 /*Animation*/
+.skillcard-symfony:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-symfony:hover .skillcard-symfony-content {
     transform: rotateX(0deg);
 }
@@ -923,6 +941,9 @@
 }
 
 /*Animation*/
+.skillcard-csharp:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-csharp:hover .skillcard-csharp-content {
     transform: rotateX(0deg);
 }
@@ -1035,6 +1056,9 @@
 }
 
 /*Animation*/
+.skillcard-python:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-python:hover .skillcard-python-content {
     transform: rotateX(0deg);
 }
@@ -1147,6 +1171,9 @@
 }
 
 /*Animation*/
+.skillcard-go:hover::before {
+    transform: scale(7) translate(-20px);
+}
 .skillcard-go:hover .skillcard-go-content {
     transform: rotateX(0deg);
 }
