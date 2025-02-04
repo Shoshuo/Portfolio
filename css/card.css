@@ -1,4 +1,10 @@
 /* From Uiverse.io by SteveBloX */
+.card-interest-all {
+    box-sizing: border-box;
+    display: contents;
+    justify-content: space-between;
+}
+
 .card-interest {
     width: 100%;
     height: 15em;
@@ -29,62 +35,1132 @@
 }
 
 
-.card-interest-all {
+
+
+.skillcard-all {
+    width: 100%;
+    height: auto;
     box-sizing: border-box;
-    display: contents;
+    display: flex;
     justify-content: space-between;
 }
 
 
 
-/* From Uiverse.io by Gaurav-WebDev */
-.skillcard {
-    width: 190px;
-    height: 254px;
-    background: lightgray;
+
+/*Contenue a l'avant de la carte*/
+.skillcard-test {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 2em;
-    color: #333;
+    font-size: 1.5em;
+    color: lightgray;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
     border-radius: 40px;
     cursor: pointer;
-    position: relative;
-    transition: all 0.7s ease-in-out;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     overflow: hidden;
 }
 
-.skillcard::before {
+.skillcard-test::before {
     content: "";
     position: absolute;
-    height: 40%;
+    height: 60%;
     width: 100%;
-    background-color: #088080;
+    background-color: #f58d4d;
     bottom: 0;
     right: 0;
     transform: translatey(70px);
     border-radius: 100%;
-    transition: all 0.7s ease-in-out;
+    transition: all 2s ease-in-out;
 }
 
 .c-txt {
-    z-index: 2;
+    flex: 20%; /* Occupe 20% de la hauteur */
     width: 100%;
-    height: 80%;
+    display: flex;
+    align-items: center; /* Centre verticalement */
+    justify-content: center;
+    text-decoration: underline;
 }
 
 .icon {
-    z-index: 2;
+    flex: 60%; /* Occupe 80% de la hauteur */
     width: 100%;
-    height: 20%;
+    display: flex;
+    align-items: center; /* Centre le texte verticalement */
+    justify-content: center; /* Centre horizontalement */
 }
 
-.skillcard:hover::before {
+.test-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'avant de la carte*/
+.skillcard-test-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f58d4d;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-test-title {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+    font-weight: 700;
+}
+
+.skillcard-test-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #777;
+    line-height: 1.4;
+}
+
+
+.skillcard-test:hover .skillcard-test-content {
+    transform: rotateX(0deg);
+}
+
+/* Cache l'icône et le texte lors du survol */
+.skillcard-test:hover .test-icon,
+.skillcard-test:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8); /* Réduit légèrement la taille pour un effet plus fluide */
+    transition: all 0.1s ease-in-out; /* Effet de transition */
+}
+
+.c-txt:not(:hover),
+.test-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-html {
+    width: 350px;
+    height: 220px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    /*transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);*/
+    overflow: hidden;
+}
+
+.skillcard-html::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: #f58d4d;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.html-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-html-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f58d4d;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-html-title {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+.skillcard-html-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-html:hover::before {
     transform: scale(7) translate(-20px);
 }
+.skillcard-html:hover .skillcard-html-content {
+    transform: rotateX(0deg);
+}
 
-.skillcard:hover {
-    box-shadow: 1px -10px 500px 500px #9fe4e44a;
-    color: #f3f3f3;
+.skillcard-html:hover .html-icon,
+.skillcard-html:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.html-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+.skillcard-css {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-css::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: #029be5;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.css-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-css-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #029be5;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-css-title {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+.skillcard-css-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-css:hover .skillcard-css-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-css:hover .css-icon,
+.skillcard-css:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.css-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-js {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-js::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: #ffda3e;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.js-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-js-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #ffda3e;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-js-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-js-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-js:hover .skillcard-js-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-js:hover .js-icon,
+.skillcard-js:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.js-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-php {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-php::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: #6e81b6;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.php-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-php-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #6e81b6;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-php-title {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+.skillcard-php-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-php:hover .skillcard-php-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-php:hover .php-icon,
+.skillcard-php:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.php-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-sql {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-sql::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: #bd77da;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sql-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-sql-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #bd77da;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-sql-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-sql-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-sql:hover .skillcard-sql-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-sql:hover .sql-icon,
+.skillcard-sql:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.sql-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-symfony {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-symfony::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: darkslategrey;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.symfony-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-symfony-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: darkslategrey;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-symfony-title {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+.skillcard-symfony-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-symfony:hover .skillcard-symfony-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-symfony:hover .symfony-icon,
+.skillcard-symfony:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.symfony-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-csharp {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-csharp::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: #410ca1;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.csharp-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-csharp-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #410ca1;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-csharp-title {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+.skillcard-csharp-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-csharp:hover .skillcard-csharp-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-csharp:hover .csharp-icon,
+.skillcard-csharp:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.csharp-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-python {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-python::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: darkgreen;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.python-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-python-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: darkgreen;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-python-title {
+    margin: 0;
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+}
+
+.skillcard-python-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: white;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-python:hover .skillcard-python-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-python:hover .python-icon,
+.skillcard-python:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.python-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
+}
+
+
+
+
+
+
+
+.skillcard-go {
+    width: 350px;
+    height: 220px;
+    perspective: 1000px;
+    background: #bcb3b3;
+    transform-style: preserve-3d;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    color: lightgray;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: white solid 2px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+}
+
+.skillcard-go::before {
+    content: "";
+    position: absolute;
+    height: 60%;
+    width: 100%;
+    background-color: cornflowerblue;
+    bottom: 0;
+    right: 0;
+    transform: translatey(70px);
+    border-radius: 100%;
+    transition: all 2s ease-in-out;
+}
+
+.c-txt {
+    flex: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+}
+
+.icon {
+    flex: 60%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.go-icon {
+    width: auto;
+    height: 90px;
+    transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+/*Contenue a l'arrière de la carte*/
+.skillcard-go-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: cornflowerblue;
+    transform: rotateX(-90deg);
+    transform-origin: bottom;
+    transition: all 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skillcard-go-title {
+    margin: 0;
+    font-size: 24px;
+    color: black;
+    font-weight: 700;
+}
+
+.skillcard-go-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: black;
+    line-height: 1.4;
+}
+
+/*Animation*/
+.skillcard-go:hover .skillcard-go-content {
+    transform: rotateX(0deg);
+}
+
+.skillcard-go:hover .go-icon,
+.skillcard-go:hover .c-txt {
+    opacity: 0;  /* Rendre invisible */
+    transform: scale(0.8);
+    transition: all 0.1s ease-in-out;
+}
+
+.c-txt:not(:hover),
+.go-icon:not(:hover) {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 3s ease-out;
 }

@@ -18,6 +18,14 @@
     .card-interest-all {
         width: 100%;
     }
+    .skillcard-all {
+        flex-direction: column; /* Passe de ligne à colonne */
+        align-items: center; /* Centre les éléments horizontalement */
+        justify-content: space-between; /* Aligne les cartes verticalement */
+    }
+    .skillcard {
+        margin-top: 30px;
+    }
     .onmartop {
         margin-top: 30px;
     }
