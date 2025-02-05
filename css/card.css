@@ -8,32 +8,67 @@
 }
 
 .card-interest {
-    width: 100%;
-    height: 15em;
+    width: 110%;
+    height: auto;
     background: rgba(217, 217, 217, 0.58);
-    border: 1px solid white;
     box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
     backdrop-filter: blur(6px);
     border-radius: 17px;
     text-align: center;
-    cursor: pointer;
     transition: all 0.5s;
-    /*display: flex;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     user-select: none;
     color: black;
     margin: 20px;
     padding: 20px;
+    border: solid grey 1px;
+}
+
+.interest-header {
+    /*width: 100%;*/
+    text-align: center;
+    color: darkslategrey;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 2px solid darkslategrey;
+    /*padding: 10px 0;*/
+    /*padding-bottom: 2px;*/
+    margin: 20px;
+}
+
+.interest-body {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.img-interest {
+    width: 40%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    border: solid 2px grey;
+    box-shadow: 5px 25px 70px rgba(0,0,0,.3);
+}
+
+.img-interest img {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+}
+
+.interest-content {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    padding-top: 30px;
 }
 
 .card-interest:hover {
-    border: 3.5px solid blue;
     transform: scale(1.05);
-}
-
-.card-interest:active {
-    transform: scale(0.95) rotateZ(1.7deg);
 }
 
 
