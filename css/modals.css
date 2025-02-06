@@ -63,7 +63,7 @@
     width: 90%;
     height: 85%;
     border-radius: 10px;
-    z-index: 10000;
+    z-index: 100000;
 }
 
 #modalPdf.active, #overlayPdf.active {
