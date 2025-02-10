@@ -166,14 +166,20 @@
     .timeline ul li div::before {
         display: none;
     }
+    .card-interest {
+        margin-top: 50px !important;
+    }
     .interest-body {
         flex-direction: column;
     }
     .img-interest {
         width: 100% !important;
+        order: -1;
     }
     .interest-content {
         width: 100% !important;
+        margin-left: 0 !important;
+        order: 0;
     }
 }
 

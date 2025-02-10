@@ -46,7 +46,7 @@
 }
 
 .img-interest {
-    width: 40%;
+    width: 80%;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -115,7 +115,6 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border: 2px solid gray;
     border-radius: var(--border-radius);
-    cursor: pointer;
     transition: var(--transition);
     overflow: hidden;
 }
