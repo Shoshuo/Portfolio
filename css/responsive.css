@@ -176,7 +176,12 @@
         width: 100% !important;
         order: -1;
     }
-    .interest-content {
+    .interest-content-l {
+        width: 100% !important;
+        margin-left: 0 !important;
+        order: 0;
+    }
+    .interest-content-r {
         width: 100% !important;
         margin-left: 0 !important;
         order: 0;
