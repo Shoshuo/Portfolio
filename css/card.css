@@ -83,12 +83,119 @@
     display: flex;
     flex-direction: column;
     text-align: left;
-    margin-bottom: 50px;
+    margin-bottom: 25px !important;
 }
 
 .card-interest:hover {
     transform: scale(1.05);
 }
+
+.btn-docs-dl {
+    width: 180px;
+    height: 40px;
+    color: #fff;
+    padding: 10px 25px;
+    font-family: Poppins;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+    7px 7px 20px 0px rgba(0,0,0,.1),
+    4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    font-size: 90%;
+}
+
+.docs-dl {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, darkblue, #5c5cd2 100%);
+    width: 180px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    margin-right: 20px;
+}
+
+.docs-dl span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.docs-dl:before,
+.docs-dl:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+}
+.docs-dl:before {
+    height: 0%;
+    width: 2px;
+}
+.docs-dl:after {
+    width: 0%;
+    height: 2px;
+}
+.docs-dl:hover{
+    background: transparent;
+    box-shadow: none;
+}
+.docs-dl:hover:before {
+    height: 100%;
+}
+.docs-dl:hover:after {
+    width: 100%;
+}
+.docs-dl span:hover{
+    color: rgba(2,126,251,1);
+}
+.docs-dl span:before,
+.docs-dl span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+}
+.docs-dl span:before {
+    width: 2px;
+    height: 0%;
+}
+.docs-dl span:after {
+    width: 0%;
+    height: 2px;
+}
+.docs-dl span:hover:before {
+    height: 100%;
+}
+.docs-dl span:hover:after {
+    width: 100%;
+}
+
+.docs-dl {
+    width: 260px;
+    height: 40px;
+    text-align: center;
+}
+
+.i-docs-dl {
+    font-size: 18px !important;
+}
+
+.docs {
+    margin-bottom: 25px !important;
+    text-align: center;
+}
+
+
 
 
 
