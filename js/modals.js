@@ -1,16 +1,41 @@
-document.getElementById("openModal").addEventListener("click", function(event) {
-    event.preventDefault();
-    document.getElementById("modal").classList.add("active");
-    document.getElementById("overlay").classList.add("active");
+document.addEventListener("DOMContentLoaded", function () {
+    const overlay = document.querySelector("[data-overlay]");
+
+    // Ouvrir un modal
+    document.querySelectorAll("[data-open-modal]").forEach(button => {
+        button.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-open-modal");
+            const modal = document.querySelector(`[data-modal="${modalId}"]`);
+
+            if (modal) {
+                modal.classList.add("active");
+                overlay.classList.add("active");
+            }
+        });
+    });
+
+    // Fermer un modal
+    document.querySelectorAll("[data-close-modal]").forEach(closeButton => {
+        closeButton.addEventListener("click", function () {
+            const modalId = this.getAttribute("data-close-modal");
+            const modal = document.querySelector(`[data-modal="${modalId}"]`);
+
+            if (modal) {
+                modal.classList.remove("active");
+                overlay.classList.remove("active");
+            }
+        });
+    });
+
+    // Fermer en cliquant sur l'overlay
+    overlay.addEventListener("click", function () {
+        document.querySelectorAll(".modal.active").forEach(modal => {
+            modal.classList.remove("active");
+        });
+        overlay.classList.remove("active");
+    });
 });
-document.getElementById("closeModal").addEventListener("click", function() {
-    document.getElementById("modal").classList.remove("active");
-    document.getElementById("overlay").classList.remove("active");
-});
-document.getElementById("overlay").addEventListener("click", function() {
-    document.getElementById("modal").classList.remove("active");
-    document.getElementById("overlay").classList.remove("active");
-});
+
 
 // Modals pour PDF
 

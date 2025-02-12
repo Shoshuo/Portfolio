@@ -186,6 +186,16 @@
         margin-right: 0 !important;
         order: 0;
     }
+    .project {
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .card-button {
+        width: 60% !important;
+        font-size: 0.8rem !important;
+    }
 }
 
 @media (min-width: 992px) {
