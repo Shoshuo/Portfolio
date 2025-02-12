@@ -191,7 +191,16 @@
         margin-left: 0 !important;
         padding-right: 15px;
         padding-left: 15px;
+        flex-direction: column;
     }
+
+    .card {
+        width: 100% !important;
+        height: auto !important;
+        margin-bottom: 35px !important;
+        margin-right: 0 !important;
+    }
+
     .card-button {
         width: 60% !important;
         font-size: 0.8rem !important;
