@@ -1535,3 +1535,16 @@ a,
     width: 100%;
     text-align: center;
 }
+
+.warning-construct {
+    color: white;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    position: fixed;
+    background: red;
+    z-index: 999;
+    transform: rotate(-45deg);
+    top: 50px;
+    left: -80px;
+}

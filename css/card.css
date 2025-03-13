@@ -86,9 +86,9 @@
     margin-bottom: 25px !important;
 }
 
-.card-interest:hover {
-    transform: scale(1.05);
-}
+/*.card-interest:hover {*/
+/*    transform: scale(1.05);*/
+/*}*/
 
 .btn-docs-dl {
     width: 180px;
