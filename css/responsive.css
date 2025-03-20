@@ -85,6 +85,15 @@
     .ModalPdf {
         width:80%;
     }
+
+    .card-header-project {
+        display: block !important;
+    }
+
+    .illustration-img {
+        max-width: 90% !important;
+        box-shadow: none !important;
+    }
 }
 
 @media screen and (max-width: 768px) {
