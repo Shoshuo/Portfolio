@@ -34,19 +34,20 @@
 }
 
 .img-project {
+    background: #f5f5f5;
     width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+    height: 100%;
     border: solid 2px grey;
+    border-radius: 5px;
     box-shadow: 5px 25px 70px rgba(0,0,0,.3);
     padding: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .img-project img {
     max-width: 100%;
     height: auto;
-    padding: 10px;
 }
 
 .card-button {
@@ -98,22 +99,79 @@
 
 .card-header-project {
     display: flex;
-    align-items: center;
-    width: 100%;
-    height: auto;
     margin-top: 3%;
-    background-color: #f6f5f5;
+    padding: 3%;
+    background: linear-gradient(to left, #1c0f2a, #363688, purple, darkmagenta);
     border-radius: 5px;
     border: 2px solid grey;
 }
 
-.card-text-project {
-    margin-top: 3%;
-    padding-top: 1%;
+.card-header-project-text {
     background-color: #f6f5f5;
+    text-align: left;
+    margin-right: 3%;
+    border: solid gray 2px;
+    border-radius: 5px;
+    padding: 1%;
+}
+
+.card-text-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to left, #1c0f2a, #363688, purple, darkmagenta);
+    border-radius: 5px;
+    border: 2px solid grey;
+    margin-top: 3%;
+    padding: 3%;
+}
+
+.card-text-project-table {
+    background-color: #f6f5f5;
+    padding: 1%;
     border-radius: 5px;
     border: 2px solid grey;
 }
+
+
+.card-intro {
+    width: 100%;
+    border-collapse: collapse;
+    color: #595959;
+}
+
+.card-intro th {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.card-intro td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    vertical-align: top;
+    background-color: #fff;
+}
+
+.card-intro ul {
+    margin: 0;
+    padding-left: 18px;
+    text-align: center;
+}
+
+.card-intro li {
+    margin-bottom: 6px;
+    line-height: 1.4em;
+    text-align: left;
+}
+
+
+
 
 .illustration-img {
     max-width: 60%;
