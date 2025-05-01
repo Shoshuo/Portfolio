@@ -61,24 +61,31 @@
 }
 
 .interest-content-l {
+    background-color: #f6f5f5;
+    padding: 1%;
+    border: gray solid 2px;
     width: 60%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 30px;
     margin-left: 50px;
 }
 
 .interest-content-r {
+    background-color: #f6f5f5;
+    padding: 1%;
+    border: gray solid 2px;
     width: 60%;
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding-top: 30px;
     margin-right: 50px;
 }
 
 .interest-subject {
+    background-color: #f6f5f5;
+    padding: 1%;
+    border: gray solid 2px;
     width: 100%;
     display: flex;
     flex-direction: column;

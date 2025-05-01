@@ -228,6 +228,10 @@
     border: 2px solid grey;
 }
 
+.carousel-img-phone {
+    width: 20% !important;
+}
+
 .carousel-btn {
     position: absolute;
     top: 50%;
