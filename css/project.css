@@ -185,3 +185,67 @@
 #modal-1 {
     border: solid 4px grey;
 }
+
+
+
+
+
+
+
+.card-carousel-project {
+    position: relative;
+    overflow: hidden;
+    margin-top: 3%;
+    padding: 3%;
+    background: linear-gradient(to left, #1c0f2a, #363688, purple, darkmagenta);
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    transition: opacity 0.5s ease;
+    display: none;
+}
+
+.carousel-slide.active {
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-slide img {
+    width: 80%;
+    height: auto;
+    display: block;
+    background-color: #f6f5f5;
+    padding: 1%;
+    border-radius: 5px;
+    border: 2px solid grey;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
