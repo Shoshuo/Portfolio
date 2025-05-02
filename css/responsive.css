@@ -251,6 +251,34 @@
         margin-bottom: 6px;
         line-height: 1.4em;
     }
+
+    .doc-filters {
+        flex-direction: column !important;
+        height: auto !important;
+    }
+
+    .doc-filter-btn {
+        width: 45% !important;
+    }
+
+    .doc-card-line {
+        flex-direction: column !important;
+    }
+
+    .doc-card {
+        width: 95% !important;
+    }
+
+    .doc-btn a span {
+        font-size: 8px !important;
+    }
+
+    /* Optionnel : juste afficher l’icône centrée */
+    .doc-btn a i {
+        margin: 0;
+    }
+
+
 }
 
 @media (min-width: 992px) {

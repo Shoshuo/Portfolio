@@ -1,0 +1,130 @@
+.doc-body {
+    display: flex;
+    justify-content: center;
+}
+
+.doc-container {
+    width: 90%;
+    background: grey;
+    border-radius: 20px;
+    padding-bottom: 2%;
+}
+
+/* Boutons de filtre */
+.doc-filters {
+    background: linear-gradient(to right, #1c0f2a, #363688);
+    height: 100px;
+    display: flex;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    border:  solid lightgray 2px;
+}
+
+.doc-filter-btn-all { --color: grey; }
+.doc-filter-btn-dev { --color: #ffda3e; }
+.doc-filter-btn-stage { --color: #f58d4d; }
+.doc-filter-btn-reseau { --color: #6e81b6; }
+.doc-filter-btn-css { --color: #029be5; }
+.doc-filter-btn-csharp { --color: green; }
+
+.doc-filter-btn {
+    width: 8%;
+    height: 50%;
+    margin: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: var(--color);
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.doc-filter-btn:hover {
+    transform: scale(0.9);
+    background: linear-gradient(to right, #1c0f2a, #363688);
+}
+
+.doc-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doc-card-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.doc-card {
+    width: 40%;
+    margin: 1%;
+    background: white;
+    display: flex;
+    max-width: 100%;
+    border-radius: 10px;
+    border: solid #231a45 2px;
+}
+
+.doc-filter-btn.active {
+    background-color: white;
+    color: #1f1437;
+    scale: 1.2;
+}
+
+.doc-img {
+    width: 40%;
+    height: auto;
+    overflow: hidden; /* cache tout ce qui dépasse de la div */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1%;
+    margin: 1%;
+    border: solid grey 1px;
+    background-color: lightgray;
+}
+
+.doc-img img {
+    max-width: 100%;
+    height: auto;
+}
+
+.doc-subject {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 20px;
+}
+
+.doc-title {
+    margin-top: 3%;
+    text-align: center;
+}
+
+.doc-subject {
+    text-align: center;
+}
+
+.doc-btn {
+    margin-top: 20px; /* Espace entre le sujet et les boutons */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doc-btn a {
+    margin-bottom: 10px; /* Espace entre les boutons */
+}
+
+.docs-dl {
+    background: #251c4a;
+    width: 140px;
+}
