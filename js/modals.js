@@ -54,3 +54,19 @@ document.getElementById("overlayPdf").addEventListener("click", function() {
     document.getElementById("modalPdf").classList.remove("active");
     document.getElementById("overlayPdf").classList.remove("active");
 });
+
+document.getElementById("openModalPdfT").addEventListener("click", function(event) {
+    event.preventDefault();
+    document.getElementById("modalPdfT").classList.add("active");
+    document.getElementById("overlayPdfT").classList.add("active");
+});
+
+document.getElementById("closeModalPdfT").addEventListener("click", function() {
+    document.getElementById("modalPdfT").classList.remove("active");
+    document.getElementById("overlayPdfT").classList.remove("active");
+});
+
+document.getElementById("overlayPdfT").addEventListener("click", function() {
+    document.getElementById("modalPdfT").classList.remove("active");
+    document.getElementById("overlayPdfT").classList.remove("active");
+});

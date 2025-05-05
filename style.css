@@ -1548,3 +1548,75 @@ a,
     top: 50px;
     left: -80px;
 }
+
+
+.openModalPdfT {
+    background: rgb(0,172,238);
+    background: linear-gradient(0deg, darkblue, #5c5cd2 100%);
+    width: 180px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    margin-right: 20px;
+}
+
+.openModalPdfT span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.openModalPdfT:before,
+.openModalPdfT:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    top: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+}
+.openModalPdfT:before {
+    height: 0%;
+    width: 2px;
+}
+.openModalPdfT:after {
+    width: 0%;
+    height: 2px;
+}
+.openModalPdfT:hover{
+    background: transparent;
+    box-shadow: none;
+}
+.openModalPdfT:hover:before {
+    height: 100%;
+}
+.openModalPdfT:hover:after {
+    width: 100%;
+}
+.openModalPdfT span:hover{
+    color: rgba(2,126,251,1);
+}
+.openModalPdfT span:before,
+.openModalPdfT span:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background: rgba(2,126,251,1);
+    transition: all 0.3s ease;
+}
+.openModalPdfT span:before {
+    width: 2px;
+    height: 0%;
+}
+.openModalPdfT span:after {
+    width: 0%;
+    height: 2px;
+}
+.openModalPdfT span:hover:before {
+    height: 100%;
+}
+.openModalPdfT span:hover:after {
+    width: 100%;
+}
