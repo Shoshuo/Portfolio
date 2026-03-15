@@ -1118,13 +1118,6 @@ body.modal-open { overflow: hidden !important; }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Animated rotating border */
-@property --border-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes borderRotate { to { --border-angle: 360deg; } }
 
 .projects-grid {
   display: grid;
@@ -1157,23 +1150,21 @@ body.modal-open { overflow: hidden !important; }
 .proj-card:nth-child(5) { animation-delay: 0.33s; }
 .proj-card:nth-child(6) { animation-delay: 0.40s; }
 
-/* Animated rotating gradient border */
+/* Gradient border fade-in on hover */
 .proj-card::after {
   content: '';
   position: absolute;
   inset: -1px;
   border-radius: 19px;
-  background: conic-gradient(from var(--border-angle), #7c3aed 0%, #4f46e5 25%, #06b6d4 50%, #4f46e5 75%, #7c3aed 100%);
+  background: linear-gradient(135deg, #7c3aed, #4f46e5 50%, #06b6d4);
   z-index: -1;
   opacity: 0;
   transition: opacity 0.35s ease;
-  animation: borderRotate 3s linear infinite;
 }
 
 .proj-card:hover { transform: translateY(-7px); box-shadow: 0 28px 70px rgba(124,58,237,0.25); border-color: transparent; }
 .proj-card:hover::after { opacity: 1; }
 
-/* Keep ::before hidden (replaced by ::after) */
 .proj-card::before { display: none; }
 
 /* Year badge */

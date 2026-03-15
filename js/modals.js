@@ -1,80 +1,103 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const overlay = document.querySelector("[data-overlay]");
-    if (!overlay) return;
+/* =====================================================
+   Modals — projet cards + PDF (documents.html)
+   ===================================================== */
 
-    function closeAll() {
-        document.querySelectorAll(".modal.active, .proj-modal.active").forEach(m => m.classList.remove("active"));
-        overlay.classList.remove("active");
-        document.body.classList.remove("modal-open");
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* ── Projet modals ─────────────────────────────── */
+    var overlay = document.querySelector("[data-overlay]");
+
+    if (overlay) {
+
+        function closeAll() {
+            document.querySelectorAll(".modal.active, .proj-modal.active").forEach(function (m) {
+                m.classList.remove("active");
+            });
+            overlay.classList.remove("active");
+            document.body.classList.remove("modal-open");
+        }
+
+        // Ouvrir
+        document.querySelectorAll("[data-open-modal]").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                var id    = this.getAttribute("data-open-modal");
+                var modal = document.querySelector('[data-modal="' + id + '"]');
+                if (modal) {
+                    modal.classList.add("active");
+                    overlay.classList.add("active");
+                    document.body.classList.add("modal-open");
+                }
+            });
+        });
+
+        // Fermer via bouton ×
+        document.querySelectorAll("[data-close-modal]").forEach(function (btn) {
+            btn.addEventListener("click", function (e) {
+                e.stopPropagation();
+                var id    = this.getAttribute("data-close-modal");
+                var modal = document.querySelector('[data-modal="' + id + '"]');
+                if (modal) {
+                    modal.classList.remove("active");
+                    overlay.classList.remove("active");
+                    document.body.classList.remove("modal-open");
+                }
+            });
+        });
+
+        // Fermer en cliquant sur l'overlay
+        overlay.addEventListener("click", closeAll);
+
+        // Fermer avec Escape
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeAll();
+        });
     }
 
-    // Ouvrir un modal
-    document.querySelectorAll("[data-open-modal]").forEach(button => {
-        button.addEventListener("click", function () {
-            const modalId = this.getAttribute("data-open-modal");
-            const modal = document.querySelector(`[data-modal="${modalId}"]`);
-            if (modal) {
-                modal.classList.add("active");
-                overlay.classList.add("active");
-                document.body.classList.add("modal-open");
-            }
+    /* ── PDF modals (documents.html uniquement) ─────── */
+    var openPdf    = document.getElementById("openModalPdf");
+    var closePdf   = document.getElementById("closeModalPdf");
+    var overlayPdf = document.getElementById("overlayPdf");
+    var modalPdf   = document.getElementById("modalPdf");
+
+    if (openPdf && modalPdf && overlayPdf) {
+        openPdf.addEventListener("click", function (e) {
+            e.preventDefault();
+            modalPdf.classList.add("active");
+            overlayPdf.classList.add("active");
         });
-    });
-
-    // Fermer un modal (bouton ×)
-    document.querySelectorAll("[data-close-modal]").forEach(closeButton => {
-        closeButton.addEventListener("click", function (e) {
-            e.stopPropagation();
-            const modalId = this.getAttribute("data-close-modal");
-            const modal = document.querySelector(`[data-modal="${modalId}"]`);
-            if (modal) {
-                modal.classList.remove("active");
-                overlay.classList.remove("active");
-                document.body.classList.remove("modal-open");
-            }
+        if (closePdf) {
+            closePdf.addEventListener("click", function () {
+                modalPdf.classList.remove("active");
+                overlayPdf.classList.remove("active");
+            });
+        }
+        overlayPdf.addEventListener("click", function () {
+            modalPdf.classList.remove("active");
+            overlayPdf.classList.remove("active");
         });
-    });
+    }
 
-    // Fermer en cliquant sur l'overlay
-    overlay.addEventListener("click", closeAll);
+    var openPdfT    = document.getElementById("openModalPdfT");
+    var closePdfT   = document.getElementById("closeModalPdfT");
+    var overlayPdfT = document.getElementById("overlayPdfT");
+    var modalPdfT   = document.getElementById("modalPdfT");
 
-    // Fermer avec Escape
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeAll();
-    });
-});
+    if (openPdfT && modalPdfT && overlayPdfT) {
+        openPdfT.addEventListener("click", function (e) {
+            e.preventDefault();
+            modalPdfT.classList.add("active");
+            overlayPdfT.classList.add("active");
+        });
+        if (closePdfT) {
+            closePdfT.addEventListener("click", function () {
+                modalPdfT.classList.remove("active");
+                overlayPdfT.classList.remove("active");
+            });
+        }
+        overlayPdfT.addEventListener("click", function () {
+            modalPdfT.classList.remove("active");
+            overlayPdfT.classList.remove("active");
+        });
+    }
 
-
-// Modals pour PDF
-
-document.getElementById("openModalPdf").addEventListener("click", function(event) {
-    event.preventDefault();
-    document.getElementById("modalPdf").classList.add("active");
-    document.getElementById("overlayPdf").classList.add("active");
-});
-
-document.getElementById("closeModalPdf").addEventListener("click", function() {
-    document.getElementById("modalPdf").classList.remove("active");
-    document.getElementById("overlayPdf").classList.remove("active");
-});
-
-document.getElementById("overlayPdf").addEventListener("click", function() {
-    document.getElementById("modalPdf").classList.remove("active");
-    document.getElementById("overlayPdf").classList.remove("active");
-});
-
-document.getElementById("openModalPdfT").addEventListener("click", function(event) {
-    event.preventDefault();
-    document.getElementById("modalPdfT").classList.add("active");
-    document.getElementById("overlayPdfT").classList.add("active");
-});
-
-document.getElementById("closeModalPdfT").addEventListener("click", function() {
-    document.getElementById("modalPdfT").classList.remove("active");
-    document.getElementById("overlayPdfT").classList.remove("active");
-});
-
-document.getElementById("overlayPdfT").addEventListener("click", function() {
-    document.getElementById("modalPdfT").classList.remove("active");
-    document.getElementById("overlayPdfT").classList.remove("active");
 });
