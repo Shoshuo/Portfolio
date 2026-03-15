@@ -1110,10 +1110,21 @@ p.section-title {
 
 /* === PROJECT GRID ======================================= */
 
+/* Scroll lock when modal open */
+body.modal-open { overflow: hidden !important; }
+
 @keyframes cardFadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* Animated rotating border */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes borderRotate { to { --border-angle: 360deg; } }
 
 .projects-grid {
   display: grid;
@@ -1146,36 +1157,46 @@ p.section-title {
 .proj-card:nth-child(5) { animation-delay: 0.33s; }
 .proj-card:nth-child(6) { animation-delay: 0.40s; }
 
-/* Gradient top border */
-.proj-card::before {
+/* Animated rotating gradient border */
+.proj-card::after {
   content: '';
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gradient-purple);
+  inset: -1px;
+  border-radius: 19px;
+  background: conic-gradient(from var(--border-angle), #7c3aed 0%, #4f46e5 25%, #06b6d4 50%, #4f46e5 75%, #7c3aed 100%);
+  z-index: -1;
   opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 2;
+  transition: opacity 0.35s ease;
+  animation: borderRotate 3s linear infinite;
 }
 
-.proj-card:hover { transform: translateY(-7px); box-shadow: 0 28px 70px rgba(124,58,237,0.22), 0 0 0 1px rgba(124,58,237,0.2); border-color: rgba(124,58,237,0.4); }
-.proj-card:hover::before { opacity: 1; }
+.proj-card:hover { transform: translateY(-7px); box-shadow: 0 28px 70px rgba(124,58,237,0.25); border-color: transparent; }
+.proj-card:hover::after { opacity: 1; }
+
+/* Keep ::before hidden (replaced by ::after) */
+.proj-card::before { display: none; }
 
 /* Year badge */
 .proj-card-year {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background: rgba(7,11,20,0.75);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--text-secondary);
-  font-size: 0.68rem;
-  font-weight: 600;
-  padding: 0.2rem 0.55rem;
+  background: rgba(7,11,20,0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.55);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.18rem 0.5rem;
   border-radius: 100px;
   z-index: 3;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.proj-card:hover .proj-card-year {
+  color: #c4b5fd;
+  border-color: rgba(124,58,237,0.35);
 }
 
 /* Card image preview */
