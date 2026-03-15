@@ -17,6 +17,7 @@
   min-height: calc(100vh - 80px);
   padding-top: 5.5rem;
   padding-bottom: 3rem;
+  will-change: transform;
 }
 
 /* Supprimer le centrage auto de new-design.css */
@@ -128,10 +129,27 @@
   margin: 0 !important;
 }
 
+.profile-role-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.profile-laposte-logo {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
 .profile-role {
   font-size: 0.78rem;
   color: var(--text-muted) !important;
   margin: 0 !important;
+}
+
+.profil-card-icon--laposte {
+  background: rgba(255,205,0,0.15) !important;
 }
 
 .profile-status {
