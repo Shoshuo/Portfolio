@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio — Joshua BETHOULE-VOISIN</title>
-    <meta name="description" content="Portfolio de Joshua BETHOULE-VOISIN, étudiant BTS SIO SLAM, développeur web passionné.">
+    <meta name="description" content="Portfolio de Joshua BETHOULE-VOISIN, développeur Full Stack, analyste d'exploitation @ La Poste.">
     <meta name="author" content="Joshua BETHOULE-VOISIN">
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -24,6 +24,7 @@
     <link href="css/project.css" rel="stylesheet">
     <link href="css/footer.css" rel="stylesheet">
     <link href="css/new-design.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.body.classList.add('dark-mode');})()</script>
@@ -66,103 +67,225 @@
 
     <!-- ==================== HERO ==================== -->
     <section class="hero" id="Header">
+
+        <!-- Orbes parallax -->
+        <div class="hero-orb orb-1"></div>
+        <div class="hero-orb orb-2"></div>
+        <div class="hero-orb orb-3"></div>
+
         <div class="container">
-            <div class="hero-desc text-center">
-                <div class="hero-badge">
-                    <span>Disponible pour alternance · Rentrée 2025</span>
+            <div class="hero-grid">
+
+                <!-- ── Colonne gauche : texte ──────── -->
+                <div class="hero-left reveal">
+                    <div class="hero-badge">
+                        <i class="fa fa-briefcase" style="font-size:10px;margin-right:5px;"></i>
+                        Analyste d'exploitation @ La Poste
+                    </div>
+
+                    <h2>BETHOULE-VOISIN<br>Joshua</h2>
+
+                    <p class="lead">
+                        Développeur Full Stack &middot; BTS SIO SLAM<br>
+                        <strong style="color: var(--accent-purple);">En poste @ La Poste &middot; Limoges</strong>
+                    </p>
+
+                    <div class="hero-ctas">
+                        <a href="./projet.html" class="hero-cta-primary">
+                            <i class="fa fa-code"></i> Voir mes projets
+                        </a>
+                        <a href="upload/cv.pdf" download class="hero-cta-secondary">
+                            <i class="fa fa-download"></i> CV
+                        </a>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">2</span>
+                            <span class="hero-stat-label">Stages</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">6</span>
+                            <span class="hero-stat-label">Projets</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">15+</span>
+                            <span class="hero-stat-label">Technos</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">2</span>
+                            <span class="hero-stat-label">Ans BTS</span>
+                        </div>
+                    </div>
                 </div>
-                <h2>BETHOULE-VOISIN<br>Joshua</h2>
-                <p class="lead">
-                    Développeur web passionné · BTS SIO SLAM<br>
-                    En route vers un <strong style="color:#c4b5fd">BAC+3 CDA</strong> à l'ENI
-                </p>
-                <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-                    <a href="./projet.html" class="hero-cta-primary">
-                        <i class="fa fa-code"></i> Voir mes projets
-                    </a>
-                    <a href="upload/cv.pdf" download class="hero-cta-secondary">
-                        <i class="fa fa-download"></i> Télécharger le CV
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">6+</span>
-                        <span class="hero-stat-label">Stages</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">5+</span>
-                        <span class="hero-stat-label">Projets</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">10+</span>
-                        <span class="hero-stat-label">Technologies</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-number">2</span>
-                        <span class="hero-stat-label">Ans BTS SIO</span>
+
+                <!-- ── Colonne droite : carte profil ── -->
+                <div class="hero-right reveal reveal-delay-2">
+                    <div class="profile-card-wrapper">
+                        <div class="profile-card">
+                            <div class="profile-initials">JBV</div>
+                            <p class="profile-name">Joshua BV</p>
+                            <p class="profile-role">Développeur Full Stack</p>
+                            <div class="profile-status">
+                                <span class="status-dot"></span>
+                                En poste
+                            </div>
+                        </div>
+
+                        <!-- Icônes flottantes -->
+                        <div class="floating-icon fi-1"><img src="images/icons/php.png" alt="PHP"></div>
+                        <div class="floating-icon fi-2"><img src="images/icons/golang.png" alt="Go"></div>
+                        <div class="floating-icon fi-3"><img src="images/icons/docker.png" alt="Docker"></div>
+                        <div class="floating-icon fi-4"><img src="images/icons/symfony.png" alt="Symfony"></div>
+                        <div class="floating-icon fi-5"><img src="images/icons/javascript.png" alt="JS"></div>
+                        <div class="floating-icon fi-6"><img src="images/icons/git.png" alt="Git"></div>
+                        <div class="floating-icon fi-7"><img src="images/icons/linux.png" alt="Linux"></div>
+                        <div class="floating-icon fi-8"><img src="images/icons/csharp.png" alt="C#"></div>
                     </div>
                 </div>
+
             </div>
         </div>
+
+        <!-- Indicateur de scroll -->
+        <div class="scroll-indicator" title="Défiler vers le profil">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+        </div>
+
     </section>
 
+    <!-- ==================== MARQUEE TECH ==================== -->
+    <div class="tech-marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <div class="marquee-item"><img src="images/icons/php.png" alt="PHP"><span>PHP</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/symfony.png" alt="Symfony"><span>Symfony</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/golang.png" alt="Go"><span>Golang</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/csharp.png" alt="C#"><span>C#</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/javascript.png" alt="JS"><span>JavaScript</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/html.png" alt="HTML"><span>HTML</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/css.png" alt="CSS"><span>CSS</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/docker.png" alt="Docker"><span>Docker</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/git.png" alt="Git"><span>Git</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/mysql.png" alt="MySQL"><span>MySQL</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/linux.png" alt="Linux"><span>Linux</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/python.png" alt="Python"><span>Python</span></div>
+                <!-- Duplicate pour boucle seamless -->
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/php.png" alt="PHP"><span>PHP</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/symfony.png" alt="Symfony"><span>Symfony</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/golang.png" alt="Go"><span>Golang</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/csharp.png" alt="C#"><span>C#</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/javascript.png" alt="JS"><span>JavaScript</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/html.png" alt="HTML"><span>HTML</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/css.png" alt="CSS"><span>CSS</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/docker.png" alt="Docker"><span>Docker</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/git.png" alt="Git"><span>Git</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/mysql.png" alt="MySQL"><span>MySQL</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/linux.png" alt="Linux"><span>Linux</span></div>
+                <div class="marquee-sep"></div>
+                <div class="marquee-item"><img src="images/icons/python.png" alt="Python"><span>Python</span></div>
+            </div>
+        </div>
+    </div>
+
     <!-- ==================== PROFIL ==================== -->
-    <section class="section" id="Profil">
-        <div class="profil-container">
-            <div class="section-title text-center">
-                <h4>Profil</h4>
+    <section class="section-lb" id="Profil">
+        <div class="container">
+
+            <div class="profil-section-header reveal">
+                <div class="profil-section-tag">À propos</div>
+                <h2 class="profil-section-title">Mon Profil</h2>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12 col-md-12">
-                    <div class="media service-style-03">
-                        <div class="media-body">
-                            <h5>Présentation</h5>
-                            <p>
-                                Actuellement en deuxième année de <strong style="color:#c4b5fd">BTS SIO</strong>
-                                (Services Informatiques aux Organisations),
-                                <strong style="color:#c4b5fd">option SLAM</strong>
-                                (Solutions Logicielles et Applications Métiers) au Lycée Aliénor d'Aquitaine à Poitiers,
-                                j'ai toujours été passionné par l'informatique et particulièrement par le
-                                <strong style="color:#c4b5fd">développement d'applications web.</strong><br><br>
-                                Après l'obtention de mon <strong style="color:#c4b5fd">BAC Professionnel RISC</strong>
-                                en 2023, c'est tout naturellement que j'ai poursuivi mon cursus dans cette voie.
-                            </p>
-                        </div>
+            <div class="profil-grid">
+
+                <!-- Carte 1 : Présentation -->
+                <div class="profil-card reveal">
+                    <div class="profil-card-icon">
+                        <i class="fa fa-user"></i>
                     </div>
+                    <p class="profil-card-title">Présentation</p>
+                    <p class="profil-card-text">
+                        Passionné d'informatique depuis mon <strong>BAC Pro Systèmes Numériques RISC</strong>
+                        en 2023, j'ai approfondi mes compétences en développement au travers du
+                        <strong>BTS SIO SLAM</strong> au Lycée Aliénor d'Aquitaine à Poitiers.<br><br>
+                        Je me spécialise dans le développement d'applications avec
+                        <strong>PHP/Symfony</strong>, <strong>Golang</strong>, <strong>C#</strong>
+                        et <strong>JavaScript</strong>, avec une appétence pour les environnements
+                        DevOps et la supervision.
+                    </p>
                 </div>
-            </div>
 
-            <div class="row" style="margin-top:1.5rem;">
-                <div class="col-lg-12 col-md-12">
-                    <div class="media service-style-03">
-                        <div class="media-body">
-                            <h5>Projet professionnel</h5>
-                            <p>
-                                Mon objectif est de devenir <strong style="color:#c4b5fd">Développeur d'Applications Web</strong>.
-                                Pour cela, j'ai été accepté à
-                                <strong style="color:#c4b5fd"><a href="https://www.eni-ecole.fr/" target="_blank" style="color:#a78bfa !important">l'ENI École Informatique</a></strong>
-                                pour un <strong style="color:#c4b5fd">BAC+3</strong> Concepteur Développeur d'Applications,
-                                suivi d'un <strong style="color:#c4b5fd">BAC+5</strong> Expert en Architecture et Développement Logiciel.
-                            </p>
-                            <br>
-                            <p>Je privilégie la formation en <strong style="color:#c4b5fd">Alternance</strong>, qui me permettra :</p>
-                            <ul style="list-style:none;padding:0;margin:0.5rem 0 0;">
-                                <li style="color:#94a3b8;font-size:15px;padding:4px 0;"><i class="fa fa-check-circle" style="color:#a78bfa;margin-right:8px;"></i>Acquérir une expérience professionnelle concrète</li>
-                                <li style="color:#94a3b8;font-size:15px;padding:4px 0;"><i class="fa fa-check-circle" style="color:#a78bfa;margin-right:8px;"></i>Mettre en pratique mes compétences en entreprise</li>
-                                <li style="color:#94a3b8;font-size:15px;padding:4px 0;"><i class="fa fa-check-circle" style="color:#a78bfa;margin-right:8px;"></i>Découvrir les méthodes et outils professionnels</li>
-                                <li style="color:#94a3b8;font-size:15px;padding:4px 0;"><i class="fa fa-check-circle" style="color:#a78bfa;margin-right:8px;"></i>Renforcer mon employabilité dès la fin des études</li>
-                            </ul>
-                        </div>
+                <!-- Carte 2 : Poste actuel -->
+                <div class="profil-card profil-card--current reveal reveal-delay-1">
+                    <div class="profil-card-icon">
+                        <i class="fa fa-briefcase"></i>
                     </div>
+                    <p class="profil-card-title">Poste actuel</p>
+                    <div class="profil-card-badge">
+                        <span class="status-dot-sm"></span>
+                        La Poste &middot; Limoges &middot; Déc. 2025
+                    </div>
+                    <p class="profil-card-text"><strong>Analyste d'exploitation</strong></p>
+                    <ul class="profil-card-tasks">
+                        <li><i class="fa fa-angle-right"></i> CI/CD &mdash; GitLab CI, Jenkins, Git</li>
+                        <li><i class="fa fa-angle-right"></i> Ordonnancement &mdash; VTOM</li>
+                        <li><i class="fa fa-angle-right"></i> Supervision &mdash; Centreon, Grafana, Kibana</li>
+                        <li><i class="fa fa-angle-right"></i> Méthodes AGILE &amp; ITIL · Docker</li>
+                    </ul>
                 </div>
+
+                <!-- Carte 3 : Projet professionnel -->
+                <div class="profil-card reveal reveal-delay-2">
+                    <div class="profil-card-icon">
+                        <i class="fa fa-road"></i>
+                    </div>
+                    <p class="profil-card-title">Projet professionnel</p>
+                    <p class="profil-card-text">
+                        Accepté à <strong>l'ENI École Informatique</strong> pour un
+                        <strong>BAC+3 CDA</strong> (Concepteur Développeur d'Applications)
+                        en alternance, suivi d'un <strong>BAC+5</strong> Expert en
+                        Architecture et Développement Logiciel.
+                    </p>
+                    <ul class="profil-card-tasks" style="margin-top:0.75rem;">
+                        <li><i class="fa fa-check"></i> Expérience professionnelle concrète</li>
+                        <li><i class="fa fa-check"></i> Compétences appliquées en entreprise</li>
+                        <li><i class="fa fa-check"></i> Vers l'architecture logicielle</li>
+                    </ul>
+                </div>
+
             </div>
 
-            <div class="pdf" style="margin-top:2.5rem;">
+            <!-- Boutons CV -->
+            <div class="pdf">
                 <button id="openModalPdf" class="btn-pdf openModalPdf">
                     <i class="fa-solid fa-eye"></i> Consulter le CV
                 </button>
-                <a href="upload/cv.pdf" download class="btn-pdf openModalPdf">
+                <a href="upload/cv.pdf" download class="btn-pdf">
                     <i class="fa-solid fa-download"></i> Télécharger le CV
                 </a>
                 <button id="openModalPdfT" class="btn-pdf openModalPdfT">
@@ -170,6 +293,7 @@
                 </button>
             </div>
 
+            <!-- Modals PDF -->
             <div id="overlayPdf"></div>
             <div id="modalPdf">
                 <embed src="upload/cv.pdf" type="application/pdf" id="pdf-viewer">
@@ -210,6 +334,7 @@
 <script src="js/snippet.js"></script>
 <script src="js/modals.js"></script>
 <script src="js/timeline.js"></script>
+<script src="js/index.js"></script>
 <script src="js/theme.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
