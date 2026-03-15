@@ -130,6 +130,7 @@
                 <!-- ── Colonne droite : carte profil ── -->
                 <div class="hero-right reveal reveal-delay-2">
                     <div class="profile-card-wrapper">
+                        <div class="profile-card-border">
                         <div class="profile-card">
                             <div class="profile-initials">JBV</div>
                             <p class="profile-name">Joshua BV</p>
@@ -142,6 +143,7 @@
                                 En poste · Limoges
                             </div>
                         </div>
+                        </div><!-- /.profile-card-border -->
 
                         <!-- Icônes flottantes -->
                         <div class="floating-icon fi-1"><img src="images/icons/php.png" alt="PHP"></div>
@@ -161,6 +163,13 @@
         <!-- Indicateur de scroll -->
         <div class="scroll-indicator" title="Défiler">
             <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+        </div>
+
+        <!-- Wave de transition vers la section suivante -->
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 52" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="wave-fill" d="M0,38 C240,55 480,18 720,38 C960,58 1200,20 1440,38 L1440,52 L0,52 Z"/>
+            </svg>
         </div>
 
     </section>
@@ -288,7 +297,7 @@
             <div class="profil-grid">
 
                 <!-- Développement -->
-                <div class="profil-card reveal">
+                <div class="profil-card profil-card--dev reveal">
                     <div class="profil-card-icon">
                         <i class="fa fa-code"></i>
                     </div>
@@ -314,7 +323,7 @@
                 </div>
 
                 <!-- Exploitation & DevOps -->
-                <div class="profil-card profil-card--current reveal reveal-delay-1">
+                <div class="profil-card profil-card--ops reveal reveal-delay-1">
                     <div class="profil-card-icon profil-card-icon--laposte">
                         <i class="fa fa-server"></i>
                     </div>
@@ -338,7 +347,7 @@
                 </div>
 
                 <!-- Réseau & Infrastructure -->
-                <div class="profil-card reveal reveal-delay-2">
+                <div class="profil-card profil-card--net reveal reveal-delay-2">
                     <div class="profil-card-icon">
                         <i class="fa fa-network-wired"></i>
                     </div>
