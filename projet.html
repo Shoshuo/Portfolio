@@ -629,5 +629,31 @@
 <script src="js/carousel.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+// Fermeture des modals projet — clic backdrop + Escape
+(function () {
+    function closeProjModals() {
+        document.querySelectorAll('.proj-modal.active').forEach(function (m) {
+            m.classList.remove('active');
+        });
+        document.body.classList.remove('modal-open');
+    }
+
+    // Clic sur le backdrop (en dehors de .proj-modal-inner)
+    document.querySelectorAll('.proj-modal').forEach(function (modal) {
+        modal.addEventListener('click', function (e) {
+            if (!e.target.closest('.proj-modal-inner')) {
+                closeProjModals();
+            }
+        });
+    });
+
+    // Touche Escape
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeProjModals();
+    });
+})();
+</script>
 </body>
 </html>
