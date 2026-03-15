@@ -5,28 +5,45 @@
 
 /* === CUSTOM PROPERTIES ================================= */
 :root {
-  --bg-primary:      #070b14;
-  --bg-secondary:    #0d1424;
-  --bg-card:         rgba(13, 20, 36, 0.85);
-  --bg-glass:        rgba(255, 255, 255, 0.03);
+  --bg-primary:      #f8f9fc;
+  --bg-secondary:    #f0f2f8;
+  --bg-card:         rgba(255, 255, 255, 0.95);
+  --bg-glass:        rgba(0, 0, 0, 0.03);
   --accent-purple:   #7c3aed;
   --accent-indigo:   #4f46e5;
   --accent-cyan:     #06b6d4;
-  --accent-glow:     rgba(124, 58, 237, 0.35);
-  --text-primary:    #f0f6fc;
-  --text-secondary:  #94a3b8;
-  --text-muted:      #64748b;
-  --border-subtle:   rgba(124, 58, 237, 0.15);
-  --border-strong:   rgba(124, 58, 237, 0.45);
+  --accent-glow:     rgba(124, 58, 237, 0.16);
+  --text-primary:    #111827;
+  --text-secondary:  #4b5563;
+  --text-muted:      #9ca3af;
+  --border-subtle:   rgba(124, 58, 237, 0.12);
+  --border-strong:   rgba(124, 58, 237, 0.35);
   --gradient-purple: linear-gradient(135deg, #7c3aed, #4f46e5);
-  --gradient-hero:   linear-gradient(135deg, #070b14 0%, #0d1424 50%, #130822 100%);
-  --shadow-card:     0 4px 30px rgba(0, 0, 0, 0.5);
-  --shadow-glow:     0 0 25px rgba(124, 58, 237, 0.3);
+  --gradient-hero:   linear-gradient(135deg, #f8f9fc 0%, #ede9fe 50%, #e0e7ff 100%);
+  --shadow-card:     0 4px 20px rgba(0, 0, 0, 0.07);
+  --shadow-glow:     0 0 25px rgba(124, 58, 237, 0.16);
   --radius-sm:  8px;
   --radius-md:  16px;
   --radius-lg:  24px;
   --radius-xl:  32px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === DARK MODE ========================================== */
+body.dark-mode {
+  --bg-primary:      #111111;
+  --bg-secondary:    #1a1a1a;
+  --bg-card:         rgba(28, 28, 28, 0.92);
+  --bg-glass:        rgba(255, 255, 255, 0.03);
+  --accent-glow:     rgba(139, 92, 246, 0.2);
+  --text-primary:    #e8e8e8;
+  --text-secondary:  #a0a0a0;
+  --text-muted:      #666666;
+  --border-subtle:   rgba(255, 255, 255, 0.07);
+  --border-strong:   rgba(255, 255, 255, 0.15);
+  --gradient-hero:   linear-gradient(135deg, #111111 0%, #1a1a1a 50%, #202020 100%);
+  --shadow-card:     0 4px 30px rgba(0, 0, 0, 0.45);
+  --shadow-glow:     0 0 25px rgba(139, 92, 246, 0.16);
 }
 
 /* === GLOBAL ============================================= */
@@ -61,7 +78,7 @@ h1, h2, h3, h4 { font-size: unset !important; }
 /* === NAVBAR ============================================= */
 .header,
 .transparent-header {
-  background: rgba(7, 11, 20, 0.88) !important;
+  background: rgba(248, 249, 252, 0.92) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid var(--border-subtle) !important;
@@ -118,6 +135,9 @@ h1, h2, h3, h4 { font-size: unset !important; }
 
 /* Hamburger */
 .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2817,24,39,0.75%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+body.dark-mode .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28148,163,184,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
 }
 
@@ -162,13 +182,19 @@ h1, h2, h3, h4 { font-size: unset !important; }
 .hero h2 {
   font-size: clamp(2rem, 5vw, 3.8rem) !important;
   font-weight: 800 !important;
-  background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #67e8f9 100%) !important;
+  background: linear-gradient(135deg, #1e1b4b 0%, #7c3aed 50%, #0e7490 100%) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   line-height: 1.15 !important;
   margin-bottom: 1.2rem !important;
   letter-spacing: -0.5px;
+}
+body.dark-mode .hero h2 {
+  background: linear-gradient(135deg, #ffffff 0%, #c4b5fd 50%, #67e8f9 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
 .hero .lead {
@@ -340,12 +366,18 @@ h1, h2, h3, h4 { font-size: unset !important; }
 .page-header-section h1 {
   font-size: clamp(1.8rem, 4vw, 3rem) !important;
   font-weight: 800 !important;
-  background: linear-gradient(135deg, #ffffff, #a78bfa) !important;
+  background: linear-gradient(135deg, #1e1b4b, #7c3aed) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   margin: 0 0 0.5rem !important;
   line-height: 1.2 !important;
+}
+body.dark-mode .page-header-section h1 {
+  background: linear-gradient(135deg, #ffffff, #a78bfa) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
 .page-header-section .page-sub {
@@ -555,14 +587,14 @@ section[style*="margin-top"] {
 
 .interest-content-l,
 .interest-content-r {
-  background: rgba(7, 11, 20, 0.6) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
   border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-sm) !important;
   padding: 1.2rem !important;
 }
 
 .interest-subject {
-  background: rgba(7, 11, 20, 0.6) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
   border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-sm) !important;
   padding: 1.2rem !important;
@@ -741,7 +773,7 @@ section[style*="margin-top"] {
 }
 
 .card-header-project-text {
-  background: rgba(7, 11, 20, 0.85) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
   border: 1px solid var(--border-subtle) !important;
   border-radius: var(--radius-sm) !important;
   color: var(--text-secondary) !important;
@@ -755,11 +787,11 @@ section[style*="margin-top"] {
   border-radius: var(--radius-sm) !important;
 }
 
-.card-text-project-table { background: rgba(7, 11, 20, 0.85) !important; border-radius: var(--radius-sm) !important; padding: 1% !important; }
+.card-text-project-table { background: rgba(0, 0, 0, 0.04) !important; border-radius: var(--radius-sm) !important; padding: 1% !important; }
 
 .card-intro { color: var(--text-secondary) !important; }
-.card-intro th { background: rgba(124, 58, 237, 0.1) !important; border-color: var(--border-subtle) !important; color: var(--text-primary) !important; font-size: 13px !important; }
-.card-intro td { background: rgba(7, 11, 20, 0.6) !important; border-color: var(--border-subtle) !important; color: var(--text-secondary) !important; font-size: 13px !important; }
+.card-intro th { background: rgba(124, 58, 237, 0.08) !important; border-color: var(--border-subtle) !important; color: var(--text-primary) !important; font-size: 13px !important; }
+.card-intro td { background: rgba(0, 0, 0, 0.03) !important; border-color: var(--border-subtle) !important; color: var(--text-secondary) !important; font-size: 13px !important; }
 .card-intro li { color: var(--text-secondary) !important; }
 
 .card-body { color: var(--text-secondary) !important; }
@@ -1131,7 +1163,7 @@ body.modal-open { overflow: hidden !important; }
 
 .proj-card {
   background: var(--bg-card);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,0,0,0.07);
   border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
@@ -1164,10 +1196,10 @@ body.modal-open { overflow: hidden !important; }
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  background: rgba(7,11,20,0.8);
+  background: rgba(255,255,255,0.88);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.12);
-  color: rgba(255,255,255,0.55);
+  border: 1px solid rgba(0,0,0,0.1);
+  color: rgba(0,0,0,0.5);
   font-size: 0.65rem;
   font-weight: 700;
   padding: 0.18rem 0.5rem;
@@ -1178,8 +1210,8 @@ body.modal-open { overflow: hidden !important; }
 }
 
 .proj-card:hover .proj-card-year {
-  color: #c4b5fd;
-  border-color: rgba(124,58,237,0.35);
+  color: var(--accent-purple);
+  border-color: rgba(124,58,237,0.3);
 }
 
 /* Card image preview */
@@ -1187,7 +1219,7 @@ body.modal-open { overflow: hidden !important; }
   position: relative;
   height: 190px;
   overflow: hidden;
-  background: rgba(7,11,20,0.95);
+  background: #f0f2f8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1328,8 +1360,8 @@ body.modal-open { overflow: hidden !important; }
 
 /* proj-modal-inner = the actual box */
 .proj-modal-inner {
-  background: #0c1120;
-  border: 1px solid rgba(124,58,237,0.22);
+  background: #ffffff;
+  border: 1px solid rgba(124,58,237,0.18);
   border-radius: 20px;
   box-shadow: 0 40px 100px rgba(0,0,0,0.7);
   width: 100%;
@@ -1373,7 +1405,7 @@ body.modal-open { overflow: hidden !important; }
 }
 
 .proj-modal-banner--logo {
-  background: linear-gradient(135deg, #0d1424 0%, #130822 100%);
+  background: linear-gradient(135deg, #f0f2f8 0%, #ede9fe 100%);
   align-items: center;
   justify-content: center;
 }
@@ -1390,7 +1422,7 @@ body.modal-open { overflow: hidden !important; }
 .proj-modal-banner-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, #0c1120 0%, rgba(12,17,32,0.55) 55%, rgba(12,17,32,0.05) 100%);
+  background: linear-gradient(to top, #ffffff 0%, rgba(255,255,255,0.6) 55%, rgba(255,255,255,0.05) 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1399,7 +1431,7 @@ body.modal-open { overflow: hidden !important; }
 }
 
 .proj-modal-banner--logo .proj-modal-banner-overlay {
-  background: linear-gradient(to top, #0c1120 0%, transparent 100%);
+  background: linear-gradient(to top, #ffffff 0%, transparent 100%);
   justify-content: flex-end;
 }
 
@@ -1446,12 +1478,18 @@ body.modal-open { overflow: hidden !important; }
 .proj-modal-title {
   font-size: 1.5rem !important;
   font-weight: 800 !important;
-  background: linear-gradient(135deg, #f0f6fc, #c4b5fd) !important;
+  background: linear-gradient(135deg, #1e1b4b, #7c3aed) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   background-clip: text !important;
   margin-bottom: 0.8rem !important;
   line-height: 1.2 !important;
+}
+body.dark-mode .proj-modal-title {
+  background: linear-gradient(135deg, #f0f6fc, #c4b5fd) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
 @media (max-width: 768px) {
@@ -1496,8 +1534,8 @@ body.modal-open { overflow: hidden !important; }
 }
 
 .proj-info-block {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0,0,0,0.03);
+  border: 1px solid rgba(0,0,0,0.07);
   border-radius: 12px;
   padding: 1rem 1.1rem;
 }
@@ -1544,7 +1582,7 @@ body.modal-open { overflow: hidden !important; }
 .proj-modal-img {
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid rgba(0,0,0,0.07);
 }
 
 .proj-modal-img img {
@@ -1557,8 +1595,8 @@ body.modal-open { overflow: hidden !important; }
 .proj-modal-carousel-wrap {
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid rgba(124,58,237,0.2);
-  background: rgba(7,11,20,0.8);
+  border: 1px solid rgba(124,58,237,0.15);
+  background: rgba(240,242,248,0.8);
 }
 
 .proj-modal-carousel-wrap .carousel-label {
@@ -1579,7 +1617,7 @@ body.modal-open { overflow: hidden !important; }
 
 .proj-modal-carousel-wrap .carousel-slide img {
   background: transparent !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(0,0,0,0.07) !important;
   border-radius: 8px !important;
   width: 75% !important;
 }
@@ -1623,4 +1661,118 @@ body.modal-open { overflow: hidden !important; }
 
 @media (max-width: 480px) {
   .proj-modal-info { grid-template-columns: 1fr; }
+}
+
+/* === DARK MODE SPECIFIC OVERRIDES ====================== */
+
+/* Navbar */
+body.dark-mode .header,
+body.dark-mode .transparent-header {
+  background: rgba(17, 17, 17, 0.88) !important;
+}
+
+/* Hero h2 is already handled above via body.dark-mode .hero h2 */
+
+/* Interest content panels */
+body.dark-mode .interest-content-l,
+body.dark-mode .interest-content-r {
+  background: rgba(7, 11, 20, 0.6) !important;
+}
+body.dark-mode .interest-subject {
+  background: rgba(7, 11, 20, 0.6) !important;
+}
+
+/* Modal legacy tables */
+body.dark-mode .card-header-project-text {
+  background: rgba(7, 11, 20, 0.85) !important;
+}
+body.dark-mode .card-text-project-table {
+  background: rgba(7, 11, 20, 0.85) !important;
+}
+body.dark-mode .card-intro td {
+  background: rgba(7, 11, 20, 0.6) !important;
+}
+
+/* Project card */
+body.dark-mode .proj-card {
+  border-color: rgba(255,255,255,0.06) !important;
+}
+body.dark-mode .proj-card-year {
+  background: rgba(7,11,20,0.8) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  color: rgba(255,255,255,0.55) !important;
+}
+body.dark-mode .proj-card:hover .proj-card-year {
+  color: #c4b5fd !important;
+  border-color: rgba(124,58,237,0.35) !important;
+}
+body.dark-mode .proj-card-preview {
+  background: rgba(7,11,20,0.95) !important;
+}
+
+/* Project modals */
+body.dark-mode .proj-modal-inner {
+  background: #0c1120 !important;
+  border-color: rgba(124,58,237,0.22) !important;
+}
+body.dark-mode .proj-modal-banner--logo {
+  background: linear-gradient(135deg, #0d1424 0%, #130822 100%) !important;
+}
+body.dark-mode .proj-modal-banner-overlay {
+  background: linear-gradient(to top, #0c1120 0%, rgba(12,17,32,0.55) 55%, rgba(12,17,32,0.05) 100%) !important;
+}
+body.dark-mode .proj-modal-banner--logo .proj-modal-banner-overlay {
+  background: linear-gradient(to top, #0c1120 0%, transparent 100%) !important;
+}
+body.dark-mode .proj-modal-carousel-wrap {
+  background: rgba(7,11,20,0.8) !important;
+  border-color: rgba(124,58,237,0.2) !important;
+}
+body.dark-mode .proj-modal-carousel-wrap .carousel-slide img {
+  border-color: rgba(255,255,255,0.08) !important;
+}
+body.dark-mode .proj-info-block {
+  background: rgba(255,255,255,0.03) !important;
+  border-color: rgba(255,255,255,0.06) !important;
+}
+body.dark-mode .proj-modal-img {
+  border-color: rgba(255,255,255,0.07) !important;
+}
+
+/* === THEME TOGGLE BUTTON ================================ */
+.theme-toggle-btn {
+  background: transparent !important;
+  border: 1px solid var(--border-subtle) !important;
+  color: var(--text-secondary) !important;
+  border-radius: 50% !important;
+  width: 32px !important;
+  height: 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: var(--transition) !important;
+  font-size: 13px !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  margin-left: 0.75rem;
+}
+.theme-toggle-btn:hover {
+  border-color: var(--accent-purple) !important;
+  color: var(--accent-purple) !important;
+  background: rgba(124,58,237,0.08) !important;
+}
+/* On mobile: absolute position to left of hamburger */
+@media (max-width: 991px) {
+  .navbar {
+    position: relative;
+  }
+  .navbar .theme-toggle-btn {
+    position: absolute !important;
+    right: 52px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    margin-left: 0 !important;
+  }
 }

@@ -25,6 +25,7 @@
     <link href="css/new-design.css" rel="stylesheet">
 </head>
 <body>
+<script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.body.classList.add('dark-mode');})()</script>
 <div id="wrapper">
 
     <!-- ==================== NAVBAR ==================== -->
@@ -55,6 +56,9 @@
                         </div>
                     </div>
                 </div>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Basculer le thème">
+                    <i class="fa fa-moon"></i>
+                </button>
             </nav>
         </div>
     </header>
@@ -267,6 +271,7 @@
 <script src="js/timeline.js"></script>
 <script src="js/carousel.js"></script>
 <script src="js/veille.js"></script>
+<script src="js/theme.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
