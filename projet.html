@@ -637,6 +637,8 @@
         document.querySelectorAll('.proj-modal.active').forEach(function (m) {
             m.classList.remove('active');
         });
+        var overlay = document.querySelector('[data-overlay]');
+        if (overlay) overlay.classList.remove('active');
         document.body.classList.remove('modal-open');
     }
 
