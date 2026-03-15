@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio — Joshua BETHOULE-VOISIN</title>
-    <meta name="description" content="Portfolio de Joshua BETHOULE-VOISIN, développeur Full Stack, analyste d'exploitation @ La Poste.">
+    <meta name="description" content="Portfolio de Joshua BETHOULE-VOISIN — Développeur Full Stack & Analyste d'exploitation @ La Poste.">
     <meta name="author" content="Joshua BETHOULE-VOISIN">
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
@@ -68,27 +68,35 @@
     <!-- ==================== HERO ==================== -->
     <section class="hero" id="Header">
 
-        <!-- Orbes parallax -->
+        <!-- Orbes parallax (couche fond) -->
         <div class="hero-orb orb-1"></div>
         <div class="hero-orb orb-2"></div>
         <div class="hero-orb orb-3"></div>
+        <div class="hero-orb orb-4"></div>
 
         <div class="container">
-            <div class="hero-grid">
+            <div class="hero-grid" id="hero-grid">
 
-                <!-- ── Colonne gauche : texte ──────── -->
+                <!-- ── Colonne gauche ──── -->
                 <div class="hero-left reveal">
+
                     <div class="hero-badge">
-                        <i class="fa fa-briefcase" style="font-size:10px;margin-right:5px;"></i>
+                        <img src="images/icons/laposte.svg" alt="La Poste" class="badge-laposte-logo">
                         Analyste d'exploitation @ La Poste
                     </div>
 
                     <h2>BETHOULE-VOISIN<br>Joshua</h2>
 
                     <p class="lead">
-                        Passionné de développement Full Stack &middot; BTS SIO SLAM<br>
-                        <strong style="color: var(--accent-purple);">Analyste d'exploitation @ La Poste &middot; Limoges</strong>
+                        Développeur Full Stack passionné &middot;
+                        Exploitation &amp; DevOps &middot; Réseau
                     </p>
+
+                    <div class="hero-domains">
+                        <span class="hero-domain"><i class="fa fa-code"></i> Développement</span>
+                        <span class="hero-domain"><i class="fa fa-server"></i> Exploitation</span>
+                        <span class="hero-domain"><i class="fa fa-network-wired"></i> Réseau</span>
+                    </div>
 
                     <div class="hero-ctas">
                         <a href="./projet.html" class="hero-cta-primary">
@@ -101,10 +109,6 @@
 
                     <div class="hero-stats">
                         <div class="hero-stat">
-                            <span class="hero-stat-number">2</span>
-                            <span class="hero-stat-label">Stages</span>
-                        </div>
-                        <div class="hero-stat">
                             <span class="hero-stat-number">6</span>
                             <span class="hero-stat-label">Projets</span>
                         </div>
@@ -113,8 +117,12 @@
                             <span class="hero-stat-label">Technos</span>
                         </div>
                         <div class="hero-stat">
+                            <span class="hero-stat-number">3</span>
+                            <span class="hero-stat-label">Domaines</span>
+                        </div>
+                        <div class="hero-stat">
                             <span class="hero-stat-number">2</span>
-                            <span class="hero-stat-label">Ans BTS</span>
+                            <span class="hero-stat-label">Stages</span>
                         </div>
                     </div>
                 </div>
@@ -131,7 +139,7 @@
                             </div>
                             <div class="profile-status">
                                 <span class="status-dot"></span>
-                                En poste
+                                En poste · Limoges
                             </div>
                         </div>
 
@@ -151,10 +159,8 @@
         </div>
 
         <!-- Indicateur de scroll -->
-        <div class="scroll-indicator" title="Défiler vers le profil">
-            <div class="scroll-mouse">
-                <div class="scroll-dot"></div>
-            </div>
+        <div class="scroll-indicator" title="Défiler">
+            <div class="scroll-mouse"><div class="scroll-dot"></div></div>
         </div>
 
     </section>
@@ -186,7 +192,7 @@
                 <div class="marquee-item"><img src="images/icons/linux.png" alt="Linux"><span>Linux</span></div>
                 <div class="marquee-sep"></div>
                 <div class="marquee-item"><img src="images/icons/python.png" alt="Python"><span>Python</span></div>
-                <!-- Duplicate pour boucle seamless -->
+                <!-- Duplicate pour seamless -->
                 <div class="marquee-sep"></div>
                 <div class="marquee-item"><img src="images/icons/php.png" alt="PHP"><span>PHP</span></div>
                 <div class="marquee-sep"></div>
@@ -215,70 +221,144 @@
         </div>
     </div>
 
-    <!-- ==================== PROFIL ==================== -->
-    <section class="section-lb" id="Profil">
+    <!-- ==================== QUI SUIS-JE ==================== -->
+    <section class="section" id="Profil">
         <div class="container">
 
             <div class="profil-section-header reveal">
                 <div class="profil-section-tag">À propos</div>
-                <h2 class="profil-section-title">Mon Profil</h2>
+                <h2 class="profil-section-title">Qui suis-je ?</h2>
+            </div>
+
+            <!-- Intro : texte + carte La Poste -->
+            <div class="intro-row reveal">
+
+                <div class="intro-text">
+                    <p>
+                        Passionné d'informatique par nature, je combine des compétences en
+                        <strong>développement d'applications</strong>, en <strong>exploitation informatique</strong>
+                        et en <strong>réseaux</strong>. Je code depuis des années par passion, bien avant mes formations,
+                        et j'aime concevoir des outils concrets qui résolvent de vrais problèmes.
+                    </p>
+                    <p style="margin-top:1rem;">
+                        Chez <strong>La Poste</strong>, je travaille au quotidien sur des systèmes critiques :
+                        pipelines CI/CD, ordonnancement, supervision et infrastructure — ce qui a renforcé
+                        ma vision globale des systèmes d'information et mon goût pour l'automatisation.
+                    </p>
+                    <div class="intro-pills">
+                        <span class="intro-pill"><i class="fa fa-code"></i> PHP · Golang · C# · JS</span>
+                        <span class="intro-pill"><i class="fa fa-server"></i> CI/CD · Docker · Monitoring</span>
+                        <span class="intro-pill"><i class="fa fa-network-wired"></i> Linux · Réseau · VPN</span>
+                    </div>
+                </div>
+
+                <div class="intro-job-card">
+                    <div class="job-card-logo">
+                        <img src="images/icons/laposte.svg" alt="La Poste Groupe">
+                        <div>
+                            <p class="job-card-company">La Poste Groupe</p>
+                            <p class="job-card-location">Limoges &middot; Depuis Déc. 2025</p>
+                        </div>
+                    </div>
+                    <p class="job-card-title">Analyste d'exploitation</p>
+                    <div class="job-card-badge">
+                        <span class="status-dot-sm"></span> En poste
+                    </div>
+                    <ul class="job-card-tasks">
+                        <li><i class="fa fa-angle-right"></i> CI/CD — GitLab CI, Jenkins, Git</li>
+                        <li><i class="fa fa-angle-right"></i> Ordonnancement — VTOM</li>
+                        <li><i class="fa fa-angle-right"></i> Supervision — Centreon, Grafana, Kibana</li>
+                        <li><i class="fa fa-angle-right"></i> AGILE &amp; ITIL · Docker</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== DOMAINES ==================== -->
+    <section class="section-lb" id="Domaines">
+        <div class="container">
+
+            <div class="profil-section-header reveal">
+                <div class="profil-section-tag">Compétences</div>
+                <h2 class="profil-section-title">Mes domaines</h2>
             </div>
 
             <div class="profil-grid">
 
-                <!-- Carte 1 : Présentation -->
+                <!-- Développement -->
                 <div class="profil-card reveal">
                     <div class="profil-card-icon">
-                        <i class="fa fa-user"></i>
+                        <i class="fa fa-code"></i>
                     </div>
-                    <p class="profil-card-title">Présentation</p>
+                    <p class="profil-card-title">Développement</p>
                     <p class="profil-card-text">
-                        Passionné d'informatique depuis mon <strong>BAC Pro Systèmes Numériques RISC</strong>
-                        en 2023, j'ai approfondi mes compétences en développement au travers du
-                        <strong>BTS SIO SLAM</strong> au Lycée Aliénor d'Aquitaine à Poitiers.<br><br>
-                        Je me spécialise dans le développement d'applications avec
-                        <strong>PHP/Symfony</strong>, <strong>Golang</strong>, <strong>C#</strong>
-                        et <strong>JavaScript</strong>, avec une appétence pour les environnements
-                        DevOps et la supervision.
+                        Je développe des applications web et back-end avec un focus sur la qualité du code
+                        et des architectures robustes.
                     </p>
+                    <ul class="profil-card-tasks">
+                        <li><i class="fa fa-angle-right"></i> PHP · Symfony · Laravel</li>
+                        <li><i class="fa fa-angle-right"></i> Golang</li>
+                        <li><i class="fa fa-angle-right"></i> C# · .NET</li>
+                        <li><i class="fa fa-angle-right"></i> JavaScript · Vue.js · Next.js</li>
+                        <li><i class="fa fa-angle-right"></i> PostgreSQL · MySQL · MS SQL</li>
+                    </ul>
+                    <div class="profil-card-icons">
+                        <img src="images/icons/php.png" alt="PHP" title="PHP">
+                        <img src="images/icons/symfony.png" alt="Symfony" title="Symfony">
+                        <img src="images/icons/golang.png" alt="Golang" title="Golang">
+                        <img src="images/icons/csharp.png" alt="C#" title="C#">
+                        <img src="images/icons/javascript.png" alt="JS" title="JavaScript">
+                    </div>
                 </div>
 
-                <!-- Carte 2 : Poste actuel -->
+                <!-- Exploitation & DevOps -->
                 <div class="profil-card profil-card--current reveal reveal-delay-1">
                     <div class="profil-card-icon profil-card-icon--laposte">
-                        <img src="images/icons/laposte.svg" alt="La Poste Groupe" style="width:30px;height:30px;">
+                        <i class="fa fa-server"></i>
                     </div>
-                    <p class="profil-card-title">Poste actuel</p>
-                    <div class="profil-card-badge">
-                        <span class="status-dot-sm"></span>
-                        La Poste &middot; Limoges &middot; Déc. 2025
-                    </div>
-                    <p class="profil-card-text"><strong>Analyste d'exploitation</strong></p>
+                    <p class="profil-card-title">Exploitation &amp; DevOps</p>
+                    <p class="profil-card-text">
+                        Au quotidien chez La Poste, je supervise et automatise des systèmes d'information
+                        à haute disponibilité.
+                    </p>
                     <ul class="profil-card-tasks">
-                        <li><i class="fa fa-angle-right"></i> CI/CD &mdash; GitLab CI, Jenkins, Git</li>
-                        <li><i class="fa fa-angle-right"></i> Ordonnancement &mdash; VTOM</li>
-                        <li><i class="fa fa-angle-right"></i> Supervision &mdash; Centreon, Grafana, Kibana</li>
-                        <li><i class="fa fa-angle-right"></i> Méthodes AGILE &amp; ITIL · Docker</li>
+                        <li><i class="fa fa-angle-right"></i> CI/CD — GitLab CI · Jenkins</li>
+                        <li><i class="fa fa-angle-right"></i> Ordonnancement — VTOM</li>
+                        <li><i class="fa fa-angle-right"></i> Supervision — Centreon · Grafana · Kibana</li>
+                        <li><i class="fa fa-angle-right"></i> Conteneurisation — Docker</li>
+                        <li><i class="fa fa-angle-right"></i> Méthodes AGILE &amp; ITIL</li>
                     </ul>
+                    <div class="profil-card-icons">
+                        <img src="images/icons/docker.png" alt="Docker" title="Docker">
+                        <img src="images/icons/git.png" alt="Git" title="Git">
+                        <img src="images/icons/linux.png" alt="Linux" title="Linux">
+                    </div>
                 </div>
 
-                <!-- Carte 3 : Projet professionnel -->
+                <!-- Réseau & Infrastructure -->
                 <div class="profil-card reveal reveal-delay-2">
                     <div class="profil-card-icon">
-                        <i class="fa fa-road"></i>
+                        <i class="fa fa-network-wired"></i>
                     </div>
-                    <p class="profil-card-title">Projet professionnel</p>
+                    <p class="profil-card-title">Réseau &amp; Infrastructure</p>
                     <p class="profil-card-text">
-                        Accepté à <strong>l'ENI École Informatique</strong> pour un
-                        <strong>BAC+3 CDA</strong> (Concepteur Développeur d'Applications)
-                        en alternance, suivi d'un <strong>BAC+5</strong> Expert en
-                        Architecture et Développement Logiciel.
+                        Administration système et réseau, de la configuration d'équipements à la mise en
+                        place de solutions sécurisées.
                     </p>
-                    <ul class="profil-card-tasks" style="margin-top:0.75rem;">
-                        <li><i class="fa fa-check"></i> Expérience professionnelle concrète</li>
-                        <li><i class="fa fa-check"></i> Compétences appliquées en entreprise</li>
-                        <li><i class="fa fa-check"></i> Vers l'architecture logicielle</li>
+                    <ul class="profil-card-tasks">
+                        <li><i class="fa fa-angle-right"></i> Administration Linux</li>
+                        <li><i class="fa fa-angle-right"></i> Équipements UniFi (Ubiquiti)</li>
+                        <li><i class="fa fa-angle-right"></i> VPN · Firewalls</li>
+                        <li><i class="fa fa-angle-right"></i> TCP/IP · VLAN · DNS</li>
+                        <li><i class="fa fa-angle-right"></i> NAS Synology · Virtualisation</li>
                     </ul>
+                    <div class="profil-card-icons">
+                        <img src="images/icons/linux.png" alt="Linux" title="Linux">
+                        <img src="images/icons/synology.png" alt="Synology" title="Synology">
+                        <img src="images/icons/windows.png" alt="Windows" title="Windows">
+                    </div>
                 </div>
 
             </div>
@@ -302,7 +382,6 @@
                 <embed src="upload/cv.pdf" type="application/pdf" id="pdf-viewer">
                 <span class="close-icon" id="closeModalPdf"><i class="fa fa-times"></i></span>
             </div>
-
             <div id="overlayPdfT"></div>
             <div id="modalPdfT">
                 <embed src="upload/document/E4_Tableau_Synthese_2025%20BETHOULE%20VOISIN%20Joshua.xlsx%20-%20Tableau%20de%20synthèse%20Épreuve%20E4.pdf" type="application/pdf" id="pdf-viewert">
@@ -320,7 +399,7 @@
                 <a href="https://github.com/Shoshuo" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="mailto:joshuabv2005@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
             </div>
-            <p>Fait avec <span>♥</span> par <strong>Joshua BETHOULE-VOISIN</strong> &mdash; BTS SIO SLAM · 2025</p>
+            <p>Fait avec <span>♥</span> par <strong>Joshua BETHOULE-VOISIN</strong> &mdash; 2025</p>
         </div>
     </footer>
 
