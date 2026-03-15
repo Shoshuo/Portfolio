@@ -68,7 +68,14 @@
     <!-- ==================== HERO ==================== -->
     <section class="hero" id="Header">
 
-        <!-- Orbes parallax (couche fond) -->
+        <!-- Couche 0 : texte fantôme (la plus lointaine) -->
+        <div class="hero-bg-text" aria-hidden="true">JBV</div>
+
+        <!-- Couche 1 : formes géométriques -->
+        <div class="hero-shape shape-ring"  aria-hidden="true"></div>
+        <div class="hero-shape shape-cross" aria-hidden="true"></div>
+
+        <!-- Couche 2 : orbes -->
         <div class="hero-orb orb-1"></div>
         <div class="hero-orb orb-2"></div>
         <div class="hero-orb orb-3"></div>
@@ -234,13 +241,14 @@
     <section class="section" id="Profil">
         <div class="container">
 
-            <div class="profil-section-header reveal">
-                <div class="profil-section-tag">À propos</div>
-                <h2 class="profil-section-title">Qui suis-je ?</h2>
+            <div class="profil-section-header">
+                <div class="profil-section-tag reveal-wipe">À propos</div>
+                <h2 class="profil-section-title reveal-wipe reveal-delay-1">Qui suis-je ?</h2>
             </div>
 
             <!-- Intro : texte + carte La Poste -->
-            <div class="intro-row reveal">
+            <div class="intro-row">
+            <div class="reveal-left">
 
                 <div class="intro-text">
                     <p>
@@ -260,7 +268,9 @@
                         <span class="intro-pill"><i class="fa fa-network-wired"></i> Linux · Réseau · VPN</span>
                     </div>
                 </div>
+            </div><!-- /.reveal-left -->
 
+            <div class="reveal-right">
                 <div class="intro-job-card">
                     <div class="job-card-logo">
                         <img src="images/icons/laposte.svg" alt="La Poste Groupe">
@@ -280,8 +290,9 @@
                         <li><i class="fa fa-angle-right"></i> AGILE &amp; ITIL · Docker</li>
                     </ul>
                 </div>
+            </div><!-- /.reveal-right -->
 
-            </div>
+            </div><!-- /.intro-row -->
         </div>
     </section>
 
@@ -289,9 +300,9 @@
     <section class="section-lb" id="Domaines">
         <div class="container">
 
-            <div class="profil-section-header reveal">
-                <div class="profil-section-tag">Compétences</div>
-                <h2 class="profil-section-title">Mes domaines</h2>
+            <div class="profil-section-header">
+                <div class="profil-section-tag reveal-wipe">Compétences</div>
+                <h2 class="profil-section-title reveal-wipe reveal-delay-1">Mes domaines</h2>
             </div>
 
             <div class="profil-grid">

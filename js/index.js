@@ -1,86 +1,123 @@
 /* ================================================
-   INDEX.JS — Parallax scroll+souris, tilt 3D,
-              compteurs animés, reveal
+   INDEX.JS — Parallax lerp multi-couches,
+              tilt 3D, compteurs, reveals
    ================================================ */
 
 (function () {
   'use strict';
 
-  /* ── Références ──────────────────────────────── */
+  /* ─────────────────────────────────────────────
+   * LERP — interpolation linéaire
+   * Donne le côté "huilé" du parallax :
+   * chaque couche glisse doucement vers sa cible
+   * au lieu de sauter directement dessus.
+   * ───────────────────────────────────────────── */
+  function lerp(a, b, t) { return a + (b - a) * t; }
+
+  var LERP_SCROLL = 0.07;   /* vitesse de suivi du scroll (0.05 = très doux, 0.15 = réactif) */
+  var LERP_MOUSE  = 0.055;  /* vitesse de suivi de la souris */
+
+  /* ── Références DOM ────────────────────────── */
   var heroEl   = null;
   var heroGrid = null;
-  var orbs     = [
-    { el: null, scrollSpeed: 0.18, mouseDepth: 14 },
-    { el: null, scrollSpeed: 0.09, mouseDepth: 8  },
-    { el: null, scrollSpeed: 0.14, mouseDepth: 11 },
-    { el: null, scrollSpeed: 0.23, mouseDepth: 18 }
+  var bgText   = null;
+  var shapes   = [];
+
+  /* ── 5 couches parallax (du fond vers l'avant) ──
+   *  0 : texte fantôme   — bouge à peine (0.03x)
+   *  1 : formes géo      — très lent     (0.06x)
+   *  2 : orb-1, orb-2    — lent          (0.10-0.17x)
+   *  3 : orb-3, orb-4    — intermédiaire (0.14-0.22x)
+   *  4 : hero-grid       — 0.38x + fade
+   */
+  var layers = [
+    { el: null, scrollSpeed: 0.03, mouseDepth: 6  },  /* bg-text    */
+    { el: null, scrollSpeed: 0.06, mouseDepth: 10 },  /* shape-ring */
+    { el: null, scrollSpeed: 0.08, mouseDepth: 8  },  /* shape-cross*/
+    { el: null, scrollSpeed: 0.10, mouseDepth: 13 },  /* orb-1      */
+    { el: null, scrollSpeed: 0.17, mouseDepth: 9  },  /* orb-2      */
+    { el: null, scrollSpeed: 0.14, mouseDepth: 11 },  /* orb-3      */
+    { el: null, scrollSpeed: 0.22, mouseDepth: 17 }   /* orb-4      */
   ];
 
-  /* Offsets souris normalisés (-0.5 → +0.5) */
-  var mouseNX = 0;
-  var mouseNY = 0;
-  var scrollY = 0;
+  /* ── Valeurs cibles (mises à jour par events) ── */
+  var target  = { scrollY: 0, mouseX: 0, mouseY: 0 };
+  /* ── Valeurs lerpées (mises à jour dans RAF) ─── */
+  var current = { scrollY: 0, mouseX: 0, mouseY: 0 };
+
+  var rafId   = null;
+  var heroH   = 0;
 
   /* ─────────────────────────────────────────────
-   * PARALLAX — combine scroll + souris
-   *
-   * Principe multicouche :
-   *  orbes (fond)   → scroll × 0.09-0.23  +  souris × depth
-   *  hero-grid      → scroll × 0.38        (contenu monte + lentement)
-   *  + fade-out du contenu entre 20 % et 75 % de la hauteur hero
+   * BOUCLE RAF — lerp + rendu
    * ───────────────────────────────────────────── */
-  function updateParallax() {
-    var heroH = heroEl ? heroEl.offsetHeight : window.innerHeight;
+  function tick() {
+    /* Lerp progressif vers la cible */
+    current.scrollY = lerp(current.scrollY, target.scrollY, LERP_SCROLL);
+    current.mouseX  = lerp(current.mouseX,  target.mouseX,  LERP_MOUSE);
+    current.mouseY  = lerp(current.mouseY,  target.mouseY,  LERP_MOUSE);
 
-    orbs.forEach(function (orb) {
-      if (!orb.el) return;
-      var ty = scrollY * orb.scrollSpeed + mouseNY * orb.mouseDepth;
-      var tx = mouseNX * orb.mouseDepth;
-      orb.el.style.transform = 'translate(' + tx + 'px, ' + ty + 'px)';
+    renderParallax();
+    rafId = requestAnimationFrame(tick);
+  }
+
+  /* ─────────────────────────────────────────────
+   * RENDU DES COUCHES
+   * ───────────────────────────────────────────── */
+  function renderParallax() {
+    var sy = current.scrollY;
+    var mx = current.mouseX;
+    var my = current.mouseY;
+    var maxH = heroH * 1.2;
+
+    if (sy > maxH) return;
+
+    /* Couches 0–6 : orbes + bg-text + shapes */
+    layers.forEach(function (layer) {
+      if (!layer.el) return;
+      var ty = sy * layer.scrollSpeed + my * layer.mouseDepth;
+      var tx = mx * layer.mouseDepth;
+      layer.el.style.transform = 'translate(' + tx.toFixed(2) + 'px, ' + ty.toFixed(2) + 'px)';
     });
 
-    if (!heroGrid) return;
+    /* Hero-grid : contenu avant-plan */
+    if (heroGrid) {
+      var gridTy = sy * 0.38;
+      heroGrid.style.transform = 'translateY(' + gridTy.toFixed(2) + 'px)';
 
-    /* Monte 62 % de la vitesse normale */
-    heroGrid.style.transform = 'translateY(' + (scrollY * 0.38) + 'px)';
-
-    /* Fade-out progressif */
-    var fadeStart = heroH * 0.20;
-    var fadeEnd   = heroH * 0.72;
-    var opacity   = 1;
-    if (scrollY > fadeStart) {
-      opacity = 1 - (scrollY - fadeStart) / (fadeEnd - fadeStart);
-      opacity = Math.max(0, Math.min(1, opacity));
+      /* Fade-out entre 18 % et 70 % de la hauteur hero */
+      var fadeStart = heroH * 0.18;
+      var fadeEnd   = heroH * 0.70;
+      var opacity   = 1;
+      if (sy > fadeStart) {
+        opacity = 1 - (sy - fadeStart) / (fadeEnd - fadeStart);
+        opacity = Math.max(0, Math.min(1, opacity));
+      }
+      heroGrid.style.opacity = opacity.toFixed(3);
     }
-    heroGrid.style.opacity = opacity.toString();
   }
 
+  /* ─────────────────────────────────────────────
+   * EVENTS
+   * ───────────────────────────────────────────── */
   function onScroll() {
-    scrollY = window.pageYOffset;
-    var heroH = heroEl ? heroEl.offsetHeight * 1.15 : window.innerHeight * 1.5;
-    if (scrollY < heroH) updateParallax();
+    target.scrollY = window.pageYOffset;
   }
 
-  function onHeroMouseMove(e) {
+  function onMouseMove(e) {
     if (!heroEl) return;
     var rect = heroEl.getBoundingClientRect();
-    mouseNX = (e.clientX - rect.left  - rect.width  / 2) / rect.width;
-    mouseNY = (e.clientY - rect.top   - rect.height / 2) / rect.height;
-    updateParallax();
+    target.mouseX = ((e.clientX - rect.left)  / rect.width  - 0.5);  /* -0.5 → +0.5 */
+    target.mouseY = ((e.clientY - rect.top)   / rect.height - 0.5);
   }
 
-  function onHeroMouseLeave() {
-    mouseNX = 0;
-    mouseNY = 0;
-    updateParallax();
+  function onMouseLeave() {
+    target.mouseX = 0;
+    target.mouseY = 0;
   }
 
   /* ─────────────────────────────────────────────
    * TILT 3D — carte profil
-   *
-   * Au survol la carte pivote sur X/Y selon la
-   * position du curseur (perspective CSS).
-   * La float animation est suspendue pendant le tilt.
    * ───────────────────────────────────────────── */
   function initTilt() {
     var card    = document.querySelector('.profile-card');
@@ -93,86 +130,73 @@
 
     wrapper.addEventListener('mousemove', function (e) {
       var rect = card.getBoundingClientRect();
-      var cx   = rect.left + rect.width  / 2;
-      var cy   = rect.top  + rect.height / 2;
-      var dx   = (e.clientX - cx) / (rect.width  / 2); /* -1 → 1 */
-      var dy   = (e.clientY - cy) / (rect.height / 2); /* -1 → 1 */
-
-      var rotX = -dy * 13;   /* inclinaison haut/bas */
-      var rotY =  dx * 13;   /* inclinaison gauche/droite */
-
+      var dx   = (e.clientX - rect.left  - rect.width  / 2) / (rect.width  / 2);
+      var dy   = (e.clientY - rect.top   - rect.height / 2) / (rect.height / 2);
       card.style.transform =
-        'perspective(700px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale3d(1.04,1.04,1.04)';
+        'perspective(700px) rotateX(' + (-dy * 13).toFixed(1) + 'deg)'
+        + ' rotateY(' + (dx * 13).toFixed(1) + 'deg)'
+        + ' scale3d(1.04,1.04,1.04)';
     });
 
     wrapper.addEventListener('mouseleave', function () {
-      card.style.transform = '';
       card.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
+      card.style.transform  = '';
       setTimeout(function () {
         card.classList.remove('is-tilting');
         card.style.transition = '';
-      }, 550);
+      }, 560);
     });
   }
 
   /* ─────────────────────────────────────────────
-   * COUNT-UP — chiffres des stats
+   * COUNT-UP — stats hero
    * ───────────────────────────────────────────── */
   function countUp(el) {
     var raw    = el.textContent.trim();
     var num    = parseInt(raw, 10);
     var suffix = raw.replace(/[0-9]/g, '');
     if (isNaN(num)) return;
-
     var duration  = 900 + num * 60;
     var startTime = null;
-
     function step(ts) {
       if (!startTime) startTime = ts;
-      var progress = Math.min((ts - startTime) / duration, 1);
-      var eased    = 1 - Math.pow(1 - progress, 3); /* ease-out cubic */
-      el.textContent = Math.round(eased * num) + suffix;
-      if (progress < 1) requestAnimationFrame(step);
+      var p = Math.min((ts - startTime) / duration, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(e * num) + suffix;
+      if (p < 1) requestAnimationFrame(step);
     }
-
     requestAnimationFrame(step);
   }
 
   function initCounters() {
     var stats = document.querySelectorAll('.hero-stat-number');
-    if (!stats.length) return;
-
-    if (!('IntersectionObserver' in window)) {
-      return; /* pas de fallback nécessaire, déjà affichés */
-    }
-
-    var triggered = false;
-    var observer  = new IntersectionObserver(function (entries) {
-      if (triggered) return;
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          triggered = true;
-          stats.forEach(function (el) { countUp(el); });
-          observer.disconnect();
-        }
-      });
+    if (!stats.length || !('IntersectionObserver' in window)) return;
+    var done = false;
+    var obs  = new IntersectionObserver(function (entries) {
+      if (done) return;
+      if (entries[0].isIntersecting) {
+        done = true;
+        stats.forEach(countUp);
+        obs.disconnect();
+      }
     }, { threshold: 0.6 });
-
-    observer.observe(stats[0]);
+    obs.observe(stats[0]);
   }
 
   /* ─────────────────────────────────────────────
    * REVEAL — IntersectionObserver
    * ───────────────────────────────────────────── */
   function initReveal() {
-    var reveals = document.querySelectorAll('.reveal');
+    var sel     = '.reveal, .reveal-wipe, .reveal-left, .reveal-right';
+    var reveals = document.querySelectorAll(sel);
     if (!reveals.length) return;
 
     /* Éléments déjà visibles */
     setTimeout(function () {
       reveals.forEach(function (el) {
-        var rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 40) el.classList.add('visible');
+        if (el.getBoundingClientRect().top < window.innerHeight - 40) {
+          el.classList.add('visible');
+        }
       });
     }, 80);
 
@@ -188,7 +212,7 @@
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.1 });
 
     reveals.forEach(function (el) { obs.observe(el); });
   }
@@ -198,30 +222,43 @@
     var el = document.querySelector('.scroll-indicator');
     if (!el) return;
     el.addEventListener('click', function () {
-      var target = document.getElementById('Profil');
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      var t = document.getElementById('Profil');
+      if (t) t.scrollIntoView({ behavior: 'smooth' });
     });
   }
 
-  /* ── Init ─────────────────────────────────────── */
+  /* ─────────────────────────────────────────────
+   * INIT
+   * ───────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     heroEl   = document.querySelector('.hero');
     heroGrid = document.querySelector('.hero-grid');
-    orbs[0].el = document.querySelector('.orb-1');
-    orbs[1].el = document.querySelector('.orb-2');
-    orbs[2].el = document.querySelector('.orb-3');
-    orbs[3].el = document.querySelector('.orb-4');
+    heroH    = heroEl ? heroEl.offsetHeight : window.innerHeight;
+
+    /* Couche 0 : bg-text */
+    layers[0].el = document.querySelector('.hero-bg-text');
+    /* Couche 1–2 : formes */
+    layers[1].el = document.querySelector('.shape-ring');
+    layers[2].el = document.querySelector('.shape-cross');
+    /* Couches 3–6 : orbes */
+    layers[3].el = document.querySelector('.orb-1');
+    layers[4].el = document.querySelector('.orb-2');
+    layers[5].el = document.querySelector('.orb-3');
+    layers[6].el = document.querySelector('.orb-4');
 
     initReveal();
     initTilt();
     initCounters();
     initScrollIndicator();
 
+    /* Démarrage de la boucle RAF */
+    rafId = requestAnimationFrame(tick);
+
     window.addEventListener('scroll', onScroll, { passive: true });
 
     if (heroEl) {
-      heroEl.addEventListener('mousemove',  onHeroMouseMove);
-      heroEl.addEventListener('mouseleave', onHeroMouseLeave);
+      heroEl.addEventListener('mousemove',  onMouseMove);
+      heroEl.addEventListener('mouseleave', onMouseLeave);
     }
   });
 })();
