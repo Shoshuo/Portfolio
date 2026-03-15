@@ -64,332 +64,132 @@
         </div>
     </div>
 
-    <!-- ==================== PROJETS ==================== -->
-    <section id="Projet" class="section">
+    <!-- ==================== PROJECT GRID ==================== -->
+    <section id="Projet" class="section-lb">
+        <div class="container">
+            <div class="projects-grid">
 
-        <!-- ROW 1 : NAS · FestinHègre · Portfolio -->
-        <div class="project">
-
-            <!-- PROJET 1 — NAS Synology -->
-            <div class="card">
-                <div class="card-details">
-                    <div class="service-style-01">
-                        <img src="images/nas-synology.jpg" alt="NAS Synology" class="img-project" data-open-modal="1">
-                        <div class="service-desc-01">
-                            <h4>Projet : NAS Synology</h4>
-                            <p>Déploiement et configuration d'un NAS Synology pour la gestion sécurisée des données personnelles et professionnelles.</p>
+                <!-- PROJET 1 — NAS Synology -->
+                <div class="proj-card" data-open-modal="1">
+                    <div class="proj-card-preview">
+                        <img src="images/nas-synology.jpg" alt="NAS Synology">
+                        <div class="proj-card-hover-overlay">
+                            <span class="proj-card-cta"><i class="fa fa-eye"></i> Voir le projet</span>
                         </div>
                     </div>
-                    <a class="card-button" data-open-modal="1">En apprendre plus <i class="fa fa-long-arrow-right card-button-i"></i></a>
-                    <div class="overlay" data-overlay></div>
-                    <div class="modal" id="modal-1" data-modal="1">
-                        <div class="card-body">
-                            <h5>Projet NAS Synology</h5>
-                            <div class="card-header-project">
-                                <div class="card-header-project-text">
-                                    <p>Mise en place d'un serveur NAS Synology pour stocker et gérer mes données personnelles et professionnelles de manière sécurisée et accessible à distance.</p>
-                                    <p>Utilisation du système DSM pour la sauvegarde automatique, la gestion des utilisateurs et permissions, et un serveur multimédia pour la diffusion de contenu.</p>
-                                    <p>Attention particulière portée sur la sécurité : connexions chiffrées, gestion des droits d'accès, virtualisation avec Docker pour héberger plusieurs applications web.</p>
-                                    <p>Stratégie de sauvegarde avec double réplication pour garantir l'intégrité des données.</p>
-                                </div>
-                                <div class="img-project card-header">
-                                    <img src="images/nas-synology.jpg" alt="NAS Synology">
-                                </div>
-                            </div>
-                            <div class="card-text-project">
-                                <div class="card-text-project-table">
-                                    <table class="card-intro">
-                                        <tr>
-                                            <th>📆 Date</th>
-                                            <th>🖥️ Technologies</th>
-                                            <th>📂 Fonctionnalités</th>
-                                            <th>🔒 Sécurité</th>
-                                        </tr>
-                                        <tr>
-                                            <td><ul><li>Janvier 2025</li></ul></td>
-                                            <td><ul><li>Synology DSM</li><li>SSH</li><li>Docker</li><li>SMB</li><li>Reverse Proxy</li></ul></td>
-                                            <td><ul><li>Partage de fichiers</li><li>Sauvegarde automatique</li><li>Hébergement Web</li><li>Streaming multimédia</li><li>Accès distant</li></ul></td>
-                                            <td><ul><li>Chiffrement des données</li><li>2FA</li><li>Pare-feu Synology</li><li>VPN</li></ul></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="proj-card-body">
+                        <div class="proj-tags">
+                            <span class="proj-tag">Synology DSM</span>
+                            <span class="proj-tag">Docker</span>
+                            <span class="proj-tag">SSH</span>
+                            <span class="proj-tag">VPN</span>
                         </div>
-                        <span class="close-icon" data-close-modal="1"><i class="fa fa-times"></i></span>
+                        <h3 class="proj-card-title">NAS Synology</h3>
+                        <p class="proj-card-desc">Déploiement et configuration d'un NAS pour la gestion sécurisée des données personnelles et professionnelles, avec Docker et accès distant.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- PROJET 2 — FestinHègre -->
-            <div class="card">
-                <div class="card-details">
-                    <div class="service-style-01">
-                        <img src="images/festinhegre/logoHegre.png" alt="FestinHègre" class="img-project">
-                        <div class="service-desc-01">
-                            <h4>Projet : FestinHègre</h4>
-                            <p>Application web Symfony de gestion d'un restaurant — réservations, tables, menus, réductions fidélité et suivi clients.</p>
+                <!-- PROJET 2 — FestinHègre -->
+                <div class="proj-card" data-open-modal="2">
+                    <div class="proj-card-preview is-logo">
+                        <img src="images/festinhegre/logoHegre.png" alt="FestinHègre">
+                        <div class="proj-card-hover-overlay">
+                            <span class="proj-card-cta"><i class="fa fa-eye"></i> Voir le projet</span>
                         </div>
                     </div>
-                    <a class="card-button" data-open-modal="2">En apprendre plus <i class="fa fa-long-arrow-right card-button-i"></i></a>
-                    <div class="overlay" data-overlay></div>
-                    <div class="modal" id="modal-2" data-modal="2">
-                        <h5>Projet FestinHègre</h5>
-                        <div class="card-header-project">
-                            <div class="card-header-project-text">
-                                <p>Application web Symfony dédiée à la gestion complète d'un restaurant, centralisant les opérations courantes de manière efficace et sécurisée.</p>
-                                <p>Réalisé en équipe, ce projet est ma première expérience complète avec Symfony. Gestion des réservations, tables, menus, réductions et suivi clients avec calendrier hebdomadaire.</p>
-                                <p>Architecture structurée avec PostgreSQL, authentification sécurisée, gestion fine des rôles et permissions, et fonctionnalités avancées comme l'affichage dynamique des réservations.</p>
-                            </div>
-                            <div class="img-project card-header">
-                                <img src="images/festinhegre/logoHegre.png" alt="FestinHègre">
-                            </div>
+                    <div class="proj-card-body">
+                        <div class="proj-tags">
+                            <span class="proj-tag">Symfony 6</span>
+                            <span class="proj-tag">PHP 8.2</span>
+                            <span class="proj-tag">PostgreSQL</span>
+                            <span class="proj-tag">Twig</span>
                         </div>
-                        <div class="card-text-project">
-                            <div class="card-text-project-table">
-                                <table class="card-intro">
-                                    <tr>
-                                        <th>📆 Date</th>
-                                        <th>🖥️ Technologies</th>
-                                        <th>📂 Fonctionnalités</th>
-                                        <th>🔒 Sécurité</th>
-                                    </tr>
-                                    <tr>
-                                        <td><ul><li>Octobre 2024</li></ul></td>
-                                        <td><ul><li>Symfony 6</li><li>PHP 8.2</li><li>PostgreSQL</li><li>Doctrine ORM</li><li>Twig</li></ul></td>
-                                        <td><ul><li>Réservations</li><li>Menus et tables</li><li>Réductions fidélité</li><li>Calendrier hebdo</li><li>Dashboard admin</li></ul></td>
-                                        <td><ul><li>Gestion des rôles</li><li>Authentification</li><li>Protection CSRF</li><li>Validation données</li></ul></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-carousel-project" id="carousel-project-2" data-project-id="2">
-                            <div class="carousel">
-                                <div class="carousel-slide active"><img src="images/festinhegre/login.png" alt="Login"></div>
-                                <div class="carousel-slide"><img src="images/festinhegre/clientIndex.png" alt="Clients"></div>
-                                <div class="carousel-slide"><img src="images/festinhegre/userIndex.png" alt="Utilisateurs"></div>
-                                <div class="carousel-slide"><img src="images/festinhegre/tablesIndex.png" alt="Tables"></div>
-                                <div class="carousel-slide"><img src="images/festinhegre/reductionIndex.png" alt="Réductions"></div>
-                                <div class="carousel-slide"><img src="images/festinhegre/reservationIndex.png" alt="Réservations"></div>
-                            </div>
-                            <button class="carousel-btn prev" onclick="moveSlide(2, -1)">❮</button>
-                            <button class="carousel-btn next" onclick="moveSlide(2, 1)">❯</button>
-                        </div>
-                        <span class="close-icon" data-close-modal="2"><i class="fa fa-times"></i></span>
+                        <h3 class="proj-card-title">FestinHègre</h3>
+                        <p class="proj-card-desc">Application web de gestion complète d'un restaurant — réservations, tables, menus, réductions fidélité et suivi clients.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- PROJET 3 — Portfolio -->
-            <div class="card">
-                <div class="card-details">
-                    <div class="service-style-01">
-                        <img src="images/portfolio.png" alt="Portfolio" class="img-project">
-                        <div class="service-desc-01">
-                            <h4>Projet : Portfolio</h4>
-                            <p>Ce portfolio me permet de me présenter, mettre en valeur mes compétences et présenter mes projets et réalisations.</p>
+                <!-- PROJET 3 — Portfolio -->
+                <div class="proj-card" data-open-modal="3">
+                    <div class="proj-card-preview">
+                        <img src="images/portfolio.png" alt="Portfolio">
+                        <div class="proj-card-hover-overlay">
+                            <span class="proj-card-cta"><i class="fa fa-eye"></i> Voir le projet</span>
                         </div>
                     </div>
-                    <a class="card-button" data-open-modal="3">En apprendre plus <i class="fa fa-long-arrow-right card-button-i"></i></a>
-                    <div class="overlay" data-overlay></div>
-                    <div class="modal" id="modal-3" data-modal="3">
-                        <h5>Projet Portfolio</h5>
-                        <div class="card-header-project">
-                            <div class="card-header-project-text">
-                                <p>Plateforme personnelle entièrement réalisée en CSS, HTML et JavaScript, présentant compétences, réalisations et parcours.</p>
-                                <p>Interface claire et professionnelle avec carrousels d'images, sections interactives et structure dynamique. Projet en constante évolution.</p>
-                            </div>
-                            <div class="img-project card-header">
-                                <img src="images/portfolio.png" alt="Portfolio">
-                            </div>
+                    <div class="proj-card-body">
+                        <div class="proj-tags">
+                            <span class="proj-tag">HTML/CSS</span>
+                            <span class="proj-tag">JavaScript</span>
+                            <span class="proj-tag">Responsive</span>
                         </div>
-                        <div class="card-text-project">
-                            <div class="card-text-project-table">
-                                <table class="card-intro">
-                                    <tr>
-                                        <th>📆 Date</th>
-                                        <th>🖥️ Technologies</th>
-                                        <th>📂 Fonctionnalités</th>
-                                    </tr>
-                                    <tr>
-                                        <td><ul><li>Février 2025</li></ul></td>
-                                        <td><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Responsive UX/UI</li></ul></td>
-                                        <td><ul><li>Portfolio personnel</li><li>Présentation projets</li><li>Design responsive</li><li>Affichage dynamique</li></ul></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span class="close-icon" data-close-modal="3"><i class="fa fa-times"></i></span>
+                        <h3 class="proj-card-title">Portfolio</h3>
+                        <p class="proj-card-desc">Ce portfolio — interface personnelle entièrement en HTML/CSS/JS présentant compétences, réalisations et parcours. En constante évolution.</p>
                     </div>
                 </div>
-            </div>
 
-        </div><!-- /.project row 1 -->
-
-        <!-- ROW 2 : StudyTrack · APICinéma · Fréquence+ -->
-        <div class="project" style="margin-top:2rem;">
-
-            <!-- PROJET 4 — StudyTrack -->
-            <div class="card">
-                <div class="card-details">
-                    <div class="service-style-01">
-                        <img src="images/studytrack/logoStudyTrack.png" alt="StudyTrack" class="img-project" style="width:65%!important;">
-                        <div class="service-desc-01">
-                            <h4>Projet : StudyTrack</h4>
-                            <p>Application mobile .NET MAUI permettant aux élèves de suivre leurs notes, calculer leurs moyennes et débloquer des badges.</p>
+                <!-- PROJET 4 — StudyTrack -->
+                <div class="proj-card" data-open-modal="4">
+                    <div class="proj-card-preview is-logo">
+                        <img src="images/studytrack/logoStudyTrack.png" alt="StudyTrack">
+                        <div class="proj-card-hover-overlay">
+                            <span class="proj-card-cta"><i class="fa fa-eye"></i> Voir le projet</span>
                         </div>
                     </div>
-                    <a class="card-button" data-open-modal="4">En apprendre plus <i class="fa fa-long-arrow-right card-button-i"></i></a>
-                    <div class="overlay" data-overlay></div>
-                    <div class="modal" id="modal-4" data-modal="4">
-                        <h5>Projet : StudyTrack</h5>
-                        <div class="card-header-project">
-                            <div class="card-header-project-text">
-                                <p>Application mobile développée avec .NET MAUI permettant aux élèves de suivre leurs notes, calculer leurs moyennes et suivre leur progression scolaire.</p>
-                                <p>Données stockées localement avec SQLite — fonctionne sans internet. Système de badges selon résultats ou projets accomplis.</p>
-                                <p>Projet réalisé en groupe, deuxième projet BTS. M'a appris MAUI, la gestion SQLite et la navigation multi-pages.</p>
-                            </div>
-                            <div class="img-project card-header">
-                                <img src="images/studytrack/logoStudyTrack.png" alt="StudyTrack">
-                            </div>
+                    <div class="proj-card-body">
+                        <div class="proj-tags">
+                            <span class="proj-tag">.NET MAUI</span>
+                            <span class="proj-tag">C#</span>
+                            <span class="proj-tag">SQLite</span>
+                            <span class="proj-tag">Mobile</span>
                         </div>
-                        <div class="card-text-project">
-                            <div class="card-text-project-table">
-                                <table class="card-intro">
-                                    <tr>
-                                        <th>📆 Date</th>
-                                        <th>🖥️ Technologies</th>
-                                        <th>📂 Fonctionnalités</th>
-                                        <th>📱 Plateforme</th>
-                                    </tr>
-                                    <tr>
-                                        <td><ul><li>Février 2025</li></ul></td>
-                                        <td><ul><li>.NET MAUI</li><li>C#</li><li>XAML</li><li>SQLite</li></ul></td>
-                                        <td><ul><li>Saisie des notes</li><li>Calcul moyennes auto</li><li>Badges par projet</li><li>Suivi des matières</li></ul></td>
-                                        <td><ul><li>Android / iOS</li><li>Stockage local SQLite</li><li>Fonctionne hors ligne</li></ul></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-carousel-project" id="carousel-project-4" data-project-id="4">
-                            <div class="carousel">
-                                <div class="carousel-slide"><img src="images/studytrack/accueil.png" alt="Accueil" class="carousel-img-phone"></div>
-                                <div class="carousel-slide active"><img src="images/studytrack/objectif.png" alt="Objectif" class="carousel-img-phone"></div>
-                                <div class="carousel-slide"><img src="images/studytrack/note.png" alt="Notes" class="carousel-img-phone"></div>
-                            </div>
-                            <button class="carousel-btn prev" onclick="moveSlide(4, -1)">❮</button>
-                            <button class="carousel-btn next" onclick="moveSlide(4, 1)">❯</button>
-                        </div>
-                        <span class="close-icon" data-close-modal="4"><i class="fa fa-times"></i></span>
+                        <h3 class="proj-card-title">StudyTrack</h3>
+                        <p class="proj-card-desc">Application mobile permettant aux élèves de suivre leurs notes, calculer leurs moyennes et débloquer des badges selon leurs résultats.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- PROJET 5 — APICinéma -->
-            <div class="card">
-                <div class="card-details">
-                    <div class="service-style-01">
-                        <img src="images/api.jpg" alt="APICinéma" class="img-project" style="width:65%!important;">
-                        <div class="service-desc-01">
-                            <h4>Projet : APICinéma</h4>
-                            <p>API REST C# permettant de récupérer des informations détaillées sur des films, avec Entity Framework et PostgreSQL.</p>
+                <!-- PROJET 5 — APICinéma -->
+                <div class="proj-card" data-open-modal="5">
+                    <div class="proj-card-preview">
+                        <img src="images/api.jpg" alt="APICinéma">
+                        <div class="proj-card-hover-overlay">
+                            <span class="proj-card-cta"><i class="fa fa-eye"></i> Voir le projet</span>
                         </div>
                     </div>
-                    <a class="card-button" data-open-modal="5">En apprendre plus <i class="fa fa-long-arrow-right card-button-i"></i></a>
-                    <div class="overlay" data-overlay></div>
-                    <div class="modal" id="modal-5" data-modal="5">
-                        <h5>Projet : APICinéma</h5>
-                        <div class="card-header-project">
-                            <div class="card-header-project-text">
-                                <p>API REST développée en C# avec .NET et Entity Framework Core, interagissant avec une base PostgreSQL pour fournir des informations détaillées sur des films.</p>
-                                <p>Informations disponibles : nom, affiche, acteurs, langues, coût de production, etc. Conçue pour être consommée par des applications tierces.</p>
-                            </div>
-                            <div class="img-project card-header">
-                                <img src="images/api.jpg" alt="APICinéma">
-                            </div>
+                    <div class="proj-card-body">
+                        <div class="proj-tags">
+                            <span class="proj-tag">C# .NET</span>
+                            <span class="proj-tag">Entity Framework</span>
+                            <span class="proj-tag">PostgreSQL</span>
+                            <span class="proj-tag">REST</span>
                         </div>
-                        <div class="card-text-project">
-                            <div class="card-text-project-table">
-                                <table class="card-intro">
-                                    <tr>
-                                        <th>📆 Date</th>
-                                        <th>🖥️ Technologies</th>
-                                        <th>📂 Fonctionnalités</th>
-                                        <th>🔒 Sécurité</th>
-                                    </tr>
-                                    <tr>
-                                        <td><ul><li>Avril 2024</li></ul></td>
-                                        <td><ul><li>C#</li><li>.NET 6</li><li>Entity Framework Core</li><li>PostgreSQL</li><li>REST API</li></ul></td>
-                                        <td><ul><li>Récupération films BDD</li><li>Infos détaillées</li><li>Requêtes GET</li><li>Structure RESTful</li></ul></td>
-                                        <td><ul><li>Gestion des erreurs</li><li>Protection injection SQL</li><li>Bonnes pratiques API</li></ul></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <span class="close-icon" data-close-modal="5"><i class="fa fa-times"></i></span>
+                        <h3 class="proj-card-title">APICinéma</h3>
+                        <p class="proj-card-desc">API REST permettant de récupérer des informations détaillées sur des films — acteurs, langues, affiches, coûts de production.</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- PROJET 6 — Fréquence+ -->
-            <div class="card">
-                <div class="card-details">
-                    <div class="service-style-01">
-                        <img src="images/frequence+/acceuil.png" alt="Fréquence+" class="img-project">
-                        <div class="service-desc-01">
-                            <h4>Projet : Fréquence+</h4>
-                            <p>Site vitrine responsive HTML/CSS/JS pour une entreprise de services informatiques, avec formulaire de contact via PHPMailer.</p>
+                <!-- PROJET 6 — Fréquence+ -->
+                <div class="proj-card" data-open-modal="6">
+                    <div class="proj-card-preview">
+                        <img src="images/frequence+/acceuil.png" alt="Fréquence+">
+                        <div class="proj-card-hover-overlay">
+                            <span class="proj-card-cta"><i class="fa fa-eye"></i> Voir le projet</span>
                         </div>
                     </div>
-                    <a class="card-button" data-open-modal="6">En apprendre plus <i class="fa fa-long-arrow-right card-button-i"></i></a>
-                    <div class="overlay" data-overlay></div>
-                    <div class="modal" id="modal-6" data-modal="6">
-                        <h5>Projet : Fréquence+</h5>
-                        <div class="card-header-project">
-                            <div class="card-header-project-text">
-                                <p>Site vitrine pour une entreprise informatique offrant développement web, vente de matériel, maintenance et installation.</p>
-                                <p>Entièrement réalisé en HTML/CSS/JS — interface responsive et ergonomique. Formulaire de contact relié à PHPMailer pour envoi d'emails direct.</p>
-                            </div>
-                            <div class="img-project card-header">
-                                <img src="images/frequence+/acceuil.png" alt="Fréquence+">
-                                <a href="https://fplus.fr/" target="_blank" style="color:#a78bfa;text-align:center;display:block;padding:6px;font-size:12px;">Visiter le site</a>
-                            </div>
+                    <div class="proj-card-body">
+                        <div class="proj-tags">
+                            <span class="proj-tag">HTML5</span>
+                            <span class="proj-tag">CSS3</span>
+                            <span class="proj-tag">JavaScript</span>
+                            <span class="proj-tag">PHPMailer</span>
                         </div>
-                        <div class="card-text-project">
-                            <div class="card-text-project-table">
-                                <table class="card-intro">
-                                    <tr>
-                                        <th>📆 Date</th>
-                                        <th>🖥️ Technologies</th>
-                                        <th>📂 Fonctionnalités</th>
-                                        <th>🔒 Sécurité</th>
-                                    </tr>
-                                    <tr>
-                                        <td><ul><li>Février 2025</li></ul></td>
-                                        <td><ul><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>PHPMailer</li></ul></td>
-                                        <td><ul><li>Présentation services</li><li>Formulaire contact email</li><li>Témoignages clients</li><li>Animations visuelles</li></ul></td>
-                                        <td><ul><li>Validation JS côté client</li><li>Filtrage PHP côté serveur</li><li>PHPMailer sécurisé</li></ul></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="card-carousel-project" id="carousel-project-6" data-project-id="6">
-                            <div class="carousel">
-                                <div class="carousel-slide active"><img src="images/frequence+/acceuil.png" alt="Accueil"></div>
-                                <div class="carousel-slide"><img src="images/frequence+/avis.png" alt="Avis"></div>
-                                <div class="carousel-slide"><img src="images/frequence+/pro1.png" alt="Pro 1"></div>
-                                <div class="carousel-slide"><img src="images/frequence+/pro2.png" alt="Pro 2"></div>
-                                <div class="carousel-slide"><img src="images/frequence+/contact.png" alt="Contact"></div>
-                            </div>
-                            <button class="carousel-btn prev" onclick="moveSlide(6, -1)">❮</button>
-                            <button class="carousel-btn next" onclick="moveSlide(6, 1)">❯</button>
-                        </div>
-                        <span class="close-icon" data-close-modal="6"><i class="fa fa-times"></i></span>
+                        <h3 class="proj-card-title">Fréquence+</h3>
+                        <p class="proj-card-desc">Site vitrine responsive pour une entreprise informatique avec formulaire de contact PHPMailer, témoignages clients et animations visuelles.</p>
                     </div>
                 </div>
-            </div>
 
-        </div><!-- /.project row 2 -->
-
+            </div><!-- /.projects-grid -->
+        </div>
     </section>
 
     <!-- ==================== FOOTER ==================== -->
@@ -409,6 +209,427 @@
     </a>
 
 </div><!-- /#wrapper -->
+
+<!-- ==================== OVERLAY ==================== -->
+<div class="overlay" data-overlay></div>
+
+<!-- ==================== MODALS ==================== -->
+
+<!-- MODAL 1 — NAS Synology -->
+<div class="proj-modal" id="modal-1" data-modal="1">
+    <button class="proj-modal-close" data-close-modal="1"><i class="fa fa-times"></i></button>
+    <div class="proj-modal-scroll">
+        <div class="proj-modal-content">
+            <div class="proj-modal-header">
+                <h2 class="proj-modal-title">NAS Synology</h2>
+                <div class="proj-modal-tech">
+                    <span class="proj-modal-badge">Synology DSM</span>
+                    <span class="proj-modal-badge">SSH</span>
+                    <span class="proj-modal-badge">Docker</span>
+                    <span class="proj-modal-badge">SMB</span>
+                    <span class="proj-modal-badge">Reverse Proxy</span>
+                    <span class="proj-modal-badge">VPN</span>
+                </div>
+            </div>
+            <div class="proj-modal-desc">
+                <p>Mise en place d'un serveur NAS Synology pour stocker et gérer mes données personnelles et professionnelles de manière sécurisée et accessible à distance.</p>
+                <p>Utilisation du système DSM pour la sauvegarde automatique, la gestion des utilisateurs et permissions, et un serveur multimédia pour la diffusion de contenu.</p>
+                <p>Attention particulière portée sur la sécurité : connexions chiffrées, gestion des droits d'accès, virtualisation avec Docker pour héberger plusieurs applications web. Stratégie de sauvegarde avec double réplication.</p>
+            </div>
+            <div class="proj-modal-info">
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-calendar-alt"></i> Date</div>
+                    <div class="proj-info-value">Janvier 2025</div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-layer-group"></i> Technologies</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Synology DSM</li>
+                            <li>SSH &amp; SMB</li>
+                            <li>Docker</li>
+                            <li>Reverse Proxy</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-list-check"></i> Fonctionnalités</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Partage de fichiers</li>
+                            <li>Sauvegarde automatique</li>
+                            <li>Hébergement Web</li>
+                            <li>Streaming multimédia</li>
+                            <li>Accès distant</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-shield-halved"></i> Sécurité</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Chiffrement des données</li>
+                            <li>Authentification 2FA</li>
+                            <li>Pare-feu Synology</li>
+                            <li>VPN</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-modal-img">
+                <img src="images/nas-synology.jpg" alt="NAS Synology">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL 2 — FestinHègre -->
+<div class="proj-modal" id="modal-2" data-modal="2">
+    <button class="proj-modal-close" data-close-modal="2"><i class="fa fa-times"></i></button>
+    <div class="proj-modal-scroll">
+        <div class="proj-modal-content">
+            <div class="proj-modal-header">
+                <h2 class="proj-modal-title">FestinHègre</h2>
+                <div class="proj-modal-tech">
+                    <span class="proj-modal-badge">Symfony 6</span>
+                    <span class="proj-modal-badge">PHP 8.2</span>
+                    <span class="proj-modal-badge">PostgreSQL</span>
+                    <span class="proj-modal-badge">Doctrine ORM</span>
+                    <span class="proj-modal-badge">Twig</span>
+                </div>
+            </div>
+            <div class="proj-modal-desc">
+                <p>Application web Symfony dédiée à la gestion complète d'un restaurant, centralisant les opérations courantes de manière efficace et sécurisée.</p>
+                <p>Réalisé en équipe, ce projet est ma première expérience complète avec Symfony. Gestion des réservations, tables, menus, réductions et suivi clients avec calendrier hebdomadaire.</p>
+                <p>Architecture structurée avec PostgreSQL, authentification sécurisée, gestion fine des rôles et permissions, et fonctionnalités avancées comme l'affichage dynamique des réservations.</p>
+            </div>
+            <div class="proj-modal-info">
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-calendar-alt"></i> Date</div>
+                    <div class="proj-info-value">Octobre 2024</div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-layer-group"></i> Technologies</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Symfony 6</li>
+                            <li>PHP 8.2</li>
+                            <li>PostgreSQL</li>
+                            <li>Doctrine ORM</li>
+                            <li>Twig</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-list-check"></i> Fonctionnalités</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Réservations</li>
+                            <li>Menus et tables</li>
+                            <li>Réductions fidélité</li>
+                            <li>Calendrier hebdomadaire</li>
+                            <li>Dashboard admin</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-shield-halved"></i> Sécurité</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Gestion des rôles</li>
+                            <li>Authentification</li>
+                            <li>Protection CSRF</li>
+                            <li>Validation données</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-modal-carousel-wrap">
+                <div class="carousel-label">Captures d'écran</div>
+                <div class="card-carousel-project" id="carousel-project-2" data-project-id="2">
+                    <div class="carousel">
+                        <div class="carousel-slide active"><img src="images/festinhegre/login.png" alt="Login"></div>
+                        <div class="carousel-slide"><img src="images/festinhegre/clientIndex.png" alt="Clients"></div>
+                        <div class="carousel-slide"><img src="images/festinhegre/userIndex.png" alt="Utilisateurs"></div>
+                        <div class="carousel-slide"><img src="images/festinhegre/tablesIndex.png" alt="Tables"></div>
+                        <div class="carousel-slide"><img src="images/festinhegre/reductionIndex.png" alt="Réductions"></div>
+                        <div class="carousel-slide"><img src="images/festinhegre/reservationIndex.png" alt="Réservations"></div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveSlide(2, -1)">❮</button>
+                    <button class="carousel-btn next" onclick="moveSlide(2, 1)">❯</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL 3 — Portfolio -->
+<div class="proj-modal" id="modal-3" data-modal="3">
+    <button class="proj-modal-close" data-close-modal="3"><i class="fa fa-times"></i></button>
+    <div class="proj-modal-scroll">
+        <div class="proj-modal-content">
+            <div class="proj-modal-header">
+                <h2 class="proj-modal-title">Portfolio</h2>
+                <div class="proj-modal-tech">
+                    <span class="proj-modal-badge">HTML5</span>
+                    <span class="proj-modal-badge">CSS3</span>
+                    <span class="proj-modal-badge">JavaScript</span>
+                    <span class="proj-modal-badge">Responsive UI/UX</span>
+                </div>
+            </div>
+            <div class="proj-modal-desc">
+                <p>Plateforme personnelle entièrement réalisée en CSS, HTML et JavaScript, présentant compétences, réalisations et parcours.</p>
+                <p>Interface claire et professionnelle avec carrousels d'images, sections interactives et structure dynamique. Projet en constante évolution avec une direction artistique soignée.</p>
+            </div>
+            <div class="proj-modal-info">
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-calendar-alt"></i> Date</div>
+                    <div class="proj-info-value">Février 2025</div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-layer-group"></i> Technologies</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript</li>
+                            <li>Bootstrap</li>
+                            <li>Responsive UI/UX</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-list-check"></i> Fonctionnalités</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Portfolio personnel</li>
+                            <li>Présentation projets</li>
+                            <li>Design responsive</li>
+                            <li>Affichage dynamique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-modal-img">
+                <img src="images/portfolio.png" alt="Portfolio">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL 4 — StudyTrack -->
+<div class="proj-modal" id="modal-4" data-modal="4">
+    <button class="proj-modal-close" data-close-modal="4"><i class="fa fa-times"></i></button>
+    <div class="proj-modal-scroll">
+        <div class="proj-modal-content">
+            <div class="proj-modal-header">
+                <h2 class="proj-modal-title">StudyTrack</h2>
+                <div class="proj-modal-tech">
+                    <span class="proj-modal-badge">.NET MAUI</span>
+                    <span class="proj-modal-badge">C#</span>
+                    <span class="proj-modal-badge">XAML</span>
+                    <span class="proj-modal-badge">SQLite</span>
+                    <span class="proj-modal-badge">Android / iOS</span>
+                </div>
+            </div>
+            <div class="proj-modal-desc">
+                <p>Application mobile développée avec .NET MAUI permettant aux élèves de suivre leurs notes, calculer leurs moyennes et suivre leur progression scolaire.</p>
+                <p>Données stockées localement avec SQLite — fonctionne sans internet. Système de badges selon résultats ou projets accomplis.</p>
+                <p>Projet réalisé en groupe, deuxième projet BTS. M'a appris .NET MAUI, la gestion SQLite et la navigation multi-pages.</p>
+            </div>
+            <div class="proj-modal-info">
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-calendar-alt"></i> Date</div>
+                    <div class="proj-info-value">Février 2025</div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-layer-group"></i> Technologies</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>.NET MAUI</li>
+                            <li>C# / XAML</li>
+                            <li>SQLite</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-list-check"></i> Fonctionnalités</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Saisie des notes</li>
+                            <li>Calcul moyennes auto</li>
+                            <li>Badges par projet</li>
+                            <li>Suivi des matières</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-mobile-screen"></i> Plateforme</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Android / iOS</li>
+                            <li>Stockage local SQLite</li>
+                            <li>Fonctionne hors ligne</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-modal-carousel-wrap">
+                <div class="carousel-label">Captures d'écran</div>
+                <div class="card-carousel-project" id="carousel-project-4" data-project-id="4">
+                    <div class="carousel">
+                        <div class="carousel-slide"><img src="images/studytrack/accueil.png" alt="Accueil" class="carousel-img-phone"></div>
+                        <div class="carousel-slide active"><img src="images/studytrack/objectif.png" alt="Objectif" class="carousel-img-phone"></div>
+                        <div class="carousel-slide"><img src="images/studytrack/note.png" alt="Notes" class="carousel-img-phone"></div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveSlide(4, -1)">❮</button>
+                    <button class="carousel-btn next" onclick="moveSlide(4, 1)">❯</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL 5 — APICinéma -->
+<div class="proj-modal" id="modal-5" data-modal="5">
+    <button class="proj-modal-close" data-close-modal="5"><i class="fa fa-times"></i></button>
+    <div class="proj-modal-scroll">
+        <div class="proj-modal-content">
+            <div class="proj-modal-header">
+                <h2 class="proj-modal-title">APICinéma</h2>
+                <div class="proj-modal-tech">
+                    <span class="proj-modal-badge">C#</span>
+                    <span class="proj-modal-badge">.NET 6</span>
+                    <span class="proj-modal-badge">Entity Framework Core</span>
+                    <span class="proj-modal-badge">PostgreSQL</span>
+                    <span class="proj-modal-badge">REST API</span>
+                </div>
+            </div>
+            <div class="proj-modal-desc">
+                <p>API REST développée en C# avec .NET et Entity Framework Core, interagissant avec une base PostgreSQL pour fournir des informations détaillées sur des films.</p>
+                <p>Informations disponibles : nom, affiche, acteurs, langues, coût de production, etc. Conçue pour être consommée par des applications tierces via des endpoints RESTful.</p>
+            </div>
+            <div class="proj-modal-info">
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-calendar-alt"></i> Date</div>
+                    <div class="proj-info-value">Avril 2024</div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-layer-group"></i> Technologies</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>C# / .NET 6</li>
+                            <li>Entity Framework Core</li>
+                            <li>PostgreSQL</li>
+                            <li>REST API</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-list-check"></i> Fonctionnalités</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Récupération films BDD</li>
+                            <li>Infos détaillées</li>
+                            <li>Requêtes GET</li>
+                            <li>Structure RESTful</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-shield-halved"></i> Sécurité</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Gestion des erreurs</li>
+                            <li>Protection injection SQL</li>
+                            <li>Bonnes pratiques API</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="proj-modal-img">
+                <img src="images/api.jpg" alt="APICinéma">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL 6 — Fréquence+ -->
+<div class="proj-modal" id="modal-6" data-modal="6">
+    <button class="proj-modal-close" data-close-modal="6"><i class="fa fa-times"></i></button>
+    <div class="proj-modal-scroll">
+        <div class="proj-modal-content">
+            <div class="proj-modal-header">
+                <h2 class="proj-modal-title">Fréquence+</h2>
+                <div class="proj-modal-tech">
+                    <span class="proj-modal-badge">HTML5</span>
+                    <span class="proj-modal-badge">CSS3</span>
+                    <span class="proj-modal-badge">JavaScript</span>
+                    <span class="proj-modal-badge">PHPMailer</span>
+                </div>
+            </div>
+            <div class="proj-modal-desc">
+                <p>Site vitrine pour une entreprise informatique offrant développement web, vente de matériel, maintenance et installation.</p>
+                <p>Entièrement réalisé en HTML/CSS/JS — interface responsive et ergonomique. Formulaire de contact relié à PHPMailer pour envoi d'emails direct depuis le site.</p>
+            </div>
+            <div class="proj-modal-info">
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-calendar-alt"></i> Date</div>
+                    <div class="proj-info-value">Février 2025</div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-layer-group"></i> Technologies</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>HTML5 / CSS3</li>
+                            <li>JavaScript</li>
+                            <li>PHPMailer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-list-check"></i> Fonctionnalités</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Présentation services</li>
+                            <li>Formulaire contact email</li>
+                            <li>Témoignages clients</li>
+                            <li>Animations visuelles</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="proj-info-block">
+                    <div class="proj-info-label"><i class="fa fa-shield-halved"></i> Sécurité</div>
+                    <div class="proj-info-value">
+                        <ul>
+                            <li>Validation JS côté client</li>
+                            <li>Filtrage PHP serveur</li>
+                            <li>PHPMailer sécurisé</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 0.5rem;">
+                <a href="https://fplus.fr/" target="_blank" class="proj-modal-link">
+                    <i class="fa fa-external-link-alt"></i> Visiter le site
+                </a>
+            </div>
+            <div class="proj-modal-carousel-wrap">
+                <div class="carousel-label">Captures d'écran</div>
+                <div class="card-carousel-project" id="carousel-project-6" data-project-id="6">
+                    <div class="carousel">
+                        <div class="carousel-slide active"><img src="images/frequence+/acceuil.png" alt="Accueil"></div>
+                        <div class="carousel-slide"><img src="images/frequence+/avis.png" alt="Avis"></div>
+                        <div class="carousel-slide"><img src="images/frequence+/pro1.png" alt="Pro 1"></div>
+                        <div class="carousel-slide"><img src="images/frequence+/pro2.png" alt="Pro 2"></div>
+                        <div class="carousel-slide"><img src="images/frequence+/contact.png" alt="Contact"></div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveSlide(6, -1)">❮</button>
+                    <button class="carousel-btn next" onclick="moveSlide(6, 1)">❯</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
