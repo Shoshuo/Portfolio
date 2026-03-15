@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
 
-        // Fermer en cliquant sur l'overlay
+        // Fermer en cliquant sur l'overlay (legacy .modal)
         overlay.addEventListener("click", closeAll);
 
         // Fermer avec Escape
@@ -52,6 +52,22 @@ document.addEventListener("DOMContentLoaded", function () {
             if (e.key === "Escape") closeAll();
         });
     }
+
+    // Fermer .proj-modal en cliquant sur le backdrop (hors inner box)
+    document.querySelectorAll(".proj-modal").forEach(function (modal) {
+        modal.addEventListener("click", function (e) {
+            if (e.target === modal) {
+                modal.classList.remove("active");
+                document.body.classList.remove("modal-open");
+            }
+        });
+        var inner = modal.querySelector(".proj-modal-inner");
+        if (inner) {
+            inner.addEventListener("click", function (e) {
+                e.stopPropagation();
+            });
+        }
+    });
 
     /* ── PDF modals (documents.html uniquement) ─────── */
     var openPdf    = document.getElementById("openModalPdf");

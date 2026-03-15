@@ -1150,22 +1150,14 @@ body.modal-open { overflow: hidden !important; }
 .proj-card:nth-child(5) { animation-delay: 0.33s; }
 .proj-card:nth-child(6) { animation-delay: 0.40s; }
 
-/* Gradient border fade-in on hover */
-.proj-card::after {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 19px;
-  background: linear-gradient(135deg, #7c3aed, #4f46e5 50%, #06b6d4);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.proj-card:hover { transform: translateY(-7px); box-shadow: 0 28px 70px rgba(124,58,237,0.25); border-color: transparent; }
-.proj-card:hover::after { opacity: 1; }
-
+.proj-card::after  { display: none; }
 .proj-card::before { display: none; }
+
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(124,58,237,0.15);
+  border-color: rgba(124,58,237,0.3);
+}
 
 /* Year badge */
 .proj-card-year {
@@ -1298,47 +1290,61 @@ body.modal-open { overflow: hidden !important; }
 .proj-type--pro      { background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3); color: #fcd34d; }
 .proj-type--scolaire { background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.3); color: #a5b4fc; }
 
-/* === PROJECT MODALS (new system) ======================== */
+/* === PROJECT MODALS ===================================== */
 
-/* Overlay — reuse existing .overlay class, styled here */
+/* Keep legacy .overlay for old .modal elements */
 .overlay {
   display: none !important;
   position: fixed !important;
   inset: 0 !important;
-  background: rgba(4, 6, 14, 0.85) !important;
-  backdrop-filter: blur(6px) !important;
+  background: rgba(4,6,14,0.85) !important;
   z-index: 1500 !important;
 }
-
 .overlay.active { display: block !important; }
 
+/* proj-modal = full-screen backdrop, click to close */
 .proj-modal {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -48%);
-  width: 92%;
-  max-width: 860px;
-  max-height: 88vh;
-  background: #0c1120;
-  border: 1px solid rgba(124,58,237,0.25);
-  border-radius: 20px;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.7), 0 0 0 1px rgba(124,58,237,0.08);
-  z-index: 2000;
-  overflow: hidden;
+  inset: 0;
   display: flex;
-  flex-direction: column;
-  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4,6,14,0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  padding: 1rem;
 }
 
 .proj-modal.active {
   visibility: visible;
   opacity: 1;
   pointer-events: all;
-  transform: translate(-50%, -50%);
+}
+
+/* proj-modal-inner = the actual box */
+.proj-modal-inner {
+  background: #0c1120;
+  border: 1px solid rgba(124,58,237,0.22);
+  border-radius: 20px;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+  width: 100%;
+  max-width: 860px;
+  max-height: 86vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transform: scale(0.97) translateY(8px);
+  transition: transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+.proj-modal.active .proj-modal-inner {
+  transform: scale(1) translateY(0);
 }
 
 .proj-modal-scroll {
@@ -1407,11 +1413,11 @@ body.modal-open { overflow: hidden !important; }
   gap: 0.35rem;
 }
 
-/* Close button */
+/* Close button — positioned inside .proj-modal-inner */
 .proj-modal-close {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 0.9rem;
+  right: 0.9rem;
   width: 34px;
   height: 34px;
   border-radius: 50%;
