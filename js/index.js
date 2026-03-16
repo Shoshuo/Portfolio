@@ -21,19 +21,23 @@
   var heroEl   = null;
   var heroGrid = null;
 
-  /* ── Couches orbes (du fond vers l'avant) ──────
-   *  0 : orb-1   — lent          (0.10x)
-   *  1 : orb-2   — moyen-lent    (0.17x)
-   *  2 : orb-3   — intermédiaire (0.14x)
-   *  3 : orb-4   — plus rapide   (0.22x)
-   *  4 : shape-ring              (0.06x)
+  /* ── Couches hero (du fond le plus lointain vers l'avant) ──
+   *  0 : hr-3       — le plus lointain (0.012x)
+   *  1 : hr-2       — lointain         (0.025x)
+   *  2 : shape-ring — intermédiaire    (0.06x)
+   *  3 : orb-1      — lent             (0.10x)
+   *  4 : orb-2      — moyen-lent       (0.17x)
+   *  5 : orb-3      — intermédiaire    (0.14x)
+   *  6 : orb-4      — plus rapide      (0.22x)
    */
   var layers = [
-    { el: null, scrollSpeed: 0.06, mouseDepth: 9  },  /* shape-ring */
-    { el: null, scrollSpeed: 0.10, mouseDepth: 13 },  /* orb-1      */
-    { el: null, scrollSpeed: 0.17, mouseDepth: 9  },  /* orb-2      */
-    { el: null, scrollSpeed: 0.14, mouseDepth: 11 },  /* orb-3      */
-    { el: null, scrollSpeed: 0.22, mouseDepth: 17 }   /* orb-4      */
+    { el: null, scrollSpeed: 0.012, mouseDepth: 1  },  /* hr-3       */
+    { el: null, scrollSpeed: 0.025, mouseDepth: 2  },  /* hr-2       */
+    { el: null, scrollSpeed: 0.06,  mouseDepth: 9  },  /* shape-ring */
+    { el: null, scrollSpeed: 0.10,  mouseDepth: 13 },  /* orb-1      */
+    { el: null, scrollSpeed: 0.17,  mouseDepth: 9  },  /* orb-2      */
+    { el: null, scrollSpeed: 0.14,  mouseDepth: 11 },  /* orb-3      */
+    { el: null, scrollSpeed: 0.22,  mouseDepth: 17 }   /* orb-4      */
   ];
 
   /* ── Icônes tech fantômes — 8 éléments individuels ──
@@ -268,15 +272,17 @@
     heroGrid = document.querySelector('.hero-grid');
     heroH    = heroEl ? heroEl.offsetHeight : window.innerHeight;
 
-    /* Orbes + anneau */
-    layers[0].el = document.querySelector('.shape-ring');
-    layers[1].el = document.querySelector('.orb-1');
-    layers[2].el = document.querySelector('.orb-2');
-    layers[3].el = document.querySelector('.orb-3');
-    layers[4].el = document.querySelector('.orb-4');
+    /* Couches hero (le plus lointain en premier) */
+    layers[0].el = document.querySelector('.hr-3');
+    layers[1].el = document.querySelector('.hr-2');
+    layers[2].el = document.querySelector('.shape-ring');
+    layers[3].el = document.querySelector('.orb-1');
+    layers[4].el = document.querySelector('.orb-2');
+    layers[5].el = document.querySelector('.orb-3');
+    layers[6].el = document.querySelector('.orb-4');
 
-    /* Orbes des sections intérieures */
-    document.querySelectorAll('.sec-orb[data-speed]').forEach(function (el) {
+    /* Orbes + formes des sections — tout élément avec data-speed hors hero */
+    document.querySelectorAll('[data-speed]').forEach(function (el) {
       secOrbItems.push({ el: el, speed: parseFloat(el.getAttribute('data-speed')) });
     });
 
