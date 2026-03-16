@@ -192,7 +192,11 @@ body.dark-mode .hfi {
   border: 1px solid rgba(124,58,237,0.07);
   top: 4%;
   left: -8%;
-  animation: hr-spin 38s linear infinite;
+  animation-name:            hr-spin;
+  animation-duration:        auto;
+  animation-timing-function: linear;
+  animation-fill-mode:       both;
+  animation-timeline:        scroll(root);
 }
 
 .hr-3 {
@@ -201,7 +205,12 @@ body.dark-mode .hfi {
   border: 1px solid rgba(6,182,212,0.05);
   bottom: -18%;
   right: -12%;
-  animation: hr-spin 55s linear infinite reverse;
+  animation-name:            hr-spin;
+  animation-duration:        auto;
+  animation-direction:       reverse;
+  animation-timing-function: linear;
+  animation-fill-mode:       both;
+  animation-timeline:        scroll(root);
 }
 
 /* Utilise `rotate` (prop. individuelle CSS) → pas de conflit avec transform JS */
@@ -225,12 +234,17 @@ body.dark-mode .hfi {
   top: 8%;
   right: 5%;
   opacity: 0.5;
-  animation: shape-breathe 8s ease-in-out infinite;
+  animation-name:            shape-breathe;
+  animation-duration:        auto;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode:       both;
+  animation-timeline:        scroll(root);
 }
 
+/* scale (prop. individuelle) → pas de conflit avec transform JS */
 @keyframes shape-breathe {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50%       { opacity: 0.2; transform: scale(0.96); }
+  0%, 100% { opacity: 0.5; scale: 1;    }
+  50%       { opacity: 0.2; scale: 0.96; }
 }
 
 /* ── Orbes parallax (4 couches) ──────────────── */
@@ -279,9 +293,10 @@ body.dark-mode .hfi {
   animation: orb-pulse 9s ease-in-out 1s infinite;
 }
 
+/* scale individuelle → pas de conflit avec transform: translate() JS */
 @keyframes orb-pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50%       { transform: scale(1.12); opacity: 0.75; }
+  0%, 100% { scale: 1;    opacity: 1;    }
+  50%       { scale: 1.12; opacity: 0.75; }
 }
 
 /* ── Wave divider ────────────────────────────── */
@@ -340,7 +355,11 @@ body.dark-mode .wave-fill {
     #ec4899 75%,
     #7c3aed 100%
   );
-  animation: spin-border 5s linear infinite;
+  animation-name:            spin-border;
+  animation-duration:        auto;
+  animation-timing-function: linear;
+  animation-fill-mode:       both;
+  animation-timeline:        scroll(root);
 }
 
 @keyframes spin-border {
@@ -1626,12 +1645,20 @@ body.dark-mode .intro-job-card {
   user-select: none;
   will-change: transform;
   z-index: 0;
-  animation: ss-breathe 8s ease-in-out infinite;
+  /* view() → chaque shape s'anime selon SA propre position dans le viewport */
+  animation-name:            ss-breathe;
+  animation-duration:        auto;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode:       both;
+  animation-timeline:        view();
+  animation-range:           cover 0% cover 100%;
 }
 
+/* 0.88 → 1.1 → 0.92 : grandit en entrant, rétrécit en sortant (s'inverse en remontant) */
 @keyframes ss-breathe {
-  0%, 100% { scale: 1;    }
-  50%       { scale: 0.91; }
+  0%   { scale: 0.88; }
+  50%  { scale: 1.10; }
+  100% { scale: 0.92; }
 }
 
 /* ── Anneaux border-only ──────────────────────── */
@@ -1640,28 +1667,24 @@ body.dark-mode .intro-job-card {
   border-radius: 50%;
   border: 1px solid rgba(124,58,237,0.09);
   opacity: 0.7;
-  animation-duration: 10s;
 }
 .ss-ring-md {
   width: 140px; height: 140px;
   border-radius: 50%;
   border: 1px solid rgba(124,58,237,0.12);
   opacity: 0.65;
-  animation-duration: 8s;
 }
 .ss-ring-sm {
   width: 70px; height: 70px;
   border-radius: 50%;
   border: 1px solid rgba(124,58,237,0.18);
   opacity: 0.6;
-  animation-duration: 6s;
 }
 
 /* ── Croix ────────────────────────────────────── */
 .ss-cross {
   width: 20px; height: 20px;
   opacity: 0.45;
-  animation-duration: 7s;
 }
 .ss-cross::before,
 .ss-cross::after {
@@ -1679,7 +1702,6 @@ body.dark-mode .intro-job-card {
   border-radius: 50%;
   background: rgba(124,58,237,0.4);
   opacity: 0.65;
-  animation-duration: 5s;
 }
 
 /* ── Variante cyan ────────────────────────────── */
@@ -1702,10 +1724,7 @@ body.dark-mode .intro-job-card {
 .ss-ring-sm.ss--pink { border-color: rgba(236,72,153,0.15); }
 .ss-dot.ss--pink { background: rgba(236,72,153,0.45); }
 
-/* Décalages d'animation pour éviter que tout respire en même temps */
-.sec-shape:nth-child(3n)   { animation-delay: -2.5s; }
-.sec-shape:nth-child(3n+1) { animation-delay: -1.2s; }
-.sec-shape:nth-child(3n+2) { animation-delay: -4.1s; }
+/* Avec view(), chaque élément anime sur sa propre position — pas de delay nécessaire */
 
 /* ══════════════════════════════════════════════
    RESPONSIVE — nouvelles sections
@@ -1773,6 +1792,13 @@ body.dark-mode .contact-card-icon--github {
    ──────────────────────────────────────────────*/
 #Profil {
   background:
+    /* Conic rotatif : tourne de -90°→+90° au fil du scroll */
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 180deg - 90deg) at 25% 40%,
+      transparent 0%, rgba(124,58,237,0.035) 20%,
+      transparent 40%, rgba(6,182,212,0.025) 62%,
+      transparent 80%
+    ),
     radial-gradient(ellipse 95% 65%
       at calc(-13% + var(--sect-prog) * 16%) 50%,
       rgba(124,58,237,0.07) 0%, transparent 55%),
@@ -1786,6 +1812,12 @@ body.dark-mode .contact-card-icon--github {
 /* ── Mesh dégradé animé : Domaines ────────────── */
 #Domaines {
   background:
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 180deg - 90deg) at 75% 55%,
+      transparent 0%, rgba(79,70,229,0.03) 18%,
+      transparent 38%, rgba(6,182,212,0.025) 60%,
+      transparent 80%
+    ),
     radial-gradient(ellipse 80% 55%
       at 50% calc(127% - var(--sect-prog) * 24%),
       rgba(79,70,229,0.08) 0%, transparent 55%),
@@ -1803,6 +1835,12 @@ body.dark-mode .contact-card-icon--github {
 /* ── Mesh dégradé animé : Projets ─────────────── */
 #Projets {
   background:
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 240deg - 120deg) at 20% 70%,
+      transparent 0%, rgba(124,58,237,0.045) 15%,
+      transparent 32%, rgba(6,182,212,0.03)  55%,
+      transparent 72%
+    ),
     radial-gradient(ellipse 100% 70%
       at calc(-13%  + var(--sect-prog) * 16%)
          calc(-3%   + var(--sect-prog) * 16%),
@@ -1821,6 +1859,12 @@ body.dark-mode .contact-card-icon--github {
 /* ── Mesh dégradé animé : Parcours ────────────── */
 #Parcours {
   background:
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 180deg - 90deg) at 78% 28%,
+      transparent 0%, rgba(245,158,11,0.03) 20%,
+      transparent 40%, rgba(124,58,237,0.03) 62%,
+      transparent 82%
+    ),
     radial-gradient(ellipse 80% 70%
       at calc(-13%  + var(--sect-prog) * 16%)
          calc(18%   + var(--sect-prog) * 14%),
@@ -1838,6 +1882,12 @@ body.dark-mode .contact-card-icon--github {
 /* ── Mesh dégradé animé : Stack ───────────────── */
 #Stack {
   background:
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 240deg - 120deg) at 50% 78%,
+      transparent 0%, rgba(6,182,212,0.04) 15%,
+      transparent 35%, rgba(79,70,229,0.03) 55%,
+      transparent 75%
+    ),
     radial-gradient(ellipse 90% 65%
       at calc(116%  - var(--sect-prog) * 16%)
          calc(3%    + var(--sect-prog) * 14%),
@@ -1852,6 +1902,13 @@ body.dark-mode .contact-card-icon--github {
 /* ── Mesh dégradé animé : Contact ─────────────── */
 #Contact {
   background:
+    /* Conic plein tour (la plus dramatique) : le halo tourne à 360° */
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 360deg) at 50% 50%,
+      rgba(124,58,237,0.05) 0%,   transparent 22%,
+      rgba(6,182,212,0.04)  45%,  transparent 67%,
+      rgba(79,70,229,0.04)  90%,  transparent 100%
+    ),
     radial-gradient(ellipse 100% 80%
       at calc(-18%  + var(--sect-prog) * 16%) 50%,
       rgba(124,58,237,0.13) 0%, transparent 55%),
@@ -1869,6 +1926,12 @@ body.dark-mode .contact-card-icon--github {
 
 body.dark-mode #Projets {
   background:
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 240deg - 120deg) at 20% 70%,
+      transparent 0%, rgba(124,58,237,0.07) 15%,
+      transparent 32%, rgba(6,182,212,0.05) 55%,
+      transparent 72%
+    ),
     radial-gradient(ellipse 100% 70%
       at calc(-13%  + var(--sect-prog) * 16%)
          calc(-3%   + var(--sect-prog) * 16%),
@@ -1882,6 +1945,12 @@ body.dark-mode #Projets {
 
 body.dark-mode #Contact {
   background:
+    conic-gradient(
+      from calc(var(--sect-prog, 0) * 360deg) at 50% 50%,
+      rgba(124,58,237,0.08) 0%,  transparent 22%,
+      rgba(6,182,212,0.06)  45%, transparent 67%,
+      rgba(79,70,229,0.07)  90%, transparent 100%
+    ),
     radial-gradient(ellipse 100% 80%
       at calc(-18%  + var(--sect-prog) * 16%) 50%,
       rgba(124,58,237,0.20) 0%, transparent 55%),
@@ -1905,15 +1974,10 @@ body.dark-mode #Contact {
     linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
   background-size: 44px 44px;
-  animation: grid-drift 22s linear infinite;
+  /* --sect-prog hérité de #Stack → la grille dérive avec le scroll, s'inverse en remontant */
+  translate: calc(var(--sect-prog, 0) * 44px) calc(var(--sect-prog, 0) * 44px);
   pointer-events: none;
   z-index: 0;
-}
-
-/* Utilise `translate` (prop. individuelle) → pas de conflit transform/JS */
-@keyframes grid-drift {
-  from { translate: 0 0;       }
-  to   { translate: 44px 44px; }
 }
 
 body.dark-mode .stack-grid-bg {
@@ -1940,14 +2004,10 @@ body.dark-mode .stack-grid-bg {
     rgba(124,58,237,0.09) 360deg
   );
   filter: blur(72px);
-  animation: aurora-spin 14s linear infinite;
+  /* --sect-prog hérité de #Contact → tourne avec le scroll, s'inverse en remontant */
+  rotate: calc(var(--sect-prog, 0) * 360deg);
   pointer-events: none;
   z-index: 0;
-}
-
-/* rotate (prop. individuelle) → composé avec translate sans conflit */
-@keyframes aurora-spin {
-  to { rotate: 360deg; }
 }
 
 body.dark-mode .ctct-aurora {
