@@ -186,11 +186,6 @@
       var angle = prog * item.conicRange + item.conicOffset;
       item.el.style.setProperty('--sect-conic', angle.toFixed(1) + 'deg');
 
-      /* Position du scan (% string calculé en JS → pas de calc() CSS).
-       * À prog=0 : -12% (hors champ gauche), prog=1 : 112% (hors champ droite).
-       * S'inverse automatiquement en remontant (lerp sur current.scrollY). */
-      item.el.style.setProperty('--scan-x', (-12 + prog * 124).toFixed(1) + '%');
-
       /* Aurora (section Contact) */
       if (item.isContact) {
         item.el.style.setProperty('--sect-aurora', (prog * 360).toFixed(1) + 'deg');
@@ -316,7 +311,10 @@
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          obs.unobserve(entry.target);
+        } else if (entry.boundingClientRect.top > 0) {
+          /* Élément repassé sous le viewport → retire .visible pour
+           * que l'animation se rejoue à la prochaine entrée. */
+          entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.1 });
@@ -344,30 +342,20 @@
   }
 
   /* ─────────────────────────────────────────────
-   * SECTION EFFECTS — scan sweep + barre de profondeur
-   * Injecte .sect-scan et .sect-depth-bar dans chaque section.
-   * Un IntersectionObserver ajoute .sect-entered (une seule fois)
-   * pour déclencher l'animation de balayage CSS.
+   * SECTION EFFECTS — orbe brumeux rotatif
+   * Injecte .sect-conic-orb dans 1 section sur 2.
    * ───────────────────────────────────────────── */
   function initSectionEffects() {
     var sections = document.querySelectorAll('#Profil, #Domaines, .idx-section');
     if (!sections.length) return;
 
-    sections.forEach(function (section) {
-      /* Orbe conic rotatif — grand disque flou qui tourne comme une horloge.
-       * Inséré en premier → derrière les orbes et le scan. */
+    /* Orbe brumeux : une section sur deux seulement (index pair) */
+    sections.forEach(function (section, i) {
+      if (i % 2 !== 0) return;
       var orb = document.createElement('div');
       orb.className = 'sect-conic-orb';
       orb.setAttribute('aria-hidden', 'true');
       section.insertBefore(orb, section.firstChild);
-
-      /* Scan line (au-dessus des orbes, sous le contenu) */
-      var scan = document.createElement('div');
-      scan.className = 'sect-scan';
-      scan.setAttribute('aria-hidden', 'true');
-      var orbWrap = section.querySelector('.sec-orb-wrap');
-      var insertRef = orbWrap ? orbWrap.nextSibling : section.firstChild;
-      section.insertBefore(scan, insertRef);
     });
   }
 

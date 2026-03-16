@@ -2120,27 +2120,24 @@ body.dark-mode .idx-section::before {
 /* .sect-depth-bar supprimée (remplacée par .sect-conic-orb) */
 
 /* ══════════════════════════════════════════════
-   ORBE CONIC ROTATIF — visible comme une horloge
-   JS met à jour --sect-conic (angle en degrés) sur
-   la section parente → rotate hérite naturellement.
+   ORBE BRUMEUX ROTATIF — effet brume asymétrique
+   Deux blobs radiaux superposés sur un ellipse —
+   la forme asymétrique rend la rotation visible
+   sans agressivité. Piloté par --sect-conic (JS).
    ══════════════════════════════════════════════ */
 .sect-conic-orb {
   position: absolute;
-  width: 120%;
-  aspect-ratio: 1;
+  width: 130%;
+  height: 55%;
   left: 50%; top: 50%;
   translate: -50% -50%;
   border-radius: 50%;
-  background: conic-gradient(
-    rgba(124,58,237,0.10) 0deg,
-    transparent          60deg,
-    rgba(6,182,212,0.08) 130deg,
-    transparent          190deg,
-    rgba(79,70,229,0.07) 260deg,
-    transparent          310deg,
-    rgba(124,58,237,0.10) 360deg
-  );
-  filter: blur(72px);
+  background:
+    radial-gradient(ellipse 65% 100% at 32% 42%,
+      rgba(124,58,237,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 74% 62%,
+      rgba(6,182,212,0.06) 0%, transparent 65%);
+  filter: blur(55px);
   rotate: var(--sect-conic, 0deg);  /* mis à jour par JS chaque frame */
   will-change: rotate;
   pointer-events: none;
@@ -2148,58 +2145,11 @@ body.dark-mode .idx-section::before {
 }
 
 body.dark-mode .sect-conic-orb {
-  background: conic-gradient(
-    rgba(124,58,237,0.18) 0deg,
-    transparent          60deg,
-    rgba(6,182,212,0.14) 130deg,
-    transparent          190deg,
-    rgba(79,70,229,0.13) 260deg,
-    transparent          310deg,
-    rgba(124,58,237,0.18) 360deg
-  );
+  background:
+    radial-gradient(ellipse 65% 100% at 32% 42%,
+      rgba(124,58,237,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 74% 62%,
+      rgba(6,182,212,0.11) 0%, transparent 65%);
 }
 
-/* ══════════════════════════════════════════════
-   BALAYAGE LUMINEUX — piloté par --scan-x (JS)
-   --scan-x = (-12 + prog*124)% calculé en JS
-   → pas de calc() CSS, cross-browser garanti.
-   Position = calc(-12% + sect-prog * 124%)
-   → gauche→droite en descendant, droite→gauche en remontant.
-   Overflow hidden masque la ligne hors limites.
-   ══════════════════════════════════════════════ */
-.sect-scan {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;           /* au-dessus des orbes, sous le contenu */
-  overflow: hidden;
-}
-
-.sect-scan::before {
-  content: '';
-  position: absolute;
-  top: -25%;
-  /* --scan-x mis à jour par JS (ex: "37.4%") — aucun calc() nécessaire */
-  left: var(--scan-x, -12%);
-  width: 2px;
-  height: 150%;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(124,58,237,0.0) 8%,
-    rgba(124,58,237,0.5) 35%,
-    rgba(6,182,212,0.5)  65%,
-    rgba(6,182,212,0.0)  92%,
-    transparent 100%
-  );
-  transform: rotate(12deg);
-  transform-origin: center center;
-  opacity: 0.6;
-}
-
-/* ══════════════════════════════════════════════
-   DARK MODE — profondeur + scan
-   ══════════════════════════════════════════════ */
-body.dark-mode .sect-scan::before {
-  opacity: 0.85;
-}
+/* .sect-scan supprimée */
