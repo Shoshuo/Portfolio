@@ -61,6 +61,15 @@
    */
   var secOrbItems = [];
 
+  /* ── Sections : données pour updateSectionEffects ──
+   * Chaque section a une config conic (amplitude + offset)
+   * et des flags pour les effets spécifiques (aurora, grid).
+   */
+  var sectItems = [];
+
+  /* ── Référence carte et border pour scroll-driven ── */
+  var cardBorderEl = null;
+
   /* ── Valeurs cibles (mises à jour par events) ── */
   var target  = { scrollY: 0, mouseX: 0, mouseY: 0 };
   /* ── Valeurs lerpées (mises à jour dans RAF) ─── */
@@ -79,6 +88,7 @@
     current.mouseY  = lerp(current.mouseY,  target.mouseY,  LERP_MOUSE);
 
     renderParallax();
+    updateSectionEffects();
     rafId = requestAnimationFrame(tick);
   }
 
@@ -130,6 +140,60 @@
       }
       heroGrid.style.opacity = opacity.toFixed(3);
     }
+  }
+
+  /* ─────────────────────────────────────────────
+   * EFFETS SCROLL-DRIVEN — pilotés par JS dans RAF
+   * Garantit un fonctionnement cross-browser sans
+   * dépendance à animation-timeline CSS.
+   * ───────────────────────────────────────────── */
+  function updateSectionEffects() {
+    var sy = current.scrollY;
+    var vh = window.innerHeight;
+
+    /* ── Rotation des anneaux hero (hr-2 / hr-3) ─
+     * hr-2 tourne dans le sens horaire, hr-3 en sens inverse.
+     * Utilise rotate (prop. individuelle) → compose avec
+     * style.transform (translate) sans conflit.
+     */
+    if (layers[1].el) {  /* hr-2 — sens horaire */
+      layers[1].el.style.rotate = (sy * 0.055).toFixed(2) + 'deg';
+    }
+    if (layers[0].el) {  /* hr-3 — sens anti-horaire */
+      layers[0].el.style.rotate = (-sy * 0.038).toFixed(2) + 'deg';
+    }
+
+    /* ── Bordure carte : --border-angle suit le scroll ── */
+    if (cardBorderEl) {
+      var borderAngle = (sy * 0.10) % 360;
+      cardBorderEl.style.setProperty('--border-angle', borderAngle.toFixed(1) + 'deg');
+    }
+
+    /* ── Sections : --sect-prog + --sect-conic ──
+     * prog = 0 quand la section est juste sous le viewport,
+     *       = 1 quand elle est juste au-dessus.
+     * Formule cover 0%→100% : (sy - top + vh) / (height + vh)
+     */
+    sectItems.forEach(function (item) {
+      var prog = (sy - item.el.offsetTop + vh) / (item.el.offsetHeight + vh);
+      prog = Math.max(0, Math.min(1, prog));
+
+      /* Dérive des blobs (nécessite @property <number> pour calc()) */
+      item.el.style.setProperty('--sect-prog', prog.toFixed(4));
+
+      /* Angle du conic — valeur en degrés, passée directement à CSS */
+      var angle = prog * item.conicRange + item.conicOffset;
+      item.el.style.setProperty('--sect-conic', angle.toFixed(1) + 'deg');
+
+      /* Aurora (section Contact) */
+      if (item.isContact) {
+        item.el.style.setProperty('--sect-aurora', (prog * 360).toFixed(1) + 'deg');
+      }
+      /* Grille (section Stack) */
+      if (item.isStack) {
+        item.el.style.setProperty('--sect-grid', (prog * 44).toFixed(1) + 'px');
+      }
+    });
   }
 
   /* ─────────────────────────────────────────────
@@ -340,6 +404,29 @@
     var hfiEls = document.querySelectorAll('.hfi');
     hfiEls.forEach(function (el, i) {
       if (hfiItems[i]) hfiItems[i].el = el;
+    });
+
+    /* ── Carte : référence pour scroll-driven --border-angle ── */
+    cardBorderEl = document.querySelector('.profile-card-border');
+
+    /* ── Sections : config conic + flags spéciaux ── */
+    var sectionConf = {
+      'Profil':   { conicRange: 180, conicOffset: -90 },
+      'Domaines': { conicRange: 180, conicOffset: -90 },
+      'Projets':  { conicRange: 240, conicOffset: -120 },
+      'Parcours': { conicRange: 180, conicOffset: -90 },
+      'Stack':    { conicRange: 240, conicOffset: -120, isStack:   true },
+      'Contact':  { conicRange: 360, conicOffset:    0, isContact: true }
+    };
+    document.querySelectorAll('#Profil, #Domaines, .idx-section').forEach(function (el) {
+      var conf = sectionConf[el.id] || { conicRange: 180, conicOffset: -90 };
+      sectItems.push({
+        el:          el,
+        conicRange:  conf.conicRange,
+        conicOffset: conf.conicOffset,
+        isStack:     !!conf.isStack,
+        isContact:   !!conf.isContact
+      });
     });
 
     initReveal();

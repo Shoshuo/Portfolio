@@ -192,11 +192,7 @@ body.dark-mode .hfi {
   border: 1px solid rgba(124,58,237,0.07);
   top: 4%;
   left: -8%;
-  animation-name:            hr-spin;
-  animation-duration:        auto;
-  animation-timing-function: linear;
-  animation-fill-mode:       both;
-  animation-timeline:        scroll(root);
+  /* rotate mis à jour par JS via style.rotate */
 }
 
 .hr-3 {
@@ -205,12 +201,7 @@ body.dark-mode .hfi {
   border: 1px solid rgba(6,182,212,0.05);
   bottom: -18%;
   right: -12%;
-  animation-name:            hr-spin;
-  animation-duration:        auto;
-  animation-direction:       reverse;
-  animation-timing-function: linear;
-  animation-fill-mode:       both;
-  animation-timeline:        scroll(root);
+  /* rotate mis à jour par JS via style.rotate */
 }
 
 /* Utilise `rotate` (prop. individuelle CSS) → pas de conflit avec transform JS */
@@ -234,11 +225,7 @@ body.dark-mode .hfi {
   top: 8%;
   right: 5%;
   opacity: 0.5;
-  animation-name:            shape-breathe;
-  animation-duration:        auto;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode:       both;
-  animation-timeline:        scroll(root);
+  animation: shape-breathe 8s ease-in-out infinite;
 }
 
 /* scale (prop. individuelle) → pas de conflit avec transform JS */
@@ -355,11 +342,7 @@ body.dark-mode .wave-fill {
     #ec4899 75%,
     #7c3aed 100%
   );
-  animation-name:            spin-border;
-  animation-duration:        auto;
-  animation-timing-function: linear;
-  animation-fill-mode:       both;
-  animation-timeline:        scroll(root);
+  /* --border-angle mis à jour par JS en fonction du scroll */
 }
 
 @keyframes spin-border {
@@ -1767,23 +1750,8 @@ body.dark-mode .contact-card-icon--github {
 /* Les sections non-idx ont besoin d'overflow: hidden pour les ::after */
 #Profil, #Domaines { position: relative; overflow: hidden; }
 
-/* ══════════════════════════════════════════════
-   SCROLL-DRIVEN ANIMATION — --sect-prog : 0→1
-   Pilote la dérive des blobs de fond au scroll.
-   ══════════════════════════════════════════════ */
-@keyframes sect-prog-advance {
-  from { --sect-prog: 0; }
-  to   { --sect-prog: 1; }
-}
-
-#Profil, #Domaines, #Projets, #Parcours, #Stack, #Contact {
-  animation-name:            sect-prog-advance;
-  animation-duration:        auto;
-  animation-timing-function: linear;
-  animation-fill-mode:       both;
-  animation-timeline:        view();
-  animation-range:           cover 0% cover 100%;
-}
+/* --sect-prog et --sect-conic sont mis à jour par JS (index.js) dans la boucle RAF.
+   Aucune animation CSS requise — cross-browser garanti. */
 
 /* ── Mesh dégradé animé : Qui suis-je ──────────
    Blobs dérivent vers l'intérieur au scroll.
@@ -1794,7 +1762,7 @@ body.dark-mode .contact-card-icon--github {
   background:
     /* Conic rotatif : tourne de -90°→+90° au fil du scroll */
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 180deg - 90deg) at 25% 40%,
+      from var(--sect-conic, -90deg) at 25% 40%,
       transparent 0%, rgba(124,58,237,0.035) 20%,
       transparent 40%, rgba(6,182,212,0.025) 62%,
       transparent 80%
@@ -1813,7 +1781,7 @@ body.dark-mode .contact-card-icon--github {
 #Domaines {
   background:
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 180deg - 90deg) at 75% 55%,
+      from var(--sect-conic, -90deg) at 75% 55%,
       transparent 0%, rgba(79,70,229,0.03) 18%,
       transparent 38%, rgba(6,182,212,0.025) 60%,
       transparent 80%
@@ -1836,7 +1804,7 @@ body.dark-mode .contact-card-icon--github {
 #Projets {
   background:
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 240deg - 120deg) at 20% 70%,
+      from var(--sect-conic, -120deg) at 20% 70%,
       transparent 0%, rgba(124,58,237,0.045) 15%,
       transparent 32%, rgba(6,182,212,0.03)  55%,
       transparent 72%
@@ -1860,7 +1828,7 @@ body.dark-mode .contact-card-icon--github {
 #Parcours {
   background:
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 180deg - 90deg) at 78% 28%,
+      from var(--sect-conic, -90deg) at 78% 28%,
       transparent 0%, rgba(245,158,11,0.03) 20%,
       transparent 40%, rgba(124,58,237,0.03) 62%,
       transparent 82%
@@ -1883,7 +1851,7 @@ body.dark-mode .contact-card-icon--github {
 #Stack {
   background:
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 240deg - 120deg) at 50% 78%,
+      from var(--sect-conic, -120deg) at 50% 78%,
       transparent 0%, rgba(6,182,212,0.04) 15%,
       transparent 35%, rgba(79,70,229,0.03) 55%,
       transparent 75%
@@ -1904,7 +1872,7 @@ body.dark-mode .contact-card-icon--github {
   background:
     /* Conic plein tour (la plus dramatique) : le halo tourne à 360° */
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 360deg) at 50% 50%,
+      from var(--sect-conic, 0deg) at 50% 50%,
       rgba(124,58,237,0.05) 0%,   transparent 22%,
       rgba(6,182,212,0.04)  45%,  transparent 67%,
       rgba(79,70,229,0.04)  90%,  transparent 100%
@@ -1946,7 +1914,7 @@ body.dark-mode #Projets {
 body.dark-mode #Contact {
   background:
     conic-gradient(
-      from calc(var(--sect-prog, 0) * 360deg) at 50% 50%,
+      from var(--sect-conic, 0deg) at 50% 50%,
       rgba(124,58,237,0.08) 0%,  transparent 22%,
       rgba(6,182,212,0.06)  45%, transparent 67%,
       rgba(79,70,229,0.07)  90%, transparent 100%
@@ -1974,8 +1942,8 @@ body.dark-mode #Contact {
     linear-gradient(rgba(124,58,237,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(124,58,237,0.04) 1px, transparent 1px);
   background-size: 44px 44px;
-  /* --sect-prog hérité de #Stack → la grille dérive avec le scroll, s'inverse en remontant */
-  translate: calc(var(--sect-prog, 0) * 44px) calc(var(--sect-prog, 0) * 44px);
+  /* --sect-grid mis à jour par JS (valeur px) */
+  translate: var(--sect-grid, 0px) var(--sect-grid, 0px);
   pointer-events: none;
   z-index: 0;
 }
@@ -2004,8 +1972,8 @@ body.dark-mode .stack-grid-bg {
     rgba(124,58,237,0.09) 360deg
   );
   filter: blur(72px);
-  /* --sect-prog hérité de #Contact → tourne avec le scroll, s'inverse en remontant */
-  rotate: calc(var(--sect-prog, 0) * 360deg);
+  /* --sect-aurora mis à jour par JS (angle en degrés) */
+  rotate: var(--sect-aurora, 0deg);
   pointer-events: none;
   z-index: 0;
 }
