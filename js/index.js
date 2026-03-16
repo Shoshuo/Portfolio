@@ -51,6 +51,12 @@
     { el: null, scrollSpeed: 0.11, mouseDepth: 11 }   /* hfi-8 python    */
   ];
 
+  /* ── Orbes des sections intérieures ────────────
+   * Collectés via [data-speed] sur .sec-orb.
+   * Animés sur toute la page (pas de garde hero).
+   */
+  var secOrbItems = [];
+
   /* ── Valeurs cibles (mises à jour par events) ── */
   var target  = { scrollY: 0, mouseX: 0, mouseY: 0 };
   /* ── Valeurs lerpées (mises à jour dans RAF) ─── */
@@ -81,9 +87,8 @@
     var my = current.mouseY;
     var maxH = heroH * 1.2;
 
-    if (sy > maxH) return;
-
-    /* Orbes + anneau */
+    /* Orbes + anneau (actifs seulement dans et juste après le hero) */
+    if (sy <= maxH) {
     layers.forEach(function (layer) {
       if (!layer.el) return;
       var ty = sy * layer.scrollSpeed + my * layer.mouseDepth;
@@ -97,6 +102,13 @@
       var ty = sy * item.scrollSpeed + my * item.mouseDepth;
       var tx = mx * item.mouseDepth;
       item.el.style.transform = 'translate(' + tx.toFixed(2) + 'px, ' + ty.toFixed(2) + 'px)';
+    });
+    } /* fin du if (sy <= maxH) */
+
+    /* Orbes des sections intérieures — actifs sur toute la page */
+    secOrbItems.forEach(function (item) {
+      var ty = sy * item.speed;
+      item.el.style.transform = 'translateY(' + ty.toFixed(2) + 'px)';
     });
 
     /* Hero-grid : contenu avant-plan */
@@ -262,6 +274,11 @@
     layers[2].el = document.querySelector('.orb-2');
     layers[3].el = document.querySelector('.orb-3');
     layers[4].el = document.querySelector('.orb-4');
+
+    /* Orbes des sections intérieures */
+    document.querySelectorAll('.sec-orb[data-speed]').forEach(function (el) {
+      secOrbItems.push({ el: el, speed: parseFloat(el.getAttribute('data-speed')) });
+    });
 
     /* Icônes tech fantômes — chacune assignée individuellement */
     var hfiEls = document.querySelectorAll('.hfi');
