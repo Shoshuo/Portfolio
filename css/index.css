@@ -9,6 +9,13 @@
   inherits: false;
 }
 
+/* Progression de scroll par section (0 = section entrante, 1 = section sortie) */
+@property --sect-prog {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
 /* ── Hero: z-index ───────────────────────────── */
 .hero > .container {
   position: relative;
@@ -1058,10 +1065,12 @@ body.dark-mode .intro-job-card {
   pointer-events: none;
 }
 
-/* S'assurer que le contenu est au-dessus des orbes */
-.idx-section > .container {
+/* S'assurer que le contenu est au-dessus des orbes et des effets de scan */
+.idx-section > .container,
+#Profil > .container,
+#Domaines > .container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* ── Orbes section Projets ────────────────────── */
@@ -1739,71 +1748,149 @@ body.dark-mode .contact-card-icon--github {
 /* Les sections non-idx ont besoin d'overflow: hidden pour les ::after */
 #Profil, #Domaines { position: relative; overflow: hidden; }
 
-/* ── Mesh dégradé : Qui suis-je ──────────────── */
+/* ══════════════════════════════════════════════
+   SCROLL-DRIVEN ANIMATION — --sect-prog : 0→1
+   Pilote la dérive des blobs de fond au scroll.
+   ══════════════════════════════════════════════ */
+@keyframes sect-prog-advance {
+  from { --sect-prog: 0; }
+  to   { --sect-prog: 1; }
+}
+
+#Profil, #Domaines, #Projets, #Parcours, #Stack, #Contact {
+  animation-name:            sect-prog-advance;
+  animation-duration:        auto;
+  animation-timing-function: linear;
+  animation-fill-mode:       both;
+  animation-timeline:        view();
+  animation-range:           cover 0% cover 100%;
+}
+
+/* ── Mesh dégradé animé : Qui suis-je ──────────
+   Blobs dérivent vers l'intérieur au scroll.
+   Formule : calc(BASE - DRIFT/2 + var(--sect-prog) * DRIFT)
+   → à 0.5, on retrouve exactement la position d'origine.
+   ──────────────────────────────────────────────*/
 #Profil {
   background:
-    radial-gradient(ellipse 95% 65% at -5% 50%,  rgba(124,58,237,0.07) 0%, transparent 55%),
-    radial-gradient(ellipse 75% 80% at 108% 15%, rgba(6,182,212,0.05)  0%, transparent 55%),
+    radial-gradient(ellipse 95% 65%
+      at calc(-13% + var(--sect-prog) * 16%) 50%,
+      rgba(124,58,237,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 75% 80%
+      at calc(116% - var(--sect-prog) * 16%)
+         calc(8%   + var(--sect-prog) * 14%),
+      rgba(6,182,212,0.05) 0%, transparent 55%),
     var(--bg-primary);
 }
 
-/* ── Mesh dégradé : Domaines ─────────────────── */
+/* ── Mesh dégradé animé : Domaines ────────────── */
 #Domaines {
   background:
-    radial-gradient(ellipse 80% 55% at 50% 115%, rgba(79,70,229,0.08)  0%, transparent 55%),
-    radial-gradient(ellipse 60% 65% at 8%  5%,   rgba(124,58,237,0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 95% 5%,   rgba(6,182,212,0.04)  0%, transparent 50%),
+    radial-gradient(ellipse 80% 55%
+      at 50% calc(127% - var(--sect-prog) * 24%),
+      rgba(79,70,229,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 65%
+      at calc(1%   + var(--sect-prog) * 14%)
+         calc(-2%  + var(--sect-prog) * 14%),
+      rgba(124,58,237,0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60%
+      at calc(102% - var(--sect-prog) * 14%)
+         calc(-2%  + var(--sect-prog) * 14%),
+      rgba(6,182,212,0.04) 0%, transparent 50%),
     var(--bg-secondary);
 }
 
-/* ── Mesh dégradé : Projets ──────────────────── */
+/* ── Mesh dégradé animé : Projets ─────────────── */
 #Projets {
   background:
-    radial-gradient(ellipse 100% 70% at -5%  5%,  rgba(124,58,237,0.10) 0%, transparent 55%),
-    radial-gradient(ellipse 90%  80% at 108% 95%, rgba(6,182,212,0.08)  0%, transparent 55%),
-    radial-gradient(ellipse 65%  65% at 55%  45%, rgba(79,70,229,0.04)  0%, transparent 60%),
+    radial-gradient(ellipse 100% 70%
+      at calc(-13%  + var(--sect-prog) * 16%)
+         calc(-3%   + var(--sect-prog) * 16%),
+      rgba(124,58,237,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 80%
+      at calc(116%  - var(--sect-prog) * 16%)
+         calc(103%  - var(--sect-prog) * 16%),
+      rgba(6,182,212,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 65% 65%
+      at calc(51%   + var(--sect-prog) * 8%)
+         calc(41%   + var(--sect-prog) * 8%),
+      rgba(79,70,229,0.04) 0%, transparent 60%),
     var(--bg-primary);
 }
 
-/* ── Mesh dégradé : Parcours ─────────────────── */
+/* ── Mesh dégradé animé : Parcours ────────────── */
 #Parcours {
   background:
-    radial-gradient(ellipse 80% 70% at -5%  25%,  rgba(124,58,237,0.09) 0%, transparent 55%),
-    radial-gradient(ellipse 90% 60% at 108% 80%,  rgba(245,158,11,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 80% at 50%  115%,  rgba(79,70,229,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 70%
+      at calc(-13%  + var(--sect-prog) * 16%)
+         calc(18%   + var(--sect-prog) * 14%),
+      rgba(124,58,237,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 60%
+      at calc(116%  - var(--sect-prog) * 16%)
+         calc(87%   - var(--sect-prog) * 14%),
+      rgba(245,158,11,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 80%
+      at 50% calc(123% - var(--sect-prog) * 16%),
+      rgba(79,70,229,0.05) 0%, transparent 60%),
     var(--bg-secondary);
 }
 
-/* ── Mesh dégradé : Stack ────────────────────── */
+/* ── Mesh dégradé animé : Stack ───────────────── */
 #Stack {
   background:
-    radial-gradient(ellipse 90% 65% at 108% 10%, rgba(6,182,212,0.09)  0%, transparent 55%),
-    radial-gradient(ellipse 80% 75% at -8%  90%, rgba(79,70,229,0.07)   0%, transparent 55%),
+    radial-gradient(ellipse 90% 65%
+      at calc(116%  - var(--sect-prog) * 16%)
+         calc(3%    + var(--sect-prog) * 14%),
+      rgba(6,182,212,0.09) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 75%
+      at calc(-16%  + var(--sect-prog) * 16%)
+         calc(97%   - var(--sect-prog) * 14%),
+      rgba(79,70,229,0.07) 0%, transparent 55%),
     var(--bg-primary);
 }
 
-/* ── Mesh dégradé : Contact (le plus dramatique) */
+/* ── Mesh dégradé animé : Contact ─────────────── */
 #Contact {
   background:
-    radial-gradient(ellipse 100% 80% at -10% 50%,  rgba(124,58,237,0.13) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 80% at 110% 50%,  rgba(6,182,212,0.10)  0%, transparent 55%),
-    radial-gradient(ellipse 70%  80% at 50%  -5%,  rgba(79,70,229,0.09)  0%, transparent 60%),
-    radial-gradient(ellipse 60%  50% at 50%  110%, rgba(124,58,237,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 80%
+      at calc(-18%  + var(--sect-prog) * 16%) 50%,
+      rgba(124,58,237,0.13) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 80%
+      at calc(118%  - var(--sect-prog) * 16%) 50%,
+      rgba(6,182,212,0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 70%  80%
+      at 50% calc(-13%  + var(--sect-prog) * 16%),
+      rgba(79,70,229,0.09) 0%, transparent 60%),
+    radial-gradient(ellipse 60%  50%
+      at 50% calc(118%  - var(--sect-prog) * 16%),
+      rgba(124,58,237,0.06) 0%, transparent 55%),
     var(--bg-secondary);
 }
 
 body.dark-mode #Projets {
   background:
-    radial-gradient(ellipse 100% 70% at -5%  5%,  rgba(124,58,237,0.16) 0%, transparent 55%),
-    radial-gradient(ellipse 90%  80% at 108% 95%, rgba(6,182,212,0.12)  0%, transparent 55%),
+    radial-gradient(ellipse 100% 70%
+      at calc(-13%  + var(--sect-prog) * 16%)
+         calc(-3%   + var(--sect-prog) * 16%),
+      rgba(124,58,237,0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 90% 80%
+      at calc(116%  - var(--sect-prog) * 16%)
+         calc(103%  - var(--sect-prog) * 16%),
+      rgba(6,182,212,0.12) 0%, transparent 55%),
     var(--bg-primary);
 }
 
 body.dark-mode #Contact {
   background:
-    radial-gradient(ellipse 100% 80% at -10% 50%, rgba(124,58,237,0.20) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 80% at 110% 50%, rgba(6,182,212,0.15)  0%, transparent 55%),
-    radial-gradient(ellipse 70%  80% at 50%  -5%, rgba(79,70,229,0.14)  0%, transparent 60%),
+    radial-gradient(ellipse 100% 80%
+      at calc(-18%  + var(--sect-prog) * 16%) 50%,
+      rgba(124,58,237,0.20) 0%, transparent 55%),
+    radial-gradient(ellipse 100% 80%
+      at calc(118%  - var(--sect-prog) * 16%) 50%,
+      rgba(6,182,212,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse 70%  80%
+      at 50% calc(-13%  + var(--sect-prog) * 16%),
+      rgba(79,70,229,0.14) 0%, transparent 60%),
     var(--bg-secondary);
 }
 
@@ -2006,4 +2093,95 @@ body.dark-mode .idx-section::before {
   transform: scale(1.12) rotate(-8deg);
   transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
               background 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════
+   BARRE DE PROFONDEUR — suit --sect-prog au scroll
+   ══════════════════════════════════════════════ */
+.sect-depth-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 80px;
+  /* Se déplace du haut vers le bas de la section au fil du scroll */
+  top: calc(var(--sect-prog, 0.5) * 100% - 40px);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(124,58,237,0.08) 35%,
+    rgba(6,182,212,0.08)  65%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(2px);
+}
+
+/* ══════════════════════════════════════════════
+   BALAYAGE LUMINEUX — déclenché à l'entrée section
+   ══════════════════════════════════════════════ */
+.sect-scan {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;           /* au-dessus des orbes, sous le contenu */
+  overflow: hidden;
+}
+
+.sect-scan::before {
+  content: '';
+  position: absolute;
+  top: -25%;
+  left: -10%;
+  width: 2px;
+  height: 150%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(124,58,237,0.0) 8%,
+    rgba(124,58,237,0.5) 35%,
+    rgba(6,182,212,0.5)  65%,
+    rgba(6,182,212,0.0)  92%,
+    transparent 100%
+  );
+  transform: rotate(12deg);
+  transform-origin: center center;
+  opacity: 0;
+}
+
+/* Animation déclenchée une seule fois à l'entrée de la section */
+.sect-entered .sect-scan::before {
+  animation: sect-scan-sweep 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
+}
+
+@keyframes sect-scan-sweep {
+  0%   { left: -10%; opacity: 0; }
+  6%   { opacity: 1; }
+  94%  { opacity: 0.7; }
+  100% { left: 112%; opacity: 0; }
+}
+
+/* ══════════════════════════════════════════════
+   DARK MODE — profondeur + scan
+   ══════════════════════════════════════════════ */
+body.dark-mode .sect-depth-bar {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(124,58,237,0.12) 35%,
+    rgba(6,182,212,0.12)  65%,
+    transparent 100%
+  );
+}
+
+body.dark-mode .sect-scan::before {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(124,58,237,0.0) 8%,
+    rgba(124,58,237,0.7) 35%,
+    rgba(6,182,212,0.7)  65%,
+    rgba(6,182,212,0.0)  92%,
+    transparent 100%
+  );
 }

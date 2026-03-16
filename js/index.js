@@ -273,6 +273,48 @@
     });
   }
 
+  /* ─────────────────────────────────────────────
+   * SECTION EFFECTS — scan sweep + barre de profondeur
+   * Injecte .sect-scan et .sect-depth-bar dans chaque section.
+   * Un IntersectionObserver ajoute .sect-entered (une seule fois)
+   * pour déclencher l'animation de balayage CSS.
+   * ───────────────────────────────────────────── */
+  function initSectionEffects() {
+    var sections = document.querySelectorAll('#Profil, #Domaines, .idx-section');
+    if (!sections.length) return;
+
+    sections.forEach(function (section) {
+      /* Barre de profondeur (fond, derrière les orbes) */
+      var bar = document.createElement('div');
+      bar.className = 'sect-depth-bar';
+      bar.setAttribute('aria-hidden', 'true');
+      section.insertBefore(bar, section.firstChild);
+
+      /* Scan line (au-dessus des orbes, sous le contenu) */
+      var scan = document.createElement('div');
+      scan.className = 'sect-scan';
+      scan.setAttribute('aria-hidden', 'true');
+      var orbWrap = section.querySelector('.sec-orb-wrap');
+      var insertRef = orbWrap ? orbWrap.nextSibling : section.firstChild;
+      section.insertBefore(scan, insertRef);
+    });
+
+    /* Déclenche le balayage lumineux à l'entrée de chaque section */
+    if (!('IntersectionObserver' in window)) {
+      sections.forEach(function (s) { s.classList.add('sect-entered'); });
+      return;
+    }
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !entry.target.classList.contains('sect-entered')) {
+          entry.target.classList.add('sect-entered');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    sections.forEach(function (s) { obs.observe(s); });
+  }
+
   /* ── Scroll indicator ────────────────────────── */
   function initScrollIndicator() {
     var el = document.querySelector('.scroll-indicator');
@@ -316,6 +358,7 @@
     initCounters();
     initScrollIndicator();
     initSpotlight();
+    initSectionEffects();
 
     /* Démarrage de la boucle RAF */
     rafId = requestAnimationFrame(tick);
