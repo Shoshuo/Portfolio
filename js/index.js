@@ -254,6 +254,25 @@
     reveals.forEach(function (el) { obs.observe(el); });
   }
 
+  /* ─────────────────────────────────────────────
+   * SPOTLIGHT — halo qui suit la souris dans chaque section
+   * Met à jour --spot-x et --spot-y sur l'élément,
+   * CSS affiche un radial-gradient centré sur ces coords.
+   * ───────────────────────────────────────────── */
+  function initSpotlight() {
+    document.querySelectorAll('.idx-section').forEach(function (section) {
+      section.addEventListener('mousemove', function (e) {
+        var rect = section.getBoundingClientRect();
+        section.style.setProperty('--spot-x', ((e.clientX - rect.left) / rect.width  * 100).toFixed(1) + '%');
+        section.style.setProperty('--spot-y', ((e.clientY - rect.top)  / rect.height * 100).toFixed(1) + '%');
+      });
+      section.addEventListener('mouseleave', function () {
+        /* Repousse le spotlight hors champ en haut */
+        section.style.setProperty('--spot-y', '-20%');
+      });
+    });
+  }
+
   /* ── Scroll indicator ────────────────────────── */
   function initScrollIndicator() {
     var el = document.querySelector('.scroll-indicator');
@@ -296,6 +315,7 @@
     initTilt();
     initCounters();
     initScrollIndicator();
+    initSpotlight();
 
     /* Démarrage de la boucle RAF */
     rafId = requestAnimationFrame(tick);
