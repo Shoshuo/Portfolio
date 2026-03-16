@@ -20,24 +20,35 @@
   /* ── Références DOM ────────────────────────── */
   var heroEl   = null;
   var heroGrid = null;
-  var bgText   = null;
-  var shapes   = [];
 
-  /* ── 5 couches parallax (du fond vers l'avant) ──
-   *  0 : texte fantôme   — bouge à peine (0.03x)
-   *  1 : formes géo      — très lent     (0.06x)
-   *  2 : orb-1, orb-2    — lent          (0.10-0.17x)
-   *  3 : orb-3, orb-4    — intermédiaire (0.14-0.22x)
-   *  4 : hero-grid       — 0.38x + fade
+  /* ── Couches orbes (du fond vers l'avant) ──────
+   *  0 : orb-1   — lent          (0.10x)
+   *  1 : orb-2   — moyen-lent    (0.17x)
+   *  2 : orb-3   — intermédiaire (0.14x)
+   *  3 : orb-4   — plus rapide   (0.22x)
+   *  4 : shape-ring              (0.06x)
    */
   var layers = [
-    { el: null, scrollSpeed: 0.03, mouseDepth: 6  },  /* bg-text    */
-    { el: null, scrollSpeed: 0.06, mouseDepth: 10 },  /* shape-ring */
-    { el: null, scrollSpeed: 0.08, mouseDepth: 8  },  /* shape-cross*/
+    { el: null, scrollSpeed: 0.06, mouseDepth: 9  },  /* shape-ring */
     { el: null, scrollSpeed: 0.10, mouseDepth: 13 },  /* orb-1      */
     { el: null, scrollSpeed: 0.17, mouseDepth: 9  },  /* orb-2      */
     { el: null, scrollSpeed: 0.14, mouseDepth: 11 },  /* orb-3      */
     { el: null, scrollSpeed: 0.22, mouseDepth: 17 }   /* orb-4      */
+  ];
+
+  /* ── Icônes tech fantômes — 8 éléments individuels ──
+   * Chacun a sa propre vitesse de parallax pour un effet
+   * de profondeur réaliste (couche la plus lente = la plus lointaine).
+   */
+  var hfiItems = [
+    { el: null, scrollSpeed: 0.03, mouseDepth: 4  },  /* hfi-1 php       */
+    { el: null, scrollSpeed: 0.07, mouseDepth: 7  },  /* hfi-2 docker    */
+    { el: null, scrollSpeed: 0.05, mouseDepth: 5  },  /* hfi-3 linux     */
+    { el: null, scrollSpeed: 0.09, mouseDepth: 9  },  /* hfi-4 git       */
+    { el: null, scrollSpeed: 0.04, mouseDepth: 6  },  /* hfi-5 golang    */
+    { el: null, scrollSpeed: 0.08, mouseDepth: 8  },  /* hfi-6 js        */
+    { el: null, scrollSpeed: 0.06, mouseDepth: 5  },  /* hfi-7 mysql     */
+    { el: null, scrollSpeed: 0.11, mouseDepth: 11 }   /* hfi-8 python    */
   ];
 
   /* ── Valeurs cibles (mises à jour par events) ── */
@@ -72,12 +83,20 @@
 
     if (sy > maxH) return;
 
-    /* Couches 0–6 : orbes + bg-text + shapes */
+    /* Orbes + anneau */
     layers.forEach(function (layer) {
       if (!layer.el) return;
       var ty = sy * layer.scrollSpeed + my * layer.mouseDepth;
       var tx = mx * layer.mouseDepth;
       layer.el.style.transform = 'translate(' + tx.toFixed(2) + 'px, ' + ty.toFixed(2) + 'px)';
+    });
+
+    /* Icônes tech fantômes (couche fond) */
+    hfiItems.forEach(function (item) {
+      if (!item.el) return;
+      var ty = sy * item.scrollSpeed + my * item.mouseDepth;
+      var tx = mx * item.mouseDepth;
+      item.el.style.transform = 'translate(' + tx.toFixed(2) + 'px, ' + ty.toFixed(2) + 'px)';
     });
 
     /* Hero-grid : contenu avant-plan */
@@ -118,17 +137,19 @@
 
   /* ─────────────────────────────────────────────
    * TILT 3D — carte profil
+   * On écoute sur .profile-card-border (qui enveloppe
+   * exactement la carte) pour un calcul de position précis.
    * ───────────────────────────────────────────── */
   function initTilt() {
-    var card    = document.querySelector('.profile-card');
-    var wrapper = document.querySelector('.profile-card-wrapper');
-    if (!card || !wrapper) return;
+    var card   = document.querySelector('.profile-card');
+    var border = document.querySelector('.profile-card-border');
+    if (!card || !border) return;
 
-    wrapper.addEventListener('mouseenter', function () {
+    border.addEventListener('mouseenter', function () {
       card.classList.add('is-tilting');
     });
 
-    wrapper.addEventListener('mousemove', function (e) {
+    border.addEventListener('mousemove', function (e) {
       var rect = card.getBoundingClientRect();
       var dx   = (e.clientX - rect.left  - rect.width  / 2) / (rect.width  / 2);
       var dy   = (e.clientY - rect.top   - rect.height / 2) / (rect.height / 2);
@@ -138,7 +159,7 @@
         + ' scale3d(1.04,1.04,1.04)';
     });
 
-    wrapper.addEventListener('mouseleave', function () {
+    border.addEventListener('mouseleave', function () {
       card.style.transition = 'transform 0.55s cubic-bezier(0.4,0,0.2,1)';
       card.style.transform  = '';
       setTimeout(function () {
@@ -235,16 +256,18 @@
     heroGrid = document.querySelector('.hero-grid');
     heroH    = heroEl ? heroEl.offsetHeight : window.innerHeight;
 
-    /* Couche 0 : bg-text */
-    layers[0].el = document.querySelector('.hero-bg-text');
-    /* Couche 1–2 : formes */
-    layers[1].el = document.querySelector('.shape-ring');
-    layers[2].el = document.querySelector('.shape-cross');
-    /* Couches 3–6 : orbes */
-    layers[3].el = document.querySelector('.orb-1');
-    layers[4].el = document.querySelector('.orb-2');
-    layers[5].el = document.querySelector('.orb-3');
-    layers[6].el = document.querySelector('.orb-4');
+    /* Orbes + anneau */
+    layers[0].el = document.querySelector('.shape-ring');
+    layers[1].el = document.querySelector('.orb-1');
+    layers[2].el = document.querySelector('.orb-2');
+    layers[3].el = document.querySelector('.orb-3');
+    layers[4].el = document.querySelector('.orb-4');
+
+    /* Icônes tech fantômes — chacune assignée individuellement */
+    var hfiEls = document.querySelectorAll('.hfi');
+    hfiEls.forEach(function (el, i) {
+      if (hfiItems[i]) hfiItems[i].el = el;
+    });
 
     initReveal();
     initTilt();

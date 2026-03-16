@@ -130,71 +130,68 @@ body.dark-mode .hero h2 {
   font-size: 0.72rem;
 }
 
-/* ── Texte fantôme (couche 0 — la plus lointaine) ─ */
-.hero-bg-text {
+/* ── Icônes tech fantômes (couche 0 — fond) ──── */
+.hero-float-icons {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -52%);
-  font-size: clamp(180px, 26vw, 360px);
-  font-weight: 900;
-  color: transparent;
-  -webkit-text-stroke: 1.5px rgba(124,58,237,0.07);
-  letter-spacing: -0.02em;
-  white-space: nowrap;
+  inset: 0;
   pointer-events: none;
   user-select: none;
   z-index: 0;
+  overflow: hidden;
+}
+
+.hfi {
+  position: absolute;
+  pointer-events: none;
   will-change: transform;
-  line-height: 1;
+  opacity: 0.07;
+  filter: grayscale(1);
 }
 
-body.dark-mode .hero-bg-text {
-  -webkit-text-stroke-color: rgba(167,139,250,0.09);
+body.dark-mode .hfi {
+  opacity: 0.10;
+  filter: grayscale(1) brightness(1.6);
 }
 
-/* ── Formes géométriques (couche 1) ──────────── */
+.hfi img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Positions et tailles — 8 icônes éparpillées */
+.hfi-1 { width: 76px;  height: 76px;  top: 10%;  left: 5%;   }
+.hfi-2 { width: 54px;  height: 54px;  top: 7%;   right: 16%; }
+.hfi-3 { width: 66px;  height: 66px;  top: 44%;  left: 2%;   }
+.hfi-4 { width: 50px;  height: 50px;  top: 38%;  right: 3%;  }
+.hfi-5 { width: 62px;  height: 62px;  top: 70%;  left: 10%;  }
+.hfi-6 { width: 56px;  height: 56px;  top: 74%;  right: 8%;  }
+.hfi-7 { width: 46px;  height: 46px;  top: 20%;  left: 42%;  }
+.hfi-8 { width: 52px;  height: 52px;  top: 58%;  right: 26%; }
+
+/* ── Anneau géométrique (couche 1) ───────────── */
 .hero-shape {
   position: absolute;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
-  opacity: 0.45;
 }
 
 .shape-ring {
   width: 320px;
   height: 320px;
   border-radius: 50%;
-  border: 1px solid rgba(124,58,237,0.12);
+  border: 1px solid rgba(124,58,237,0.10);
   top: 8%;
   right: 5%;
+  opacity: 0.5;
   animation: shape-breathe 8s ease-in-out infinite;
 }
 
-.shape-cross {
-  width: 22px;
-  height: 22px;
-  bottom: 20%;
-  left: 10%;
-  opacity: 0.35;
-  animation: shape-breathe 6s ease-in-out 2s infinite;
-}
-
-.shape-cross::before,
-.shape-cross::after {
-  content: '';
-  position: absolute;
-  background: rgba(124,58,237,0.35);
-  border-radius: 2px;
-}
-
-.shape-cross::before { width: 100%; height: 2px; top: 50%; transform: translateY(-50%); }
-.shape-cross::after  { width: 2px; height: 100%; left: 50%; transform: translateX(-50%); }
-
 @keyframes shape-breathe {
-  0%, 100% { opacity: 0.45; transform: scale(1); }
-  50%       { opacity: 0.22; transform: scale(0.96); }
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 0.2; transform: scale(0.96); }
 }
 
 /* ── Orbes parallax (4 couches) ──────────────── */

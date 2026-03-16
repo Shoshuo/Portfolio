@@ -1,11 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
   <rect width="120" height="120" rx="16" fill="#FFCD00"/>
-  <!-- Hirondelle La Poste Groupe — stylisée -->
-  <!-- Aile gauche -->
-  <path d="M10 66 C20 50, 36 44, 48 50 C36 48, 20 56, 10 66Z" fill="white"/>
-  <!-- Aile droite -->
-  <path d="M110 66 C100 50, 84 44, 72 50 C84 48, 100 56, 110 66Z" fill="white"/>
-  <!-- Corps + queue fourchue -->
-  <path d="M48 50 C49 54, 48 62, 42 76 L60 64 L78 76 C72 62, 71 54, 72 50
-           C68 46, 64 44, 60 44 C56 44, 52 46, 48 50Z" fill="white"/>
+  <!-- Hirondelle La Poste Groupe — forme géométrique stylisée -->
+  <!-- Aile gauche : bande large qui balaye vers le bas-gauche -->
+  <path fill="white" d="
+    M60 32
+    C56 32, 18 38, 10 56
+    C20 48, 36 46, 50 56
+    L46 76
+    L60 62
+    L74 76
+    L70 56
+    C84 46, 100 48, 110 56
+    C102 38, 64 32, 60 32Z
+  "/>
 </svg>
