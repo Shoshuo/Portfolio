@@ -2096,29 +2096,29 @@ body.dark-mode .idx-section::before {
 }
 
 /* ══════════════════════════════════════════════
-   BARRE DE PROFONDEUR — suit --sect-prog au scroll
+   DÉGRADÉ AMBIANT — suit --sect-prog au scroll
+   Centre du radial remonte avec le scroll,
+   s'inverse automatiquement en remontant.
    ══════════════════════════════════════════════ */
 .sect-depth-bar {
   position: absolute;
-  left: 0;
-  right: 0;
-  height: 80px;
-  /* Se déplace du haut vers le bas de la section au fil du scroll */
-  top: calc(var(--sect-prog, 0.5) * 100% - 40px);
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(124,58,237,0.08) 35%,
-    rgba(6,182,212,0.08)  65%,
-    transparent 100%
+  inset: 0;
+  /* Le centre du glow est à Y = sect-prog * 100% (bas → haut au scroll) */
+  background: radial-gradient(
+    ellipse 100% 55% at 50% calc(var(--sect-prog, 0.5) * 100%),
+    rgba(124,58,237,0.08) 0%,
+    rgba(6,182,212,0.05)  35%,
+    transparent 65%
   );
   pointer-events: none;
   z-index: 0;
-  filter: blur(2px);
 }
 
 /* ══════════════════════════════════════════════
-   BALAYAGE LUMINEUX — déclenché à l'entrée section
+   BALAYAGE LUMINEUX — piloté par --sect-prog
+   Position = calc(-12% + sect-prog * 124%)
+   → gauche→droite en descendant, droite→gauche en remontant.
+   Overflow hidden masque la ligne hors limites.
    ══════════════════════════════════════════════ */
 .sect-scan {
   position: absolute;
@@ -2132,7 +2132,8 @@ body.dark-mode .idx-section::before {
   content: '';
   position: absolute;
   top: -25%;
-  left: -10%;
+  /* La ligne traverse la section de gauche à droite au fil du scroll */
+  left: calc(-12% + var(--sect-prog, 0) * 124%);
   width: 2px;
   height: 150%;
   background: linear-gradient(
@@ -2146,42 +2147,21 @@ body.dark-mode .idx-section::before {
   );
   transform: rotate(12deg);
   transform-origin: center center;
-  opacity: 0;
-}
-
-/* Animation déclenchée une seule fois à l'entrée de la section */
-.sect-entered .sect-scan::before {
-  animation: sect-scan-sweep 1.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s both;
-}
-
-@keyframes sect-scan-sweep {
-  0%   { left: -10%; opacity: 0; }
-  6%   { opacity: 1; }
-  94%  { opacity: 0.7; }
-  100% { left: 112%; opacity: 0; }
+  opacity: 0.6;
 }
 
 /* ══════════════════════════════════════════════
    DARK MODE — profondeur + scan
    ══════════════════════════════════════════════ */
 body.dark-mode .sect-depth-bar {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(124,58,237,0.12) 35%,
-    rgba(6,182,212,0.12)  65%,
-    transparent 100%
+  background: radial-gradient(
+    ellipse 100% 55% at 50% calc(var(--sect-prog, 0.5) * 100%),
+    rgba(124,58,237,0.12) 0%,
+    rgba(6,182,212,0.08)  35%,
+    transparent 65%
   );
 }
 
 body.dark-mode .sect-scan::before {
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(124,58,237,0.0) 8%,
-    rgba(124,58,237,0.7) 35%,
-    rgba(6,182,212,0.7)  65%,
-    rgba(6,182,212,0.0)  92%,
-    transparent 100%
-  );
+  opacity: 0.85;
 }

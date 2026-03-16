@@ -299,20 +299,9 @@
       section.insertBefore(scan, insertRef);
     });
 
-    /* Déclenche le balayage lumineux à l'entrée de chaque section */
-    if (!('IntersectionObserver' in window)) {
-      sections.forEach(function (s) { s.classList.add('sect-entered'); });
-      return;
-    }
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !entry.target.classList.contains('sect-entered')) {
-          entry.target.classList.add('sect-entered');
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    sections.forEach(function (s) { obs.observe(s); });
+    /* Scan + dégradé pilotés par --sect-prog (CSS scroll-driven animation).
+     * Aucune logique JS supplémentaire requise : l'animation se joue
+     * dans les deux sens selon la direction du scroll. */
   }
 
   /* ── Scroll indicator ────────────────────────── */
