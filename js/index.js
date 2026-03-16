@@ -293,27 +293,19 @@
     var reveals = document.querySelectorAll(sel);
     if (!reveals.length) return;
 
-    /* Éléments déjà visibles */
-    setTimeout(function () {
-      reveals.forEach(function (el) {
-        if (el.getBoundingClientRect().top < window.innerHeight - 40) {
-          el.classList.add('visible');
-        }
-      });
-    }, 80);
-
     if (!('IntersectionObserver' in window)) {
       reveals.forEach(function (el) { el.classList.add('visible'); });
       return;
     }
 
+    /* Toggle : .visible ajouté à l'entrée, retiré à la sortie (quelle que soit
+     * la direction). L'IO fire immédiatement pour les éléments en vue au chargement.
+     * → L'animation se rejoue à chaque re-entrée dans le viewport. */
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-        } else if (entry.boundingClientRect.top > 0) {
-          /* Élément repassé sous le viewport → retire .visible pour
-           * que l'animation se rejoue à la prochaine entrée. */
+        } else {
           entry.target.classList.remove('visible');
         }
       });
@@ -349,13 +341,16 @@
     var sections = document.querySelectorAll('#Profil, #Domaines, .idx-section');
     if (!sections.length) return;
 
-    /* Orbe brumeux : une section sur deux seulement (index pair) */
+    /* Orbe brumeux : une section sur deux (index pair), 3 variantes cycliques */
+    var orbVariants = ['orb-var-a', 'orb-var-b', 'orb-var-c'];
+    var orbCount = 0;
     sections.forEach(function (section, i) {
       if (i % 2 !== 0) return;
       var orb = document.createElement('div');
-      orb.className = 'sect-conic-orb';
+      orb.className = 'sect-conic-orb ' + orbVariants[orbCount % orbVariants.length];
       orb.setAttribute('aria-hidden', 'true');
       section.insertBefore(orb, section.firstChild);
+      orbCount++;
     });
   }
 
