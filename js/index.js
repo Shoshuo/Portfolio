@@ -181,9 +181,15 @@
       /* Dérive des blobs (nécessite @property <number> pour calc()) */
       item.el.style.setProperty('--sect-prog', prog.toFixed(4));
 
-      /* Angle du conic — valeur en degrés, passée directement à CSS */
+      /* Angle du conic — valeur en degrés, passée directement à CSS.
+       * Aucun calc() CSS → cross-browser garanti. */
       var angle = prog * item.conicRange + item.conicOffset;
       item.el.style.setProperty('--sect-conic', angle.toFixed(1) + 'deg');
+
+      /* Position du scan (% string calculé en JS → pas de calc() CSS).
+       * À prog=0 : -12% (hors champ gauche), prog=1 : 112% (hors champ droite).
+       * S'inverse automatiquement en remontant (lerp sur current.scrollY). */
+      item.el.style.setProperty('--scan-x', (-12 + prog * 124).toFixed(1) + '%');
 
       /* Aurora (section Contact) */
       if (item.isContact) {
@@ -348,11 +354,12 @@
     if (!sections.length) return;
 
     sections.forEach(function (section) {
-      /* Barre de profondeur (fond, derrière les orbes) */
-      var bar = document.createElement('div');
-      bar.className = 'sect-depth-bar';
-      bar.setAttribute('aria-hidden', 'true');
-      section.insertBefore(bar, section.firstChild);
+      /* Orbe conic rotatif — grand disque flou qui tourne comme une horloge.
+       * Inséré en premier → derrière les orbes et le scan. */
+      var orb = document.createElement('div');
+      orb.className = 'sect-conic-orb';
+      orb.setAttribute('aria-hidden', 'true');
+      section.insertBefore(orb, section.firstChild);
 
       /* Scan line (au-dessus des orbes, sous le contenu) */
       var scan = document.createElement('div');
@@ -362,10 +369,6 @@
       var insertRef = orbWrap ? orbWrap.nextSibling : section.firstChild;
       section.insertBefore(scan, insertRef);
     });
-
-    /* Scan + dégradé pilotés par --sect-prog (CSS scroll-driven animation).
-     * Aucune logique JS supplémentaire requise : l'animation se joue
-     * dans les deux sens selon la direction du scroll. */
   }
 
   /* ── Scroll indicator ────────────────────────── */
