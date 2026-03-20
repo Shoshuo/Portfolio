@@ -306,6 +306,146 @@ body.dark-mode .page-header-section h1 {
 .parc-kpi-stat:nth-child(7) .parc-kpi-num { animation-delay: 3s; }
 
 /* ══════════════════════════════════════════════
+   PAGE HEADER — pills tech
+   ══════════════════════════════════════════════ */
+
+.ph-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+}
+
+.ph-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: 50px;
+  background: rgba(124,58,237,0.08);
+  border: 1px solid rgba(124,58,237,0.18);
+  color: #7c3aed;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.ph-pill--cyan {
+  background: rgba(6,182,212,0.08);
+  border-color: rgba(6,182,212,0.18);
+  color: #0891b2;
+}
+
+.ph-pill--amber {
+  background: rgba(245,158,11,0.08);
+  border-color: rgba(245,158,11,0.18);
+  color: #b45309;
+}
+
+.ph-pill i { font-size: 0.68rem; }
+
+/* ══════════════════════════════════════════════
+   COMPÉTENCES TRANSVERSES — barres animées
+   ══════════════════════════════════════════════ */
+
+.parc-skills {
+  padding: 1.5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.parc-skills-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.parc-skills-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(124,58,237,0.10);
+  color: #7c3aed;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.parc-skills-title {
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+}
+
+.parc-skills-sub {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin: 0.1rem 0 0;
+}
+
+.parc-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2.5rem;
+}
+
+.parc-skill-item { display: flex; flex-direction: column; gap: 0.35rem; }
+
+.parc-skill-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.parc-skill-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.parc-skill-name i { font-size: 0.7rem; color: #7c3aed; }
+
+.parc-skill-pct {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #7c3aed;
+}
+
+.parc-skill-bar {
+  height: 5px;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.parc-skill-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 100%);
+  transition: width 1.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.parc-skill-fill--green {
+  background: linear-gradient(90deg, #10b981 0%, #06b6d4 100%);
+}
+
+/* La barre s'anime quand la section est visible */
+.parc-skills.visible .parc-skill-fill {
+  width: var(--skill-w);
+}
+
+body.dark-mode .parc-skills {
+  background: rgba(22,22,22,0.95) !important;
+}
+
+/* ══════════════════════════════════════════════
    SECTION EXPÉRIENCES — fond subtil avec orbes
    ══════════════════════════════════════════════ */
 
@@ -342,6 +482,138 @@ body.dark-mode .page-header-section h1 {
 }
 
 /* ══════════════════════════════════════════════
+   TIMELINE — fill scroll-driven (retiré de index.css)
+   ══════════════════════════════════════════════ */
+
+.tl-progress-fill {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(to bottom,
+    rgba(124,58,237,0.90) 0%,
+    rgba(6,182,212,0.90)  100%
+  );
+  border-radius: 2px;
+  z-index: 2;
+  pointer-events: none;
+  will-change: height;
+}
+
+/* ══════════════════════════════════════════════
+   EN APPRENTISSAGE (retiré de index.css)
+   ══════════════════════════════════════════════ */
+
+.parc-learn {
+  margin-top: 2rem;
+  padding: 1.5rem 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.parc-learn-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.parc-learn-icon-header {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: rgba(124,58,237,0.10);
+  color: #7c3aed;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.parc-learn-title {
+  font-size: 0.92rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+}
+
+.parc-learn-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  margin: 0.1rem 0 0;
+}
+
+.parc-learn-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.parc-learn-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.9rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm, 8px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.parc-learn-item:hover {
+  border-color: rgba(124,58,237,0.28);
+  transform: translateY(-2px);
+}
+
+.parc-learn-tech-icon {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+}
+
+.parc-learn-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.parc-learn-status {
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1px 7px;
+  border-radius: 20px;
+}
+
+.parc-learn-status--active {
+  background: rgba(16,185,129,0.10);
+  color: #10b981;
+  border: 1px solid rgba(16,185,129,0.20);
+}
+
+.parc-learn-status--planned {
+  background: rgba(124,58,237,0.08);
+  color: #7c3aed;
+  border: 1px solid rgba(124,58,237,0.18);
+}
+
+body.dark-mode .parc-learn {
+  background: rgba(22,22,22,0.95) !important;
+}
+
+/* ══════════════════════════════════════════════
+   CTA bas de section (retiré de index.css)
+   ══════════════════════════════════════════════ */
+
+.parc-cta {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+/* ══════════════════════════════════════════════
    RESPONSIVE
    ══════════════════════════════════════════════ */
 
@@ -352,6 +624,14 @@ body.dark-mode .page-header-section h1 {
 }
 
 @media (max-width: 575px) {
-  .parc-kpi-stat  { padding: 0.25rem 0.75rem; }
-  .parc-kpi-num   { font-size: 1.6rem; }
+  .parc-kpi-stat       { padding: 0.25rem 0.75rem; }
+  .parc-kpi-num        { font-size: 1.6rem; }
+  .parc-learn          { padding: 1.25rem 1rem; }
+  .parc-skills         { padding: 1.25rem 1rem; }
+  .parc-skills-grid    { grid-template-columns: 1fr; }
+  .ph-pills            { gap: 0.4rem; }
+}
+
+@media (max-width: 767px) {
+  .parc-skills-grid { grid-template-columns: 1fr; }
 }
