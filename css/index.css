@@ -2703,49 +2703,7 @@ body.dark-mode .parc-value-item {
   will-change: height;
 }
 
-/* ══════════════════════════════════════════════
-   TIMELINE — connecteurs carte ↔ dot (desktop)
-   ══════════════════════════════════════════════ */
-
-.tl-card { position: relative; }
-
-@media (min-width: 992px) {
-  .tl-entry.tl-left .tl-card::after,
-  .tl-entry.tl-right .tl-card::after {
-    content: '';
-    position: absolute;
-    top: 32px;
-    width: 11px;
-    height: 11px;
-    background: var(--bg-card);
-    border-radius: 2px;
-    z-index: 1;
-  }
-  /* Flèche droite pour les cartes gauches (pointe vers le centre) */
-  .tl-entry.tl-left .tl-card::after {
-    right: -6px;
-    border-right: 1px solid var(--border-subtle);
-    border-top:   1px solid var(--border-subtle);
-    transform: rotate(45deg);
-  }
-  /* La bordure gauche violette du CDI se prolonge sur le connecteur */
-  .tl-entry.tl-left .tl-card--cdi::after {
-    border-right-color: rgba(124,58,237,0.45);
-    border-top-color:   rgba(124,58,237,0.45);
-  }
-  /* Flèche gauche pour les cartes droites (pointe vers le centre) */
-  .tl-entry.tl-right .tl-card::after {
-    left: -6px;
-    border-left:   1px solid var(--border-subtle);
-    border-bottom: 1px solid var(--border-subtle);
-    transform: rotate(45deg);
-  }
-  /* Éducation — connecteur cyan */
-  .tl-entry.tl-right .tl-card--edu::after {
-    border-left-color:   rgba(6,182,212,0.35);
-    border-bottom-color: rgba(6,182,212,0.35);
-  }
-}
+/* connecteurs déplacés dans parcours.css (spécifique à parcours.html) */
 
 /* ══════════════════════════════════════════════
    PARCOURS — En apprentissage
