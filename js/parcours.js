@@ -98,11 +98,63 @@
   }
 
   /* ─────────────────────────────────────────────
+   * SCROLLSPY — surligne l'item nav actif
+   * selon la section visible à l'écran
+   * ───────────────────────────────────────────── */
+  function initScrollspy() {
+    var navItems  = document.querySelectorAll('.parc-nav-item');
+    var sections  = [];
+    navItems.forEach(function (item) {
+      var id = item.getAttribute('href').replace('#', '');
+      var el = document.getElementById(id);
+      if (el) sections.push({ el: el, nav: item });
+    });
+    if (!sections.length) return;
+
+    function update() {
+      var scrollY = window.scrollY || window.pageYOffset;
+      var vh      = window.innerHeight;
+      var active  = null;
+
+      sections.forEach(function (s) {
+        var top = s.el.getBoundingClientRect().top + scrollY;
+        if (scrollY + vh * 0.35 >= top) active = s;
+      });
+
+      navItems.forEach(function (n) { n.classList.remove('active'); });
+      if (active) active.nav.classList.add('active');
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* ─────────────────────────────────────────────
+   * SKILL BARS — anime les barres quand visible
+   * ───────────────────────────────────────────── */
+  function initSkillBars() {
+    var container = document.querySelector('.parc-skills');
+    if (!container || !('IntersectionObserver' in window)) return;
+    var done = false;
+    var obs  = new IntersectionObserver(function (entries) {
+      if (done) return;
+      if (entries[0].isIntersecting) {
+        done = true;
+        container.classList.add('visible');
+        obs.disconnect();
+      }
+    }, { threshold: 0.2 });
+    obs.observe(container);
+  }
+
+  /* ─────────────────────────────────────────────
    * INIT
    * ───────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initReveal();
     initKpiCounters();
     initTimelineFills();
+    initScrollspy();
+    initSkillBars();
   });
 })();

@@ -2575,7 +2575,33 @@ body.dark-mode #cursor-glow {
   100% { top: calc(100% + 80px); }
 }
 
-/* layout alternée desktop → parcours.css uniquement */
+/* ── Layout alternée desktop ─────────────────── */
+@media (min-width: 992px) {
+  .tl-wrap {
+    padding-left: 0;
+    max-width: 960px;
+  }
+
+  .tl-line {
+    left: 50%;
+    transform: translateX(-1px);
+  }
+
+  /* Uniquement sur les entrées avec classe gauche/droite explicite */
+  .tl-entry.tl-left,
+  .tl-entry.tl-right {
+    width: 50%;
+    margin-bottom: 2.5rem;
+  }
+
+  .tl-entry.tl-left  { padding-right: 3.5rem; padding-left: 0; }
+  .tl-entry.tl-right { margin-left: 50%; padding-left: 3.5rem; padding-right: 0; }
+
+  .tl-entry.tl-left  .tl-dot { left: auto; right: -7px; top: 28px; }
+  .tl-entry.tl-right .tl-dot { left: -7px; right: auto; top: 28px; }
+
+  .tl-entry.tl-right .tl-card:hover { transform: translateX(-5px); }
+}
 
 /* ── Valeurs & posture ───────────────────────── */
 .parc-values {
