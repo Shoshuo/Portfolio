@@ -322,6 +322,50 @@
   }
 
   /* ─────────────────────────────────────────────
+   * KPI PARCOURS — count-up au défilement
+   * Réutilise countUp() sur les chiffres .parc-kpi-num
+   * ───────────────────────────────────────────── */
+  function initKpiCounters() {
+    var kpiWrap = document.querySelector('.parc-kpi');
+    var kpis    = document.querySelectorAll('.parc-kpi-num');
+    if (!kpiWrap || !kpis.length || !('IntersectionObserver' in window)) return;
+    var done = false;
+    var obs  = new IntersectionObserver(function (entries) {
+      if (done) return;
+      if (entries[0].isIntersecting) {
+        done = true;
+        kpis.forEach(countUp);
+        obs.disconnect();
+      }
+    }, { threshold: 0.5 });
+    obs.observe(kpiWrap);
+  }
+
+  /* ─────────────────────────────────────────────
+   * TIMELINE FILL — hauteur du fill suit le scroll
+   * La ligne se "remplit" au fur et à mesure que
+   * l'utilisateur progresse dans la timeline.
+   * ───────────────────────────────────────────── */
+  function initTimelineFill() {
+    var fill = document.querySelector('.tl-progress-fill');
+    var wrap = document.querySelector('.tl-wrap');
+    if (!fill || !wrap) return;
+
+    function update() {
+      var rect = wrap.getBoundingClientRect();
+      var vh   = window.innerHeight;
+      /* Commence quand le haut de la timeline entre dans le viewport
+         et se complète quand le bas passe le milieu de l'écran. */
+      var prog = (vh * 0.55 - rect.top) / rect.height;
+      prog = Math.max(0, Math.min(1, prog));
+      fill.style.height = (prog * 100).toFixed(1) + '%';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update(); /* état initial */
+  }
+
+  /* ─────────────────────────────────────────────
    * REVEAL — IntersectionObserver
    * ───────────────────────────────────────────── */
   function initReveal() {
@@ -476,6 +520,8 @@
     initReveal();
     initTilt();
     initCounters();
+    initKpiCounters();
+    initTimelineFill();
     initScrollIndicator();
     initSpotlight();
     initSectionEffects();

@@ -556,7 +556,9 @@
 
             <!-- ── Timeline alternée ── -->
             <div class="tl-wrap">
-                <div class="tl-line"></div>
+                <div class="tl-line">
+                    <div class="tl-progress-fill" aria-hidden="true"></div>
+                </div>
 
                 <!-- La Poste — CDI (gauche) -->
                 <div class="tl-entry tl-left reveal-right">
@@ -670,6 +672,39 @@
 
             </div><!-- end tl-wrap -->
 
+            <!-- ── En apprentissage ── -->
+            <div class="parc-learn reveal">
+                <div class="parc-learn-header">
+                    <div class="parc-learn-icon-header"><i class="fa fa-book-open"></i></div>
+                    <div>
+                        <p class="parc-learn-title">En apprentissage</p>
+                        <p class="parc-learn-subtitle">Technologies et certifications en cours d'acquisition</p>
+                    </div>
+                </div>
+                <div class="parc-learn-items">
+                    <div class="parc-learn-item">
+                        <i class="fa-brands fa-docker parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Kubernetes</span>
+                        <span class="parc-learn-status parc-learn-status--active">En cours</span>
+                    </div>
+                    <div class="parc-learn-item">
+                        <i class="fa-brands fa-vuejs parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Vue.js</span>
+                        <span class="parc-learn-status parc-learn-status--active">En cours</span>
+                    </div>
+                    <div class="parc-learn-item">
+                        <i class="fa-brands fa-aws parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Cloud AWS</span>
+                        <span class="parc-learn-status parc-learn-status--planned">Prévu</span>
+                    </div>
+                    <div class="parc-learn-item">
+                        <i class="fa fa-lock parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Cybersécurité</span>
+                        <span class="parc-learn-status parc-learn-status--planned">Prévu</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- ── Valeurs & posture ── -->
             <div class="parc-values">
                 <div class="parc-value-item reveal">
@@ -700,6 +735,16 @@
                         <p>Montée en compétence rapide</p>
                     </div>
                 </div>
+            </div>
+
+            <!-- ── CTA bas Parcours ── -->
+            <div class="parc-cta reveal">
+                <a href="upload/cv.pdf" download class="hero-cta-primary">
+                    <i class="fa fa-download"></i> Télécharger mon CV
+                </a>
+                <a href="https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/" target="_blank" class="hero-cta-secondary">
+                    <i class="fa-brands fa-linkedin"></i> Mon LinkedIn
+                </a>
             </div>
 
         </div>
