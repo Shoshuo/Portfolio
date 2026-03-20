@@ -45,14 +45,14 @@
    * de profondeur réaliste (couche la plus lente = la plus lointaine).
    */
   var hfiItems = [
-    { el: null, scrollSpeed: 0.03, mouseDepth: 4  },  /* hfi-1 php       */
-    { el: null, scrollSpeed: 0.07, mouseDepth: 7  },  /* hfi-2 docker    */
-    { el: null, scrollSpeed: 0.05, mouseDepth: 5  },  /* hfi-3 linux     */
-    { el: null, scrollSpeed: 0.09, mouseDepth: 9  },  /* hfi-4 git       */
-    { el: null, scrollSpeed: 0.04, mouseDepth: 6  },  /* hfi-5 golang    */
-    { el: null, scrollSpeed: 0.08, mouseDepth: 8  },  /* hfi-6 js        */
-    { el: null, scrollSpeed: 0.06, mouseDepth: 5  },  /* hfi-7 mysql     */
-    { el: null, scrollSpeed: 0.11, mouseDepth: 11 }   /* hfi-8 python    */
+    { el: null, scrollSpeed: 0.03, mouseDepth: 4,  rotSpeed:  0.016, rot: 0 },  /* hfi-1 php    */
+    { el: null, scrollSpeed: 0.07, mouseDepth: 7,  rotSpeed: -0.022, rot: 0 },  /* hfi-2 docker */
+    { el: null, scrollSpeed: 0.05, mouseDepth: 5,  rotSpeed:  0.012, rot: 0 },  /* hfi-3 linux  */
+    { el: null, scrollSpeed: 0.09, mouseDepth: 9,  rotSpeed: -0.028, rot: 0 },  /* hfi-4 git    */
+    { el: null, scrollSpeed: 0.04, mouseDepth: 6,  rotSpeed:  0.020, rot: 0 },  /* hfi-5 golang */
+    { el: null, scrollSpeed: 0.08, mouseDepth: 8,  rotSpeed: -0.014, rot: 0 },  /* hfi-6 js     */
+    { el: null, scrollSpeed: 0.06, mouseDepth: 5,  rotSpeed:  0.024, rot: 0 },  /* hfi-7 mysql  */
+    { el: null, scrollSpeed: 0.11, mouseDepth: 11, rotSpeed: -0.018, rot: 0 }   /* hfi-8 python */
   ];
 
   /* ── Orbes des sections intérieures ────────────
@@ -78,6 +78,10 @@
   var rafId   = null;
   var heroH   = 0;
 
+  /* ── Vélocité scroll — inertie des anneaux ─── */
+  var prevLerpedScroll = 0;
+  var scrollVelocity   = 0;
+
   /* ─────────────────────────────────────────────
    * BOUCLE RAF — lerp + rendu
    * ───────────────────────────────────────────── */
@@ -86,6 +90,9 @@
     current.scrollY = lerp(current.scrollY, target.scrollY, LERP_SCROLL);
     current.mouseX  = lerp(current.mouseX,  target.mouseX,  LERP_MOUSE);
     current.mouseY  = lerp(current.mouseY,  target.mouseY,  LERP_MOUSE);
+
+    scrollVelocity   = current.scrollY - prevLerpedScroll;
+    prevLerpedScroll = current.scrollY;
 
     renderParallax();
     updateSectionEffects();
@@ -116,6 +123,8 @@
       var ty = sy * item.scrollSpeed + my * item.mouseDepth;
       var tx = mx * item.mouseDepth;
       item.el.style.transform = 'translate(' + tx.toFixed(2) + 'px, ' + ty.toFixed(2) + 'px)';
+      item.rot += item.rotSpeed;
+      item.el.style.rotate = item.rot.toFixed(3) + 'deg';
     });
     } /* fin du if (sy <= maxH) */
 
@@ -156,11 +165,11 @@
      * Utilise rotate (prop. individuelle) → compose avec
      * style.transform (translate) sans conflit.
      */
-    if (layers[1].el) {  /* hr-2 — sens horaire */
-      layers[1].el.style.rotate = (sy * 0.055).toFixed(2) + 'deg';
+    if (layers[1].el) {  /* hr-2 — sens horaire + inertie vélocité */
+      layers[1].el.style.rotate = (sy * 0.055 + scrollVelocity * 1.8).toFixed(2) + 'deg';
     }
-    if (layers[0].el) {  /* hr-3 — sens anti-horaire */
-      layers[0].el.style.rotate = (-sy * 0.038).toFixed(2) + 'deg';
+    if (layers[0].el) {  /* hr-3 — sens anti-horaire + inertie vélocité */
+      layers[0].el.style.rotate = (-sy * 0.038 - scrollVelocity * 1.2).toFixed(2) + 'deg';
     }
 
     /* ── Bordure carte : --border-angle suit le scroll ── */
@@ -188,7 +197,8 @@
 
       /* Aurora (section Contact) */
       if (item.isContact) {
-        item.el.style.setProperty('--sect-aurora', (prog * 360).toFixed(1) + 'deg');
+        item.el.style.setProperty('--sect-aurora',   (prog * 360).toFixed(1) + 'deg');
+        item.el.style.setProperty('--sect-aurora-b', (prog * 360 + 180).toFixed(1) + 'deg');
       }
       /* Grille (section Stack) */
       if (item.isStack) {
