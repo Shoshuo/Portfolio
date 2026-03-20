@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parcours — Joshua BETHOULE-VOISIN</title>
-    <meta name="description" content="Parcours scolaire et professionnel de Joshua BETHOULE-VOISIN.">
+    <meta name="description" content="Parcours scolaire et professionnel de Joshua BETHOULE-VOISIN — Analyste d'exploitation @ La Poste.">
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -21,7 +21,10 @@
     <link href="css/modals.css" rel="stylesheet">
     <link href="css/card.css" rel="stylesheet">
     <link href="css/project.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
     <link href="css/new-design.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/parcours.css" rel="stylesheet">
 </head>
 <body>
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.body.classList.add('dark-mode');})()</script>
@@ -64,113 +67,481 @@
 
     <!-- ==================== PAGE HEADER ==================== -->
     <div class="page-header-section">
+        <!-- Orbes décoratifs -->
+        <div class="ph-orb ph-orb-1" aria-hidden="true"></div>
+        <div class="ph-orb ph-orb-2" aria-hidden="true"></div>
+        <div class="ph-orb ph-orb-3" aria-hidden="true"></div>
+
         <div class="container">
-            <div class="page-tag">Parcours</div>
-            <h1>Mon Parcours</h1>
-            <p class="page-sub">Cursus scolaire &amp; expériences professionnelles</p>
+            <div class="page-tag reveal-wipe">Parcours</div>
+            <h1 class="reveal-wipe reveal-delay-1">Expériences &amp; Formation</h1>
+            <p class="page-sub reveal-wipe reveal-delay-2">De la découverte au terrain — une progression concrète et ancrée dans des environnements réels.</p>
+
+            <!-- ── Chiffres clés ── -->
+            <div class="parc-kpi-wrap reveal">
+                <div class="parc-kpi-stat">
+                    <span class="parc-kpi-num">7+</span>
+                    <span class="parc-kpi-label">expériences</span>
+                </div>
+                <div class="parc-kpi-sep" aria-hidden="true"></div>
+                <div class="parc-kpi-stat">
+                    <span class="parc-kpi-num">5</span>
+                    <span class="parc-kpi-label">ans de formation</span>
+                </div>
+                <div class="parc-kpi-sep" aria-hidden="true"></div>
+                <div class="parc-kpi-stat">
+                    <span class="parc-kpi-num">15+</span>
+                    <span class="parc-kpi-label">technologies</span>
+                </div>
+                <div class="parc-kpi-sep" aria-hidden="true"></div>
+                <div class="parc-kpi-stat">
+                    <span class="parc-kpi-num">3</span>
+                    <span class="parc-kpi-label">domaines maîtrisés</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- ==================== CONTENU ==================== -->
-    <section id="Parcours" class="section-lb">
+    <!-- ==================== EXPÉRIENCES ==================== -->
+    <section class="section" id="Experiences">
         <div class="container">
-            <div class="section-title text-center">
-                <h4>Cursus Scolaire</h4>
+
+            <div class="profil-section-header">
+                <div class="profil-section-tag reveal-wipe">Professionnel</div>
+                <h2 class="profil-section-title reveal-wipe reveal-delay-1">Expériences</h2>
+                <p class="parc-subtitle reveal-wipe reveal-delay-2">CDI et stages — du terrain à la production.</p>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="media service-style-03" style="margin-bottom:2rem;">
-                        <div class="media-body">
-                            <p>Mon cursus <strong style="color:#c4b5fd">scolaire</strong>, mes différentes <strong style="color:#c4b5fd">formations</strong> et mon parcours <strong style="color:#c4b5fd">professionnel</strong>.</p>
+            <!-- Navigation d'ancres -->
+            <div class="parc-section-nav reveal">
+                <a href="#Experiences" class="parc-nav-item active">
+                    <i class="fa fa-briefcase"></i> Expériences
+                </a>
+                <a href="#Formation" class="parc-nav-item">
+                    <i class="fa fa-graduation-cap"></i> Formation
+                </a>
+            </div>
+
+            <div class="tl-wrap">
+                <div class="tl-line">
+                    <div class="tl-progress-fill" aria-hidden="true"></div>
+                </div>
+
+                <!-- ── La Poste — CDI (gauche) ── -->
+                <div class="tl-entry tl-left reveal-right">
+                    <div class="tl-dot"></div>
+                    <div class="tl-card tl-card--cdi">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--cdi">CDI</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 3 mois+</span>
+                        </div>
+                        <div class="tl-date">Déc. 2025 → Présent</div>
+                        <div class="tl-company-row">
+                            <img src="images/icons/laposte.svg" alt="La Poste" class="tl-logo">
+                            <div>
+                                <p class="tl-title">Analyste d'exploitation</p>
+                                <p class="tl-company">La Poste Groupe · Limoges</p>
+                            </div>
+                            <span class="tl-badge">En poste</span>
+                        </div>
+                        <p class="tl-desc">Supervision et maintien en conditions opérationnelles de systèmes critiques de production. Participation à l'évolution des pipelines CI/CD et à l'ordonnancement des traitements batch.</p>
+                        <ul class="tl-achievements">
+                            <li><i class="bi bi-check-circle-fill"></i>Ordonnancement de traitements via VTOM</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Supervision applicative &amp; alerting Grafana / Kibana</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Contribution aux pipelines CI/CD Dockerisés (GitLab CI, Jenkins)</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Application des bonnes pratiques AGILE &amp; ITIL</li>
+                        </ul>
+                        <div class="tl-tags">
+                            <span class="tl-tag">CI/CD</span>
+                            <span class="tl-tag">VTOM</span>
+                            <span class="tl-tag">Docker</span>
+                            <span class="tl-tag">Grafana</span>
+                            <span class="tl-tag">Kibana</span>
+                            <span class="tl-tag">Linux</span>
+                            <span class="tl-tag">ITIL</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="timeline-all">
-                        <section class="timeline">
-                            <ul>
-                                <li>
-                                    <div>
-                                        <time>2025 — 2026 · Prochainement</time>
-                                        Accepté à l'ENI pour poursuivre mes études en alternance<br><br>
-                                        <strong style="color:#c4b5fd">(BAC+3) Concepteur Développeur d'Applications</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>2023 — 2025 · À ce jour</time>
-                                        Lycée Aliénor d'Aquitaine — Poitiers (86)<br><br>
-                                        <strong style="color:#c4b5fd">(BAC+2) BTS SIO option SLAM</strong>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>2020 — 2023</time>
-                                        Lycée des Métiers Maryse Bastié — Limoges (87)<br><br>
-                                        <strong style="color:#c4b5fd">BAC Pro SN option RISC</strong>
-                                    </div>
-                                </li>
-                            </ul>
-                        </section>
+                <!-- ── Broussaud Textile — Stage BTS 2 (droite) ── -->
+                <div class="tl-entry tl-right reveal-left">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage BTS 2</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 5 semaines</span>
+                        </div>
+                        <div class="tl-date">20 Jan. → 21 Fév. 2025</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-placeholder"><i class="fa fa-industry"></i></div>
+                            <div>
+                                <p class="tl-title">Développeur web</p>
+                                <p class="tl-company">Broussaud Textile · Limoges</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Intégration dans l'équipe technique pour le développement et la maintenance de l'application interne de gestion de l'entreprise textile.</p>
+                        <ul class="tl-achievements">
+                            <li><i class="bi bi-check-circle-fill"></i>Développement back-end Symfony 7 full-stack</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Intégration de composants React.js</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Gestion et optimisation de la base de données</li>
+                        </ul>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">Symfony 7</span>
+                            <span class="tl-tag tl-tag--amber">React.js</span>
+                            <span class="tl-tag tl-tag--amber">PHP</span>
+                            <span class="tl-tag tl-tag--amber">MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── LC-NETWORK — Stage BTS 1 (gauche) ── -->
+                <div class="tl-entry tl-left reveal-right">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage BTS 1</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 5 semaines</span>
+                        </div>
+                        <div class="tl-date">13 Mai → 14 Juin 2024</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-placeholder"><i class="fa fa-network-wired"></i></div>
+                            <div>
+                                <p class="tl-title">Développeur &amp; technicien IoT</p>
+                                <p class="tl-company">LC-NETWORK · Nexon</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Missions variées en développement web et installation de systèmes domotiques et d'énergie renouvelable.</p>
+                        <ul class="tl-achievements">
+                            <li><i class="bi bi-check-circle-fill"></i>Développement d'applications avec Symfony</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Installation et configuration de systèmes domotiques</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Mise en place de panneaux solaires et monitoring</li>
+                        </ul>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">Symfony</span>
+                            <span class="tl-tag tl-tag--amber">PHP</span>
+                            <span class="tl-tag tl-tag--amber">Domotique</span>
+                            <span class="tl-tag tl-tag--amber">IoT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Arène Informatique — Stage Terminale (droite) ── -->
+                <div class="tl-entry tl-right reveal-left">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage Terminale</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 5 semaines</span>
+                        </div>
+                        <div class="tl-date">Jan. → Fév. 2023</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-placeholder"><i class="fa fa-desktop"></i></div>
+                            <div>
+                                <p class="tl-title">Technicien informatique</p>
+                                <p class="tl-company">Arène Informatique · Limoges</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Dépannage et maintenance de matériel informatique pour des clients particuliers et professionnels.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">Maintenance</span>
+                            <span class="tl-tag tl-tag--amber">Windows</span>
+                            <span class="tl-tag tl-tag--amber">Réseaux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── LC-NETWORK — Stage Terminale 2 (gauche) ── -->
+                <div class="tl-entry tl-left reveal-right">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage Terminale</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 5 semaines</span>
+                        </div>
+                        <div class="tl-date">Oct. → Nov. 2022</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-placeholder"><i class="fa fa-network-wired"></i></div>
+                            <div>
+                                <p class="tl-title">Développeur web</p>
+                                <p class="tl-company">LC-NETWORK · Nexon</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Création du site vitrine "Le Jardin de Ginette" — conception et développement complet.</p>
+                        <ul class="tl-achievements">
+                            <li><i class="bi bi-check-circle-fill"></i>Site vitrine complet responsive en HTML/CSS/JS</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Formulaire de contact et référencement de base</li>
+                        </ul>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">HTML</span>
+                            <span class="tl-tag tl-tag--amber">CSS</span>
+                            <span class="tl-tag tl-tag--amber">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Micro-Rezo — Stage Première (droite) ── -->
+                <div class="tl-entry tl-right reveal-left">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage Première</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 5 semaines</span>
+                        </div>
+                        <div class="tl-date">14 Mars → 15 Avr. 2022</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-placeholder"><i class="fa fa-wrench"></i></div>
+                            <div>
+                                <p class="tl-title">Technicien assistance informatique</p>
+                                <p class="tl-company">Micro-Rezo · Limoges</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Assistance au service de dépannage informatique — diagnostic et résolution de pannes matérielles et logicielles.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">Dépannage</span>
+                            <span class="tl-tag tl-tag--amber">Windows</span>
+                            <span class="tl-tag tl-tag--amber">Réseaux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Lycée Maryse Bastié — Stage Première (gauche) ── -->
+                <div class="tl-entry tl-left reveal-right">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage Première</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 3 semaines</span>
+                        </div>
+                        <div class="tl-date">29 Nov. → 17 Déc. 2021</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-edu"><i class="fa fa-graduation-cap"></i></div>
+                            <div>
+                                <p class="tl-title">Technicien réseaux</p>
+                                <p class="tl-company">Lycée Maryse Bastié · Limoges</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Stage réseaux informatiques réalisé au sein de l'établissement dans le contexte des restrictions COVID.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">Réseaux</span>
+                            <span class="tl-tag tl-tag--amber">TCP/IP</span>
+                            <span class="tl-tag tl-tag--amber">Linux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Safran — Stage 3ème (droite) ── -->
+                <div class="tl-entry tl-right reveal-left">
+                    <div class="tl-dot tl-dot--stage"></div>
+                    <div class="tl-card tl-card--stage">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--stage">Stage 3ème</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 1 semaine</span>
+                        </div>
+                        <div class="tl-date">18 Nov. → 22 Nov. 2019</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-placeholder"><i class="fa fa-industry"></i></div>
+                            <div>
+                                <p class="tl-title">Stage de découverte</p>
+                                <p class="tl-company">Safran Filtration Systems · Nexon</p>
+                            </div>
+                        </div>
+                        <p class="tl-desc">Stage d'observation dans un environnement industriel de haute technologie — premier contact avec le monde professionnel.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--amber">Découverte</span>
+                            <span class="tl-tag tl-tag--amber">Industrie</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end tl-wrap Expériences -->
+
+        </div>
+    </section>
+
+    <!-- ==================== FORMATION ==================== -->
+    <section class="section-lb" id="Formation">
+        <div class="container">
+
+            <div class="profil-section-header">
+                <div class="profil-section-tag reveal-wipe">Académique</div>
+                <h2 class="profil-section-title reveal-wipe reveal-delay-1">Formation</h2>
+                <p class="parc-subtitle reveal-wipe reveal-delay-2">Du BAC Pro au BAC+3 — une progression continue.</p>
+            </div>
+
+            <div class="tl-wrap">
+                <div class="tl-line">
+                    <div class="tl-progress-fill" aria-hidden="true"></div>
+                </div>
+
+                <!-- ── ENI — CDA BAC+3 (gauche) ── -->
+                <div class="tl-entry tl-left reveal-right">
+                    <div class="tl-dot tl-dot--edu"></div>
+                    <div class="tl-card tl-card--edu">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--edu">BAC+3</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 1 an</span>
+                        </div>
+                        <div class="tl-date">2025 → 2026</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-edu"><i class="fa fa-graduation-cap"></i></div>
+                            <div>
+                                <p class="tl-title">Concepteur Développeur d'Applications</p>
+                                <p class="tl-company">ENI · Alternance</p>
+                            </div>
+                            <span class="tl-badge tl-badge--upcoming">Prochainement</span>
+                        </div>
+                        <p class="tl-desc">Formation BAC+3 CDA en alternance — conception et développement d'applications métiers complexes, architecture logicielle et gestion de projet.</p>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--cyan">CDA</span>
+                            <span class="tl-tag tl-tag--cyan">Alternance</span>
+                            <span class="tl-tag tl-tag--cyan">BAC+3</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── BTS SIO SLAM (droite) ── -->
+                <div class="tl-entry tl-right reveal-left">
+                    <div class="tl-dot tl-dot--edu"></div>
+                    <div class="tl-card tl-card--edu">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--edu">BAC+2</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 2 ans</span>
+                        </div>
+                        <div class="tl-date">2023 → 2025</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-edu"><i class="fa fa-graduation-cap"></i></div>
+                            <div>
+                                <p class="tl-title">BTS SIO option SLAM</p>
+                                <p class="tl-company">Lycée Aliénor d'Aquitaine · Poitiers</p>
+                            </div>
+                            <span class="tl-badge tl-badge--done">Diplomé</span>
+                        </div>
+                        <p class="tl-desc">Solutions Logicielles et Applications Métiers — développement web full-stack, bases de données, administration système et réseau.</p>
+                        <ul class="tl-achievements">
+                            <li><i class="bi bi-check-circle-fill"></i>Développement d'applications web full-stack</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Projets PHP, Python, JavaScript &amp; SQL</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Administration réseau &amp; systèmes Linux</li>
+                            <li><i class="bi bi-check-circle-fill"></i>2 stages en entreprise intégrés au cursus</li>
+                        </ul>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--cyan">PHP</span>
+                            <span class="tl-tag tl-tag--cyan">Python</span>
+                            <span class="tl-tag tl-tag--cyan">JavaScript</span>
+                            <span class="tl-tag tl-tag--cyan">SQL</span>
+                            <span class="tl-tag tl-tag--cyan">Réseaux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── BAC Pro SN RISC (gauche) ── -->
+                <div class="tl-entry tl-left reveal-right">
+                    <div class="tl-dot tl-dot--edu"></div>
+                    <div class="tl-card tl-card--edu">
+                        <div class="tl-header-row">
+                            <span class="tl-type tl-type--edu">BAC Pro</span>
+                            <span class="tl-duration"><i class="fa fa-clock"></i> 3 ans</span>
+                        </div>
+                        <div class="tl-date">2020 → 2023</div>
+                        <div class="tl-company-row">
+                            <div class="tl-logo-edu"><i class="fa fa-graduation-cap"></i></div>
+                            <div>
+                                <p class="tl-title">BAC Pro SN option RISC</p>
+                                <p class="tl-company">Lycée des Métiers Maryse Bastié · Limoges</p>
+                            </div>
+                            <span class="tl-badge tl-badge--done">Diplomé</span>
+                        </div>
+                        <p class="tl-desc">Systèmes Numériques option Réseaux Informatiques et Systèmes Communicants — première approche des réseaux, du hardware et de l'électronique.</p>
+                        <ul class="tl-achievements">
+                            <li><i class="bi bi-check-circle-fill"></i>Configuration et administration de réseaux</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Bases en électronique et systèmes embarqués</li>
+                            <li><i class="bi bi-check-circle-fill"></i>Premiers projets web et scripting</li>
+                        </ul>
+                        <div class="tl-tags">
+                            <span class="tl-tag tl-tag--cyan">Réseaux</span>
+                            <span class="tl-tag tl-tag--cyan">Systèmes</span>
+                            <span class="tl-tag tl-tag--cyan">Électronique</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- end tl-wrap Formation -->
+
+            <!-- ── En apprentissage ── -->
+            <div class="parc-learn reveal" style="margin-top: 3rem;">
+                <div class="parc-learn-header">
+                    <div class="parc-learn-icon-header"><i class="fa fa-book-open"></i></div>
+                    <div>
+                        <p class="parc-learn-title">En apprentissage</p>
+                        <p class="parc-learn-subtitle">Technologies et certifications en cours d'acquisition</p>
+                    </div>
+                </div>
+                <div class="parc-learn-items">
+                    <div class="parc-learn-item">
+                        <i class="fa-brands fa-docker parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Kubernetes</span>
+                        <span class="parc-learn-status parc-learn-status--active">En cours</span>
+                    </div>
+                    <div class="parc-learn-item">
+                        <i class="fa-brands fa-vuejs parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Vue.js</span>
+                        <span class="parc-learn-status parc-learn-status--active">En cours</span>
+                    </div>
+                    <div class="parc-learn-item">
+                        <i class="fa-brands fa-aws parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Cloud AWS</span>
+                        <span class="parc-learn-status parc-learn-status--planned">Prévu</span>
+                    </div>
+                    <div class="parc-learn-item">
+                        <i class="fa fa-lock parc-learn-tech-icon"></i>
+                        <span class="parc-learn-name">Cybersécurité</span>
+                        <span class="parc-learn-status parc-learn-status--planned">Prévu</span>
                     </div>
                 </div>
             </div>
 
-            <div class="section-title text-center" style="margin-top:4rem;">
-                <h4>Expériences Professionnelles</h4>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="timeline-all">
-                        <section class="timeline">
-                            <ul>
-                                <li>
-                                    <div>
-                                        <time>20 Jan. 2025 — 21 Fév. 2025 · Stage BTS 2</time>
-                                        Intégration chez <strong style="color:#c4b5fd">Broussaud Textile</strong> pour un stage de 5 semaines en développement web. Travail sur l'application interne de l'entreprise (Symfony 7, React.js).
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>13 Mai 2024 — 14 Juin 2024 · Stage BTS 1</time>
-                                        Retour chez <strong style="color:#c4b5fd">LC-NETWORK</strong> à Nexon pour des missions plus complexes : domotique, panneaux solaires, Symfony.
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>Jan. 2023 — Fév. 2023 · Stage Terminale</time>
-                                        Stage chez <strong style="color:#c4b5fd">Arène Informatique</strong> — dépannage et maintenance informatique.
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>Oct. 2022 — Nov. 2022 · Stage Terminale</time>
-                                        Stage chez <strong style="color:#c4b5fd">LC-NETWORK</strong> — développement du site vitrine "Le Jardin de Ginette" en HTML/CSS/JS.
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>14 Mars 2022 — 15 Avr. 2022 · Stage Première</time>
-                                        Stage chez <strong style="color:#c4b5fd">Micro-Rezo</strong> à Limoges — assistance au service de dépannage informatique.
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>29 Nov. 2021 — 17 Déc. 2021 · Stage Première</time>
-                                        Stage au <strong style="color:#c4b5fd">Lycée Maryse Bastié</strong> — réseaux informatiques (contexte COVID).
-                                    </div>
-                                </li>
-                                <li>
-                                    <div>
-                                        <time>18 Nov. 2019 — 22 Nov. 2019 · Stage 3ème</time>
-                                        Stage de découverte chez <strong style="color:#c4b5fd">Safran Filtration Systems</strong> à Nexon.
-                                    </div>
-                                </li>
-                            </ul>
-                        </section>
+            <!-- ── Valeurs ── -->
+            <div class="parc-values" style="margin-top: 2rem;">
+                <div class="parc-value-item reveal">
+                    <div class="parc-value-icon"><i class="fa fa-shield-halved"></i></div>
+                    <div class="parc-value-text">
+                        <h4>Fiabilité</h4>
+                        <p>Systèmes critiques en production</p>
                     </div>
                 </div>
+                <div class="parc-value-item reveal reveal-delay-1">
+                    <div class="parc-value-icon parc-value-icon--cyan"><i class="fa fa-lightbulb"></i></div>
+                    <div class="parc-value-text">
+                        <h4>Curiosité</h4>
+                        <p>Veille tech &amp; apprentissage continu</p>
+                    </div>
+                </div>
+                <div class="parc-value-item reveal reveal-delay-2">
+                    <div class="parc-value-icon parc-value-icon--amber"><i class="fa fa-people-group"></i></div>
+                    <div class="parc-value-text">
+                        <h4>Esprit d'équipe</h4>
+                        <p>Collaboration DevOps &amp; transverse</p>
+                    </div>
+                </div>
+                <div class="parc-value-item reveal reveal-delay-3">
+                    <div class="parc-value-icon parc-value-icon--green"><i class="fa fa-chart-line"></i></div>
+                    <div class="parc-value-text">
+                        <h4>Progression</h4>
+                        <p>Montée en compétence rapide</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── CTA ── -->
+            <div class="parc-cta reveal">
+                <a href="upload/cv.pdf" download class="hero-cta-primary">
+                    <i class="fa fa-download"></i> Télécharger mon CV
+                </a>
+                <a href="https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/" target="_blank" class="hero-cta-secondary">
+                    <i class="fa-brands fa-linkedin"></i> Mon LinkedIn
+                </a>
+                <a href="./stages.html" class="hero-cta-secondary">
+                    <i class="fa fa-folder-open"></i> Détail des stages
+                </a>
             </div>
 
         </div>
@@ -184,7 +555,7 @@
                 <a href="https://github.com/Shoshuo" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                 <a href="mailto:joshuabv2005@gmail.com" title="Email"><i class="fa fa-envelope"></i></a>
             </div>
-            <p>Fait avec <span>♥</span> par <strong>Joshua BETHOULE-VOISIN</strong> &mdash; BTS SIO SLAM · 2025</p>
+            <p>Fait avec <span>♥</span> par <strong>Joshua BETHOULE-VOISIN</strong> &mdash; 2025</p>
         </div>
     </footer>
 
@@ -200,7 +571,7 @@
 <script src="js/custom.js"></script>
 <script src="js/snippet.js"></script>
 <script src="js/modals.js"></script>
-<script src="js/timeline.js"></script>
+<script src="js/parcours.js"></script>
 <script src="js/theme.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
