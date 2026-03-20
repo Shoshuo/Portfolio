@@ -2575,37 +2575,7 @@ body.dark-mode #cursor-glow {
   100% { top: calc(100% + 80px); }
 }
 
-/* ── Layout alternée desktop ─────────────────── */
-@media (min-width: 992px) {
-  .tl-wrap {
-    padding-left: 0;
-    max-width: 960px;
-  }
-
-  .tl-line {
-    left: 50%;
-    transform: translateX(-1px);
-  }
-
-  /* Chaque entrée occupe 50% — l'autre moitié est la voie de l'autre côté */
-  .tl-entry {
-    width: 50%;
-    margin-bottom: 2.5rem;
-  }
-
-  /* Gauche : carte dans la moitié gauche, gap vers le centre */
-  .tl-entry.tl-left  { padding-right: 3.5rem; padding-left: 0; }
-
-  /* Droite : carte dans la moitié droite */
-  .tl-entry.tl-right { margin-left: 50%; padding-left: 3.5rem; padding-right: 0; }
-
-  /* Dot au bord de l'entrée, côté ligne centrale (50%) */
-  .tl-entry.tl-left  .tl-dot { left: auto; right: -7px; top: 28px; }
-  .tl-entry.tl-right .tl-dot { left: -7px; right: auto; top: 28px; }
-
-  /* Cartes droite : hover glisse vers le centre */
-  .tl-entry.tl-right .tl-card:hover { transform: translateX(-5px); }
-}
+/* layout alternée desktop → parcours.css uniquement */
 
 /* ── Valeurs & posture ───────────────────────── */
 .parc-values {
