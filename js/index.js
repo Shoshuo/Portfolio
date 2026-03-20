@@ -82,6 +82,16 @@
   var prevLerpedScroll = 0;
   var scrollVelocity   = 0;
 
+  /* ── Barre de progression scroll ────────────── */
+  var scrollBarEl = null;
+
+  /* ── Halo curseur global ─────────────────────── */
+  var cursorGlowEl = null;
+  var cursorRawX   = null;  /* null = pas encore bougé */
+  var cursorRawY   = 0;
+  var cursorLerpX  = 0;
+  var cursorLerpY  = 0;
+
   /* ─────────────────────────────────────────────
    * BOUCLE RAF — lerp + rendu
    * ───────────────────────────────────────────── */
@@ -93,6 +103,15 @@
 
     scrollVelocity   = current.scrollY - prevLerpedScroll;
     prevLerpedScroll = current.scrollY;
+
+    /* Halo curseur — lerp doux vers position réelle */
+    if (cursorRawX !== null && cursorGlowEl) {
+      cursorLerpX = lerp(cursorLerpX, cursorRawX, 0.09);
+      cursorLerpY = lerp(cursorLerpY, cursorRawY, 0.09);
+      cursorGlowEl.style.transform =
+        'translate(' + (cursorLerpX - 300).toFixed(1) + 'px, ' +
+                       (cursorLerpY - 300).toFixed(1) + 'px)';
+    }
 
     renderParallax();
     updateSectionEffects();
@@ -212,6 +231,13 @@
    * ───────────────────────────────────────────── */
   function onScroll() {
     target.scrollY = window.pageYOffset;
+
+    /* Barre de progression — mise à jour immédiate (pas de lerp) */
+    if (scrollBarEl) {
+      var docH = document.documentElement.scrollHeight - window.innerHeight;
+      var pct  = docH > 0 ? (window.pageYOffset / docH * 100) : 0;
+      scrollBarEl.style.width = pct.toFixed(2) + '%';
+    }
   }
 
   function onMouseMove(e) {
@@ -423,6 +449,28 @@
         isStack:     !!conf.isStack,
         isContact:   !!conf.isContact
       });
+    });
+
+    /* ── Barre de progression scroll ── */
+    scrollBarEl = document.createElement('div');
+    scrollBarEl.id = 'scroll-bar';
+    scrollBarEl.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(scrollBarEl);
+
+    /* ── Halo curseur global ── */
+    cursorGlowEl = document.createElement('div');
+    cursorGlowEl.id = 'cursor-glow';
+    cursorGlowEl.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(cursorGlowEl);
+
+    document.addEventListener('mousemove', function (e) {
+      if (cursorRawX === null) {
+        /* Premier mouvement : téléporter le lerp sur la position réelle */
+        cursorLerpX = e.clientX;
+        cursorLerpY = e.clientY;
+      }
+      cursorRawX = e.clientX;
+      cursorRawY = e.clientY;
     });
 
     initReveal();
