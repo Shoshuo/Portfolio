@@ -396,36 +396,63 @@
    * figent une par une de gauche à droite.
    * ───────────────────────────────────────────── */
   function scrambleEl(el, startDelay) {
-    var target   = el.getAttribute('data-text') || el.textContent;
-    var chars    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
-    var len      = target.length;
-    var locked   = 0;
-    var tick     = 0;
-    var TICK_MS  = 38;   /* intervalle entre chaque frame                  */
-    var LOCK_EVERY = 2;  /* verrouille 1 char toutes les LOCK_EVERY frames */
+    var target     = el.getAttribute('data-text') || el.textContent;
+    /* Seulement des majuscules — largeurs similaires dans Poppins,
+       aucun caractère spécial qui ferait varier la largeur brutalement */
+    var chars      = 'ABCDEFGHJKLMNOPQRSTUVWXYZ';
+    var len        = target.length;
+    var locked     = 0;
+    var tick       = 0;
+    var TICK_MS    = 42;
+    var LOCK_EVERY = 2;
     var iv;
+    var spans      = [];
 
     function rand() { return chars[Math.floor(Math.random() * chars.length)]; }
 
-    function render() {
-      var out = '';
-      for (var i = 0; i < len; i++) {
-        out += i < locked ? target[i] : rand();
-      }
-      el.textContent = out;
+    /* ── Étape 1 : construire un <span> par caractère ──
+       On laisse d'abord chaque span afficher le bon caractère
+       pour mesurer sa largeur naturelle, puis on la fixe. */
+    el.textContent = '';
+    for (var i = 0; i < len; i++) {
+      var s = document.createElement('span');
+      s.style.display    = 'inline-block';
+      s.style.textAlign  = 'center';
+      s.textContent      = target[i];
+      el.appendChild(s);
+      spans.push(s);
     }
 
-    /* Affiche du bruit immédiatement */
-    render();
+    /* ── Étape 2 : fixer la largeur de chaque span ──
+       Le layout ne bougera plus pendant le scramble. */
+    spans.forEach(function (s) {
+      s.style.minWidth = s.offsetWidth + 'px';
+    });
 
+    /* ── Étape 3 : afficher le bruit initial ── */
+    spans.forEach(function (s, i) {
+      if (target[i] === '-' || target[i] === ' ') return; /* ponctuation fixe */
+      s.textContent = rand();
+    });
+
+    /* ── Étape 4 : boucle de verrouillage progressif ── */
     setTimeout(function () {
       iv = setInterval(function () {
         tick++;
-        if (tick % LOCK_EVERY === 0) locked++;
-        render();
+        if (tick % LOCK_EVERY === 0 && locked < len) locked++;
+
+        spans.forEach(function (s, i) {
+          if (i < locked) {
+            s.textContent = target[i]; /* lettre définitive */
+          } else if (target[i] !== '-' && target[i] !== ' ') {
+            s.textContent = rand();    /* encore du bruit   */
+          }
+        });
+
         if (locked >= len) {
           clearInterval(iv);
-          el.textContent = target; /* garantit le texte final exact */
+          /* Nettoyer les spans — remettre le texte brut */
+          el.textContent = target;
         }
       }, TICK_MS);
     }, startDelay || 0);
@@ -434,9 +461,9 @@
   function initScramble() {
     var els = document.querySelectorAll('.js-scramble');
     if (!els.length) return;
-    /* Petit délai initial pour laisser le hero s'afficher */
-    var base = 320;
-    var gap  = els[0] ? (els[0].getAttribute('data-text').length * 38 * 0.55) : 300;
+    var base = 300;
+    /* Le 2ème élément commence quand le 1er est à ~50% */
+    var gap = els[0] ? Math.round(els[0].getAttribute('data-text').length * 2 * 42 * 0.5) : 350;
     els.forEach(function (el, i) {
       scrambleEl(el, base + i * gap);
     });
