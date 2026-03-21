@@ -1,3 +1,4 @@
+
 /* ==========================================================
    NEW DESIGN — Portfolio Joshua BETHOULE-VOISIN
    Dark Theme · Glassmorphism · Modern UI
@@ -84,18 +85,31 @@ h1, h2, h3, h4 { font-size: unset !important; }
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(124, 58, 237, 0.15) !important;
   padding: 0 !important;
-  transition: var(--transition) !important;
+  height: 64px !important;
+  box-sizing: border-box !important;
+  overflow: visible !important;
+  transition: background 0.3s ease, border-color 0.3s ease !important;
 }
 
-/* Force navbar à une hauteur fixe identique sur toutes les pages.
-   Bootstrap .navbar a padding:.5rem 1rem par défaut — on le remplace
-   par un min-height explicite pour éviter toute variation. */
-.header .navbar,
-.transparent-header .navbar {
+/* Chaîne complète : container → navbar → hauteur 64px garantie */
+.header > .container,
+.transparent-header > .container {
+  height: 64px !important;
   padding-top: 0 !important;
   padding-bottom: 0 !important;
-  min-height: 64px !important;
+  display: flex !important;
   align-items: center !important;
+  flex-wrap: nowrap !important;
+}
+
+.header .navbar,
+.transparent-header .navbar {
+  height: 64px !important;
+  min-height: unset !important;
+  padding: 0 !important;
+  align-items: center !important;
+  width: 100% !important;
+  flex-wrap: nowrap !important;
 }
 
 .navbar-brand {
