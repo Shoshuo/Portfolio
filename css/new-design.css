@@ -87,6 +87,13 @@ h1, h2, h3, h4 { font-size: unset !important; }
   transition: var(--transition) !important;
 }
 
+/* Neutralise Bootstrap's .navbar vertical padding so .header padding-top/bottom
+   is the only source of truth — prevents height from differing page to page */
+.navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
 .navbar-brand {
   background: var(--gradient-purple) !important;
   -webkit-background-clip: text !important;
