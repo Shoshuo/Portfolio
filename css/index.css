@@ -2680,3 +2680,160 @@ body.dark-mode .parc-value-item {
   .parc-kpi-item  { padding: 0.4rem 1rem; }
 }
 
+
+/* ══════════════════════════════════════════════
+   THÈME CLAIR — amplification des animations
+   et profondeur visuelle
+   body:not(.dark-mode) : ne touche pas dark mode
+   ══════════════════════════════════════════════ */
+
+/* ── Fond du hero — plus de couleur ── */
+body:not(.dark-mode) .hero {
+  background: linear-gradient(135deg, #f2f3fb 0%, #ede9fe 45%, #dbeafe 100%) !important;
+}
+
+/* ── Section alternée — fond plus distinct ── */
+body:not(.dark-mode) .section-lb {
+  background: #e9ebf6 !important;
+}
+
+/* ── Orbes hero — plus visibles ── */
+body:not(.dark-mode) .orb-1 {
+  background: radial-gradient(circle, rgba(124,58,237,0.28) 0%, transparent 70%);
+}
+body:not(.dark-mode) .orb-2 {
+  background: radial-gradient(circle, rgba(79,70,229,0.22) 0%, transparent 70%);
+}
+body:not(.dark-mode) .orb-3 {
+  background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%);
+}
+body:not(.dark-mode) .orb-4 {
+  background: radial-gradient(circle, rgba(236,72,153,0.16) 0%, transparent 70%);
+}
+
+/* ── Orbes section Projets ── */
+body:not(.dark-mode) .proj-orb-a {
+  background: radial-gradient(circle, rgba(124,58,237,0.24) 0%, transparent 70%);
+}
+body:not(.dark-mode) .proj-orb-b {
+  background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%);
+}
+
+/* ── Orbes section Parcours ── */
+body:not(.dark-mode) .parc-orb-a {
+  background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%);
+}
+body:not(.dark-mode) .parc-orb-b {
+  background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 70%);
+}
+body:not(.dark-mode) .parc-orb-c {
+  background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%);
+}
+body:not(.dark-mode) .parc-orb-d {
+  background: radial-gradient(circle, rgba(236,72,153,0.14) 0%, transparent 70%);
+}
+
+/* ── Orbes section Stack ── */
+body:not(.dark-mode) .stack-orb-a {
+  background: radial-gradient(circle, rgba(6,182,212,0.20) 0%, transparent 70%);
+}
+body:not(.dark-mode) .stack-orb-b {
+  background: radial-gradient(circle, rgba(236,72,153,0.16) 0%, transparent 70%);
+}
+body:not(.dark-mode) .stack-orb-c {
+  background: radial-gradient(circle, rgba(79,70,229,0.18) 0%, transparent 70%);
+}
+body:not(.dark-mode) .stack-orb-d {
+  background: radial-gradient(circle, rgba(124,58,237,0.20) 0%, transparent 70%);
+}
+body:not(.dark-mode) .stack-orb-e {
+  background: radial-gradient(circle, rgba(245,158,11,0.14) 0%, transparent 70%);
+}
+
+/* ── Orbes section Contact ── */
+body:not(.dark-mode) .ctct-orb-a {
+  background: radial-gradient(circle, rgba(124,58,237,0.22) 0%, transparent 70%);
+}
+body:not(.dark-mode) .ctct-orb-b {
+  background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, transparent 70%);
+}
+
+/* ── Formes géométriques — anneaux ── */
+body:not(.dark-mode) .ss-ring-lg {
+  border-color: rgba(124,58,237,0.22);
+  opacity: 0.85;
+}
+body:not(.dark-mode) .ss-ring-md {
+  border-color: rgba(124,58,237,0.28);
+  opacity: 0.80;
+}
+body:not(.dark-mode) .ss-ring-sm {
+  border-color: rgba(124,58,237,0.38);
+  opacity: 0.75;
+}
+
+/* Variantes couleur — anneaux */
+body:not(.dark-mode) .ss-ring-lg.ss--cyan,
+body:not(.dark-mode) .ss-ring-md.ss--cyan,
+body:not(.dark-mode) .ss-ring-sm.ss--cyan  { border-color: rgba(6,182,212,0.30); }
+
+body:not(.dark-mode) .ss-ring-md.ss--amber,
+body:not(.dark-mode) .ss-ring-sm.ss--amber { border-color: rgba(245,158,11,0.35); }
+
+body:not(.dark-mode) .ss-ring-md.ss--pink,
+body:not(.dark-mode) .ss-ring-sm.ss--pink  { border-color: rgba(236,72,153,0.28); }
+
+/* ── Formes géométriques — croix ── */
+body:not(.dark-mode) .ss-cross {
+  opacity: 0.70;
+}
+body:not(.dark-mode) .ss-cross::before,
+body:not(.dark-mode) .ss-cross::after {
+  background: rgba(124,58,237,0.65);
+}
+body:not(.dark-mode) .ss-cross.ss--cyan::before,
+body:not(.dark-mode) .ss-cross.ss--cyan::after  { background: rgba(6,182,212,0.65); }
+body:not(.dark-mode) .ss-cross.ss--amber::before,
+body:not(.dark-mode) .ss-cross.ss--amber::after { background: rgba(245,158,11,0.65); }
+
+/* ── Formes géométriques — points ── */
+body:not(.dark-mode) .ss-dot {
+  background: rgba(124,58,237,0.60);
+  opacity: 0.85;
+}
+body:not(.dark-mode) .ss-dot.ss--cyan  { background: rgba(6,182,212,0.60); }
+body:not(.dark-mode) .ss-dot.ss--amber { background: rgba(245,158,11,0.60); }
+body:not(.dark-mode) .ss-dot.ss--pink  { background: rgba(236,72,153,0.55); }
+
+/* ── Spotlight section au hover — amplifié ── */
+body:not(.dark-mode) .idx-section::before {
+  background: radial-gradient(
+    700px circle at var(--spot-x) var(--spot-y),
+    rgba(124,58,237,0.10) 0%,
+    transparent 65%
+  );
+}
+
+/* ── Section tag glow — plus visible ── */
+body:not(.dark-mode) .profil-section-tag {
+  box-shadow: 0 0 14px rgba(124,58,237,0.18),
+              inset 0 0 8px rgba(124,58,237,0.08) !important;
+}
+
+/* ── Ligne de séparation section — plus nette ── */
+body:not(.dark-mode) .idx-section::after,
+body:not(.dark-mode) #Profil::after,
+body:not(.dark-mode) #Domaines::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(124,58,237,0.50) 30%,
+    rgba(6,182,212,0.38) 70%,
+    transparent 100%
+  );
+}
+
+/* ── Scrollbar — plus colorée ── */
+body:not(.dark-mode) ::-webkit-scrollbar-track {
+  background: #e6e8f5;
+}

@@ -5,23 +5,23 @@
 
 /* === CUSTOM PROPERTIES ================================= */
 :root {
-  --bg-primary:      #f8f9fc;
-  --bg-secondary:    #f0f2f8;
-  --bg-card:         rgba(255, 255, 255, 0.95);
+  --bg-primary:      #f2f3fb;
+  --bg-secondary:    #e6e8f5;
+  --bg-card:         #ffffff;
   --bg-glass:        rgba(0, 0, 0, 0.03);
   --accent-purple:   #7c3aed;
   --accent-indigo:   #4f46e5;
   --accent-cyan:     #06b6d4;
-  --accent-glow:     rgba(124, 58, 237, 0.16);
-  --text-primary:    #111827;
-  --text-secondary:  #4b5563;
-  --text-muted:      #9ca3af;
-  --border-subtle:   rgba(124, 58, 237, 0.12);
-  --border-strong:   rgba(124, 58, 237, 0.35);
+  --accent-glow:     rgba(124, 58, 237, 0.20);
+  --text-primary:    #0f172a;
+  --text-secondary:  #374151;
+  --text-muted:      #6b7280;
+  --border-subtle:   rgba(124, 58, 237, 0.18);
+  --border-strong:   rgba(124, 58, 237, 0.45);
   --gradient-purple: linear-gradient(135deg, #7c3aed, #4f46e5);
-  --gradient-hero:   linear-gradient(135deg, #f8f9fc 0%, #ede9fe 50%, #e0e7ff 100%);
-  --shadow-card:     0 4px 20px rgba(0, 0, 0, 0.07);
-  --shadow-glow:     0 0 25px rgba(124, 58, 237, 0.16);
+  --gradient-hero:   linear-gradient(135deg, #f2f3fb 0%, #ede9fe 50%, #e0e7ff 100%);
+  --shadow-card:     0 2px 6px rgba(0, 0, 0, 0.05), 0 8px 28px rgba(0, 0, 0, 0.10);
+  --shadow-glow:     0 0 25px rgba(124, 58, 237, 0.22);
   --radius-sm:  8px;
   --radius-md:  16px;
   --radius-lg:  24px;
@@ -264,7 +264,7 @@ body.dark-mode .hero h2 {
   display: inline-flex !important;
   align-items: center;
   gap: 8px;
-  background: transparent !important;
+  background: rgba(124, 58, 237, 0.05) !important;
   color: var(--text-secondary) !important;
   border: 1px solid var(--border-strong) !important;
   padding: 13px 32px !important;
@@ -274,13 +274,25 @@ body.dark-mode .hero h2 {
   text-decoration: none !important;
   transition: var(--transition) !important;
   cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 1px 4px rgba(0,0,0,0.06);
 }
 
 .hero-cta-secondary:hover {
   border-color: var(--accent-purple) !important;
-  color: var(--text-primary) !important;
-  background: rgba(124, 58, 237, 0.1) !important;
+  color: var(--accent-purple) !important;
+  background: rgba(124, 58, 237, 0.10) !important;
   transform: translateY(-3px) !important;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.18), inset 0 1px 0 rgba(255,255,255,0.5) !important;
+}
+
+body.dark-mode .hero-cta-secondary {
+  background: transparent !important;
+  box-shadow: none;
+}
+
+body.dark-mode .hero-cta-secondary:hover {
+  color: var(--text-primary) !important;
+  box-shadow: none !important;
 }
 
 /* Hero stats */
@@ -1793,4 +1805,104 @@ body.dark-mode .page-header-section .page-tag { color: #c4b5fd !important; }
     transform: translateY(-50%) !important;
     margin-left: 0 !important;
   }
+}
+
+/* ══════════════════════════════════════════════
+   THÈME CLAIR — profondeur & contraste
+   ══════════════════════════════════════════════ */
+
+/* ── Cartes — ombre plus profonde & bordure ── */
+body:not(.dark-mode) .tl-card,
+body:not(.dark-mode) .profil-card,
+body:not(.dark-mode) .proj-card,
+body:not(.dark-mode) .contact-block,
+body:not(.dark-mode) .parc-learn,
+body:not(.dark-mode) .parc-skills,
+body:not(.dark-mode) .parc-next,
+body:not(.dark-mode) .parc-recap {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06),
+              0 8px 24px rgba(0,0,0,0.09),
+              0 0 0 1px rgba(124,58,237,0.06) !important;
+}
+
+body:not(.dark-mode) .tl-card:hover,
+body:not(.dark-mode) .profil-card:hover,
+body:not(.dark-mode) .proj-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06),
+              0 16px 40px rgba(0,0,0,0.13),
+              0 0 0 1px rgba(124,58,237,0.12) !important;
+}
+
+/* ── Cartes — fond légèrement gradient ── */
+body:not(.dark-mode) .tl-card {
+  background: linear-gradient(145deg, #ffffff 0%, #fafbff 100%) !important;
+}
+
+body:not(.dark-mode) .tl-card--cdi {
+  background: linear-gradient(145deg, #ffffff 0%, #faf8ff 100%) !important;
+}
+
+body:not(.dark-mode) .tl-card--edu {
+  background: linear-gradient(145deg, #ffffff 0%, #f8fdff 100%) !important;
+}
+
+/* ── Hero stat numbers — plus visibles ── */
+body:not(.dark-mode) .hero-stat-number {
+  filter: drop-shadow(0 1px 3px rgba(124,58,237,0.18));
+}
+
+/* ── Tags timeline — plus contrastés ── */
+body:not(.dark-mode) .tl-tag {
+  background: rgba(124,58,237,0.08) !important;
+  border: 1px solid rgba(124,58,237,0.20) !important;
+  color: #5b21b6 !important;
+}
+body:not(.dark-mode) .tl-tag--amber {
+  background: rgba(245,158,11,0.08) !important;
+  border-color: rgba(245,158,11,0.25) !important;
+  color: #92400e !important;
+}
+body:not(.dark-mode) .tl-tag--cyan {
+  background: rgba(6,182,212,0.08) !important;
+  border-color: rgba(6,182,212,0.25) !important;
+  color: #065f78 !important;
+}
+
+/* ── Badge timeline ── */
+body:not(.dark-mode) .tl-badge {
+  background: rgba(16,185,129,0.10) !important;
+  border: 1px solid rgba(16,185,129,0.25) !important;
+  color: #065f46 !important;
+}
+
+/* ── Dot timeline — halo visible ── */
+body:not(.dark-mode) .tl-dot {
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.20),
+              0 0 10px rgba(124,58,237,0.25) !important;
+}
+
+/* ── Page header — fond plus coloré ── */
+body:not(.dark-mode) .page-header-section {
+  background: linear-gradient(135deg, #eceef9 0%, #e8e6ff 50%, #dff0ff 100%) !important;
+}
+
+/* ── Ligne de progression KPI ── */
+body:not(.dark-mode) .parc-kpi-sep {
+  background: rgba(124,58,237,0.25) !important;
+}
+
+/* ── Titre h2 — légère teinte ── */
+body:not(.dark-mode) h2.profil-section-title {
+  color: #0f172a !important;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+}
+
+/* ── Grille tech stack (marquee) ── */
+body:not(.dark-mode) .marquee-item img {
+  opacity: 0.75;
+  filter: grayscale(0.1);
+}
+body:not(.dark-mode) .marquee-item:hover img {
+  opacity: 1;
+  filter: none;
 }
