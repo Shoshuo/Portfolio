@@ -27,7 +27,6 @@
 <body>
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.body.classList.add('dark-mode');})()</script>
 
-<!-- Reading bar -->
 <div id="reading-bar"></div>
 
 <div id="wrapper">
@@ -67,27 +66,37 @@
         </div>
     </header>
 
-    <!-- ==================== HERO HEADER ==================== -->
+    <!-- ==================== HERO ==================== -->
     <section class="stg-hero">
-        <!-- Orbs décoratifs -->
         <div class="stg-orb stg-orb-1"></div>
         <div class="stg-orb stg-orb-2"></div>
         <div class="stg-orb stg-orb-3"></div>
 
         <div class="container">
             <div class="stg-hero-inner">
+
                 <div class="stg-tag"><i class="fa fa-briefcase"></i> Expériences professionnelles</div>
                 <h1>Mes Stages</h1>
                 <p class="stg-hero-sub">
-                    De la 3ème au BTS, chaque stage m'a permis de découvrir,
-                    de créer et de progresser dans l'univers du numérique.
+                    De la 3ème au BTS, chaque immersion m'a permis de confronter la théorie
+                    à la réalité du terrain — développement, infrastructure, relation client.
                 </p>
+
+                <!-- Floating tech pills -->
+                <div class="stg-hero-pills">
+                    <span class="stg-float-pill v"><i class="fa fa-code"></i> Symfony 7</span>
+                    <span class="stg-float-pill c"><i class="fa fa-atom"></i> React.js</span>
+                    <span class="stg-float-pill r"><i class="fa fa-tools"></i> Maintenance IT</span>
+                    <span class="stg-float-pill a"><i class="fa fa-database"></i> MariaDB</span>
+                    <span class="stg-float-pill g"><i class="fa fa-solar-panel"></i> Domotique</span>
+                    <span class="stg-float-pill v"><i class="fa fa-rocket"></i> Aéronautique</span>
+                </div>
 
                 <!-- KPI -->
                 <div class="stg-kpi-wrap">
                     <div class="stg-kpi-stat">
                         <span class="stg-kpi-num">6</span>
-                        <span class="stg-kpi-label">Expériences</span>
+                        <span class="stg-kpi-label">Stages</span>
                     </div>
                     <div class="stg-kpi-sep"></div>
                     <div class="stg-kpi-stat">
@@ -105,6 +114,7 @@
                         <span class="stg-kpi-label">Domaines</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -118,43 +128,47 @@
                 <button class="stg-filter-btn active" data-filter="all">
                     <span class="stg-filter-dot" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);"></span>
                     Tous
+                    <span class="stg-filter-count">6</span>
                 </button>
                 <button class="stg-filter-btn" data-filter="dev">
                     <span class="stg-filter-dot dev"></span>
                     Développement
+                    <span class="stg-filter-count"></span>
                 </button>
                 <button class="stg-filter-btn" data-filter="maintenance">
                     <span class="stg-filter-dot maintenance"></span>
-                    IT &amp; Réseaux
+                    IT &amp; Maintenance
+                    <span class="stg-filter-count"></span>
                 </button>
                 <button class="stg-filter-btn" data-filter="decouverte">
                     <span class="stg-filter-dot decouverte"></span>
                     Découverte
+                    <span class="stg-filter-count"></span>
                 </button>
             </div>
 
-            <!-- Cards grid -->
+            <!-- Result count -->
+            <div class="stg-result-count">Affichage de <strong>6</strong> stages</div>
+
+            <!-- Cards -->
             <div class="stg-grid">
 
-                <!-- ══════════════════════════════════════════════
-                     STAGE 1 — Broussaud Textile (BTS 2, Jan-Fév 2025)
-                     ══════════════════════════════════════════════ -->
+                <!-- ══ 01 — Broussaud Textile ══════════════════ -->
                 <div class="stg-card stg-reveal" data-type="dev">
+                    <span class="stg-card-num">01</span>
                     <div class="stg-card-inner">
 
-                        <!-- Header -->
                         <div class="stg-card-head">
                             <div class="stg-card-head-left">
                                 <span class="stg-badge dev"><i class="fa fa-code"></i> Développement</span>
                                 <span class="stg-level">BTS 2ème année</span>
                             </div>
                             <span class="stg-duration">
-                                <i class="fa fa-calendar"></i>
-                                Jan 2025 — Fév 2025 &nbsp;·&nbsp; 5 semaines
+                                <i class="fa fa-calendar-alt"></i>
+                                20 Jan — 21 Fév 2025 &nbsp;·&nbsp; 5 semaines
                             </span>
                         </div>
 
-                        <!-- Company -->
                         <div class="stg-company-row">
                             <div class="stg-company-logo">
                                 <img src="images/broussaud.png" alt="Broussaud Textile">
@@ -163,7 +177,8 @@
                                 <p class="stg-company-name">Broussaud Textile</p>
                                 <div class="stg-company-meta">
                                     <i class="fa fa-map-marker-alt"></i> Les Cars, Haute-Vienne
-                                    &nbsp;·&nbsp; Industrie textile / EPV
+                                    &nbsp;·&nbsp; Industrie textile
+                                    &nbsp;·&nbsp; <strong style="color:var(--text-primary)">EPV</strong> depuis 1938
                                 </div>
                             </div>
                             <a href="https://maisonbroussaud.fr/" target="_blank" class="stg-company-link">
@@ -171,62 +186,76 @@
                             </a>
                         </div>
 
-                        <!-- Body -->
+                        <!-- Projet phare -->
+                        <div class="stg-highlight-box">
+                            <div class="stg-highlight-icon"><i class="fa fa-star"></i></div>
+                            <div>
+                                <div class="stg-highlight-label">Projet phare</div>
+                                <div class="stg-highlight-title">Formulaire Partenaire — Symfony 7 + React.js</div>
+                                <p class="stg-highlight-desc">
+                                    Architecture complète : base MariaDB → API Symfony 7 → interface React.js.
+                                    Chiffrement <strong style="color:#c4b5fd">bcrypt</strong>, conformité <strong style="color:#c4b5fd">RGPD</strong>,
+                                    validation multi-niveaux côté client et serveur.
+                                </p>
+                            </div>
+                        </div>
+
                         <div class="stg-card-body">
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-building"></i> Contexte
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-building"></i> Contexte</div>
                                 <p class="stg-mission">
-                                    Fondée en <strong>1938</strong>, Broussaud Textiles est une entreprise familiale française
-                                    labellisée <strong>Entreprise du Patrimoine Vivant (EPV)</strong>, spécialisée dans la
-                                    fabrication de chaussettes et collants. Mission principale :
-                                    <strong>développement d'applications web internes</strong> pour moderniser les processus métier.
+                                    Fondée en <strong>1938</strong>, Broussaud Textiles est une manufacture familiale
+                                    labellisée <strong>Entreprise du Patrimoine Vivant (EPV)</strong>, spécialisée
+                                    dans la fabrication de chaussettes et collants. Mission :
+                                    <strong>moderniser les processus internes</strong> via des applications web
+                                    sur mesure développées en totale autonomie.
                                 </p>
                             </div>
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-check-double"></i> Réalisations
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-check-double"></i> Réalisations</div>
                                 <ul class="stg-achievements">
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Formulaire partenaire en <strong>Symfony 7 + React.js</strong> — BDD MariaDB, bcrypt, conformité RGPD
+                                        Formulaire partenaire full-stack : MariaDB → Symfony 7 → React.js, bcrypt, RGPD
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Service de lecture de fichiers <strong>Excel (.xlsx)</strong> via PHPSpreadsheet
+                                        Lecture &amp; validation de fichiers <strong>Excel (.xlsx)</strong> via PHPSpreadsheet
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Jeu de bataille PHP pour consolider la POO et les bonnes pratiques
+                                        Jeu de bataille PHP pour consolider la POO et les design patterns
                                     </li>
                                     <li>
                                         <span class="stg-check warn"><i class="fa fa-times"></i></span>
-                                        API C# (sync MSSQL/MariaDB/PostgreSQL/Sage) — projet abandonné en cours de stage
+                                        API C# (sync MSSQL/MariaDB/PostgreSQL/Sage) — projet abandonné mi-stage
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Stack chips -->
+                        <div class="stg-impact">
+                            <i class="fa fa-lightbulb"></i>
+                            <span><strong>Apprentissage clé :</strong> concevoir et livrer une feature complète — de la BDD à l'UI — seul en production réelle, avec des contraintes RGPD concrètes.</span>
+                        </div>
+
                         <div class="stg-chips">
                             <span class="stg-chip violet"><i class="fa fa-code"></i> Symfony 7</span>
                             <span class="stg-chip cyan"><i class="fa fa-atom"></i> React.js</span>
                             <span class="stg-chip violet">PHP</span>
                             <span class="stg-chip slate">MariaDB</span>
                             <span class="stg-chip green">PHPSpreadsheet</span>
-                            <span class="stg-chip rose">C#</span>
+                            <span class="stg-chip rose">C# / .NET</span>
+                            <span class="stg-chip amber">bcrypt</span>
                             <span class="stg-chip amber">RGPD</span>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- ══════════════════════════════════════════════
-                     STAGE 2 — LC-NETWORK (BTS 1, Mai-Juin 2024)
-                     ══════════════════════════════════════════════ -->
+                <!-- ══ 02 — LC-NETWORK BTS 1 ═══════════════════ -->
                 <div class="stg-card stg-reveal" data-type="dev">
+                    <span class="stg-card-num">02</span>
                     <div class="stg-card-inner">
 
                         <div class="stg-card-head">
@@ -235,8 +264,8 @@
                                 <span class="stg-level">BTS 1ère année</span>
                             </div>
                             <span class="stg-duration">
-                                <i class="fa fa-calendar"></i>
-                                Mai 2024 — Juin 2024 &nbsp;·&nbsp; 5 semaines
+                                <i class="fa fa-calendar-alt"></i>
+                                13 Mai — 14 Juin 2024 &nbsp;·&nbsp; 5 semaines
                             </span>
                         </div>
 
@@ -253,41 +282,57 @@
                             </div>
                         </div>
 
+                        <!-- Projet phare -->
+                        <div class="stg-highlight-box">
+                            <div class="stg-highlight-icon"><i class="fa fa-solar-panel"></i></div>
+                            <div>
+                                <div class="stg-highlight-label">Projet phare</div>
+                                <div class="stg-highlight-title">Supervision solaire — Analyse &amp; alertes temps réel</div>
+                                <p class="stg-highlight-desc">
+                                    Algorithmes PHP de prédiction de tendances + interface web jQuery avec graphiques interactifs.
+                                    Notifications sonores déclenchées via <strong style="color:#c4b5fd">AppleScript</strong>
+                                    et module <strong style="color:#c4b5fd">Fibaro</strong> domotique.
+                                </p>
+                            </div>
+                        </div>
+
                         <div class="stg-card-body">
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-building"></i> Contexte
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-building"></i> Contexte</div>
                                 <p class="stg-mission">
                                     LC-Network développe des applications web, dont son produit phare
-                                    <strong>UbiCaisse</strong>. Mission : développement d'outils Symfony
-                                    pour la <strong>supervision de panneaux photovoltaïques</strong>
-                                    et gestion d'un système de domotique connecté.
+                                    <strong>UbiCaisse</strong>. Mission : créer des outils de
+                                    <strong>supervision de panneaux photovoltaïques</strong> connectés
+                                    à un système domotique (Fibaro), avec alertes et visualisation de données.
+                                    Environnement macOS.
                                 </p>
                             </div>
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-check-double"></i> Réalisations
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-check-double"></i> Réalisations</div>
                                 <ul class="stg-achievements">
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Notifications sonores pour panneaux photovoltaïques (AppleScript + LUA + PHP)
+                                        Notifications sonores pour panneaux solaires (AppleScript + LUA + PHP)
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Algorithmes PHP de prédiction de tendances de production solaire
+                                        Calcul de moyennes/variances et prédiction de tendances PHP
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Interface web d'historique avec graphiques jQuery interactifs
+                                        Interface jQuery : historique de production, graphiques &amp; calendrier
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Login <strong>Symfony</strong> sécurisé — gestion des rôles &amp; permissions
+                                        Login <strong>Symfony</strong> sécurisé — rôles, permissions, hachage
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+
+                        <div class="stg-impact">
+                            <i class="fa fa-lightbulb"></i>
+                            <span><strong>Apprentissage clé :</strong> naviguer entre plusieurs langages (PHP, LUA, AppleScript) dans un écosystème IoT — et comprendre la logique d'une data pipeline de l'acquisition à la visualisation.</span>
                         </div>
 
                         <div class="stg-chips">
@@ -296,17 +341,17 @@
                             <span class="stg-chip amber">AppleScript</span>
                             <span class="stg-chip cyan">LUA</span>
                             <span class="stg-chip cyan">jQuery</span>
-                            <span class="stg-chip slate">macOS</span>
                             <span class="stg-chip green">Domotique</span>
+                            <span class="stg-chip slate">macOS</span>
+                            <span class="stg-chip rose">Fibaro</span>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- ══════════════════════════════════════════════
-                     STAGE 3 — Arène Informatique (Terminale, Jan-Fév 2023)
-                     ══════════════════════════════════════════════ -->
+                <!-- ══ 03 — Arène Informatique ════════════════ -->
                 <div class="stg-card stg-reveal" data-type="maintenance">
+                    <span class="stg-card-num">03</span>
                     <div class="stg-card-inner">
 
                         <div class="stg-card-head">
@@ -315,8 +360,8 @@
                                 <span class="stg-level">Terminale</span>
                             </div>
                             <span class="stg-duration">
-                                <i class="fa fa-calendar"></i>
-                                Jan 2023 — Fév 2023 &nbsp;·&nbsp; 4 semaines
+                                <i class="fa fa-calendar-alt"></i>
+                                Janvier — Février 2023 &nbsp;·&nbsp; 4 semaines
                             </span>
                         </div>
 
@@ -338,19 +383,17 @@
 
                         <div class="stg-card-body">
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-building"></i> Contexte
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-building"></i> Contexte</div>
                                 <p class="stg-mission">
-                                    Service à deux employés spécialisé dans le <strong>dépannage et la maintenance
-                                    informatique</strong> pour particuliers et professionnels. Mission : assistance
-                                    technique terrain et résolution de pannes au quotidien.
+                                    Structure à deux techniciens spécialisée dans le <strong>dépannage
+                                    et la maintenance informatique</strong> pour particuliers et PME.
+                                    Mission : assistance technique quotidienne — diagnostic, réparation,
+                                    <strong>accompagnement client</strong>. Premier contact direct avec
+                                    des utilisateurs non techniques.
                                 </p>
                             </div>
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-check-double"></i> Réalisations
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-check-double"></i> Réalisations</div>
                                 <ul class="stg-achievements">
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
@@ -358,7 +401,7 @@
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Installation et mise à jour de systèmes d'exploitation (Windows, Linux)
+                                        Installation &amp; mise à jour de systèmes (Windows, Linux)
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
@@ -366,10 +409,15 @@
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Sauvegardes clients et récupération de données
+                                        Sauvegardes, restauration de données et migration d'environnements
                                     </li>
                                 </ul>
                             </div>
+                        </div>
+
+                        <div class="stg-impact">
+                            <i class="fa fa-lightbulb"></i>
+                            <span><strong>Apprentissage clé :</strong> savoir diagnostiquer rapidement sous pression et expliquer clairement une solution technique à un utilisateur non-initié — une compétence transversale précieuse.</span>
                         </div>
 
                         <div class="stg-chips">
@@ -378,16 +426,15 @@
                             <span class="stg-chip cyan">Réseaux</span>
                             <span class="stg-chip amber">Antivirus</span>
                             <span class="stg-chip green">Sauvegarde</span>
-                            <span class="stg-chip rose">Dépannage</span>
+                            <span class="stg-chip slate">Diagnostic</span>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- ══════════════════════════════════════════════
-                     STAGE 4 — LC-NETWORK (Terminale, Oct-Nov 2022)
-                     ══════════════════════════════════════════════ -->
+                <!-- ══ 04 — LC-NETWORK Terminale ══════════════ -->
                 <div class="stg-card stg-reveal" data-type="dev">
+                    <span class="stg-card-num">04</span>
                     <div class="stg-card-inner">
 
                         <div class="stg-card-head">
@@ -396,8 +443,8 @@
                                 <span class="stg-level">Terminale</span>
                             </div>
                             <span class="stg-duration">
-                                <i class="fa fa-calendar"></i>
-                                Oct 2022 — Nov 2022 &nbsp;·&nbsp; 4 semaines
+                                <i class="fa fa-calendar-alt"></i>
+                                Octobre — Novembre 2022 &nbsp;·&nbsp; 4 semaines
                             </span>
                         </div>
 
@@ -416,56 +463,57 @@
 
                         <div class="stg-card-body">
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-building"></i> Contexte
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-building"></i> Contexte</div>
                                 <p class="stg-mission">
-                                    Première expérience de développement web en entreprise.
-                                    Projet client : création du site vitrine <strong>"Le Jardin de Ginette"</strong>
-                                    pour présenter les espaces et collections de plantes du client.
-                                    Travail en <strong>autonomie</strong> sous supervision du responsable.
+                                    Première expérience de développement web en contexte professionnel réel.
+                                    Projet client : site vitrine <strong>"Le Jardin de Ginette"</strong>
+                                    pour présenter les espaces et collections de plantes.
+                                    Travail en <strong>totale autonomie</strong> — du brief client à la livraison.
                                 </p>
                             </div>
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-check-double"></i> Réalisations
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-check-double"></i> Réalisations</div>
                                 <ul class="stg-achievements">
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Analyse des besoins client et conception de l'architecture
+                                        Analyse des besoins client et définition de l'architecture
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Conception visuelle complète (wireframes, maquettes)
+                                        Conception visuelle — palette, typographie, wireframes
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Développement HTML, CSS, JavaScript from scratch
+                                        Développement HTML/CSS/JS from scratch
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Intégration responsive — mobile first
+                                        Intégration responsive mobile-first validée
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
+                        <div class="stg-impact">
+                            <i class="fa fa-lightbulb"></i>
+                            <span><strong>Apprentissage clé :</strong> réaliser un vrai projet client de A à Z — écoute, conception, développement, livraison — une expérience fondatrice dans mon approche du métier.</span>
+                        </div>
+
                         <div class="stg-chips">
-                            <span class="stg-chip amber">HTML</span>
-                            <span class="stg-chip cyan">CSS</span>
+                            <span class="stg-chip amber">HTML5</span>
+                            <span class="stg-chip cyan">CSS3</span>
                             <span class="stg-chip cyan">JavaScript</span>
                             <span class="stg-chip green">Responsive</span>
                             <span class="stg-chip slate">UX Design</span>
+                            <span class="stg-chip violet">Relation client</span>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- ══════════════════════════════════════════════
-                     STAGE 5 — Micro-Rezo (Première, Mar-Avr 2022)
-                     ══════════════════════════════════════════════ -->
+                <!-- ══ 05 — Micro-Rezo ════════════════════════ -->
                 <div class="stg-card stg-reveal" data-type="maintenance">
+                    <span class="stg-card-num">05</span>
                     <div class="stg-card-inner">
 
                         <div class="stg-card-head">
@@ -474,8 +522,8 @@
                                 <span class="stg-level">Première</span>
                             </div>
                             <span class="stg-duration">
-                                <i class="fa fa-calendar"></i>
-                                Mar 2022 — Avr 2022 &nbsp;·&nbsp; 5 semaines
+                                <i class="fa fa-calendar-alt"></i>
+                                14 Mar — 15 Avr 2022 &nbsp;·&nbsp; 5 semaines
                             </span>
                         </div>
 
@@ -497,23 +545,20 @@
 
                         <div class="stg-card-body">
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-building"></i> Contexte
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-building"></i> Contexte</div>
                                 <p class="stg-mission">
-                                    Équipe de deux professionnels spécialisée dans la <strong>maintenance
-                                    et le dépannage informatique</strong>. Première confrontation avec
-                                    le terrain, auprès de clients particuliers et professionnels.
+                                    Équipe de deux professionnels expérimentés dans la <strong>maintenance
+                                    et le dépannage informatique</strong>. Premier stage terrain avec
+                                    exposition directe au cycle complet : <strong>diagnostic → réparation
+                                    → restitution au client</strong>. Approche pédagogique bienveillante.
                                 </p>
                             </div>
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-check-double"></i> Réalisations
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-check-double"></i> Réalisations</div>
                                 <ul class="stg-achievements">
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Diagnostic et résolution de problèmes techniques
+                                        Diagnostic et résolution de pannes matérielles et logicielles
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
@@ -521,31 +566,36 @@
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Remplacement de pièces informatiques (RAM, HDD/SSD, ventilateurs)
+                                        Remplacement de pièces (RAM, HDD→SSD, ventilateurs, écrans)
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Sauvegarde et restauration de données clients
+                                        Sauvegarde &amp; restauration complète de données clients
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
+                        <div class="stg-impact">
+                            <i class="fa fa-lightbulb"></i>
+                            <span><strong>Apprentissage clé :</strong> comprendre la réalité hardware derrière le logiciel — et développer un sens du service client rigoureux dès le début de la formation.</span>
+                        </div>
+
                         <div class="stg-chips">
                             <span class="stg-chip rose">Windows</span>
                             <span class="stg-chip slate">Hardware</span>
+                            <span class="stg-chip slate">SSD/HDD</span>
                             <span class="stg-chip amber">Antivirus</span>
                             <span class="stg-chip green">Sauvegarde</span>
-                            <span class="stg-chip rose">Dépannage</span>
+                            <span class="stg-chip cyan">Réseaux</span>
                         </div>
 
                     </div>
                 </div>
 
-                <!-- ══════════════════════════════════════════════
-                     STAGE 6 — Safran (3ème, Nov 2019)
-                     ══════════════════════════════════════════════ -->
+                <!-- ══ 06 — Safran ════════════════════════════ -->
                 <div class="stg-card stg-reveal" data-type="decouverte">
+                    <span class="stg-card-num">06</span>
                     <div class="stg-card-inner">
 
                         <div class="stg-card-head">
@@ -554,8 +604,8 @@
                                 <span class="stg-level">3ème</span>
                             </div>
                             <span class="stg-duration">
-                                <i class="fa fa-calendar"></i>
-                                18 Nov 2019 — 22 Nov 2019 &nbsp;·&nbsp; 1 semaine
+                                <i class="fa fa-calendar-alt"></i>
+                                18 — 22 Nov 2019 &nbsp;·&nbsp; 1 semaine
                             </span>
                         </div>
 
@@ -577,47 +627,50 @@
 
                         <div class="stg-card-body">
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-building"></i> Contexte
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-building"></i> Contexte</div>
                                 <p class="stg-mission">
-                                    Safran Filtration Systems conçoit et fabrique des systèmes de filtration
-                                    pour l'<strong>aéronautique et le spatial</strong>. Stage de découverte
-                                    en classe de 3ème — première rencontre avec le monde de l'entreprise
-                                    et la culture du <strong>secteur haute technologie</strong>.
+                                    Safran Filtration Systems conçoit des systèmes de filtration pour
+                                    l'<strong>aéronautique et le spatial</strong>. Stage de découverte
+                                    de 3ème — première confrontation avec l'univers industriel et la
+                                    <strong>culture du groupe Safran</strong>. Visite de plusieurs
+                                    services pour appréhender la diversité des métiers.
                                 </p>
                             </div>
                             <div>
-                                <div class="stg-section-title">
-                                    <i class="fa fa-check-double"></i> Découvertes
-                                </div>
+                                <div class="stg-section-title"><i class="fa fa-check-double"></i> Découvertes</div>
                                 <ul class="stg-achievements">
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Bureau d'études : modélisation 3D de pièces d'hélicoptères
+                                        Bureau d'études : modélisation 3D de pièces d'hélicoptères (CAO)
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Conception de filtres spatiaux — observation des processus R&amp;D
+                                        R&amp;D : conception de filtres spatiaux, normes aéronautiques
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Service informatique : serveurs, démontage/remontage PC
+                                        Service informatique : infrastructure serveurs, démontage/remontage PC
                                     </li>
                                     <li>
                                         <span class="stg-check ok"><i class="fa fa-check"></i></span>
-                                        Atelier : usinage, assemblage, soudure et contrôle qualité
+                                        Atelier : usinage CNC, assemblage, soudure, contrôle qualité
                                     </li>
                                 </ul>
                             </div>
                         </div>
 
+                        <div class="stg-impact">
+                            <i class="fa fa-lightbulb"></i>
+                            <span><strong>Apprentissage clé :</strong> découvrir que l'informatique imprègne tous les secteurs, même l'aéronautique — une révélation qui a orienté mon choix vers le BTS SIO.</span>
+                        </div>
+
                         <div class="stg-chips">
-                            <span class="stg-chip amber">Modélisation 3D</span>
+                            <span class="stg-chip amber">CAO 3D</span>
                             <span class="stg-chip cyan">Aéronautique</span>
                             <span class="stg-chip rose">Spatial</span>
-                            <span class="stg-chip slate">Hardware</span>
+                            <span class="stg-chip slate">CNC / Usinage</span>
                             <span class="stg-chip green">Qualité</span>
+                            <span class="stg-chip slate">Infrastructure</span>
                         </div>
 
                     </div>
