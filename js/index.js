@@ -410,23 +410,27 @@
 
     function rand() { return chars[Math.floor(Math.random() * chars.length)]; }
 
-    /* ── Étape 1 : construire un <span> par caractère ──
-       On laisse d'abord chaque span afficher le bon caractère
-       pour mesurer sa largeur naturelle, puis on la fixe. */
+    /* ── Étape 1 : verrouiller la taille du conteneur entier ──
+       On mesure AVANT de toucher quoi que ce soit.
+       Kerning, ligatures, tout est déjà inclus dans cette mesure.
+       Après ça, la div ne peut plus bouger. */
+    el.style.display    = 'inline-block';
+    el.style.width      = el.offsetWidth  + 'px';
+    el.style.whiteSpace = 'nowrap';
+
+    /* ── Étape 2 : construire un <span> par caractère ── */
     el.textContent = '';
     for (var i = 0; i < len; i++) {
       var s = document.createElement('span');
-      s.style.display    = 'inline-block';
-      s.style.textAlign  = 'center';
-      s.textContent      = target[i];
+      s.style.display   = 'inline-block';
+      s.style.textAlign = 'center';
+      s.textContent     = target[i];
       el.appendChild(s);
       spans.push(s);
     }
 
-    /* ── Étape 2 : fixer la largeur de chaque span ──
-       width strict (pas minWidth) : ni rétrécissement ni dépassement.
-       white-space: nowrap sur le parent pour bloquer tout retour à la ligne. */
-    el.style.whiteSpace = 'nowrap';
+    /* ── Étape 3 : fixer la largeur individuelle de chaque span ──
+       width strict pour que les chars larges (W, M) ne dépassent pas. */
     spans.forEach(function (s) {
       s.style.width    = s.offsetWidth + 'px';
       s.style.overflow = 'hidden';
@@ -455,8 +459,10 @@
         if (locked >= len) {
           clearInterval(iv);
           /* Nettoyer les spans — remettre le texte brut */
+          el.style.width      = '';
+          el.style.display    = '';
           el.style.whiteSpace = '';
-          el.textContent = target;
+          el.textContent      = target;
         }
       }, TICK_MS);
     }, startDelay || 0);
