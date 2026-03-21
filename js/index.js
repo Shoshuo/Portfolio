@@ -397,7 +397,6 @@
    * ───────────────────────────────────────────── */
   function scrambleEl(el, startDelay) {
     var target = el.getAttribute('data-text') || el.textContent;
-    /* Lettres majuscules uniquement — largeurs homogènes dans Poppins */
     var chars  = 'ABCDEFGHJKLMNOPQRSTUVWXYZ';
     var len    = target.length;
     var locked = 0;
@@ -406,14 +405,23 @@
 
     function rand() { return chars[Math.floor(Math.random() * chars.length)]; }
 
-    /* Verrouille la hauteur du h2 avant de toucher quoi que ce soit
-       → rien autour ne peut bouger pendant l'animation */
-    var h2 = el.closest ? el.closest('h2') : el.parentNode;
-    if (h2) h2.style.height = h2.offsetHeight + 'px';
+    /* 1. Passer en inline-block pour pouvoir mesurer et fixer la largeur.
+          vertical-align:baseline = visuellement identique à inline sur
+          du texte monoligne — pas de changement de taille perçu.       */
+    el.style.display       = 'inline-block';
+    el.style.verticalAlign = 'baseline';
 
-    /* nowrap : empêche le retour à la ligne si un char aléatoire est
-       légèrement plus large que l'original */
+    /* 2. Mesurer la largeur RÉELLE du texte (avec kerning complet),
+          puis la verrouiller. Le span ne pourra plus jamais changer
+          de largeur, quelle que soit la lettre aléatoire affichée.    */
+    el.style.width      = el.offsetWidth + 'px';
+    el.style.overflow   = 'hidden';
     el.style.whiteSpace = 'nowrap';
+
+    /* 3. Verrouiller la hauteur du h2 pour bloquer tout décalage
+          des éléments qui suivent dans la page.                        */
+    var h2 = el.closest ? el.closest('h2') : el.parentNode;
+    if (h2 && !h2.style.height) h2.style.height = h2.offsetHeight + 'px';
 
     function render() {
       var out = '';
@@ -432,10 +440,15 @@
         render();
         if (locked >= len) {
           clearInterval(iv);
-          el.style.whiteSpace = '';
-          el.textContent      = target;
-          /* Libère la hauteur du h2 une fois les deux spans terminés */
-          if (h2 && !h2.querySelector('.js-scramble[style*="nowrap"]')) {
+          /* Nettoyer tous les styles injectés */
+          el.style.display       = '';
+          el.style.verticalAlign = '';
+          el.style.width         = '';
+          el.style.overflow      = '';
+          el.style.whiteSpace    = '';
+          el.textContent         = target;
+          /* Libérer la hauteur du h2 quand les deux spans sont finis */
+          if (h2 && !h2.querySelector('.js-scramble[style*="width"]')) {
             h2.style.height = '';
           }
         }
