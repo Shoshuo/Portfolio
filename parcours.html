@@ -28,6 +28,8 @@
 </head>
 <body>
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.body.classList.add('dark-mode');})()</script>
+<!-- Barre de progression de lecture -->
+<div class="reading-bar" id="reading-bar" aria-hidden="true"></div>
 <div id="wrapper">
 
     <!-- ==================== NAVBAR ==================== -->
@@ -129,13 +131,32 @@
                 </a>
             </div>
 
+            <!-- Filtres de timeline -->
+            <div class="tl-filter-bar reveal">
+                <button class="tl-filter-btn active" data-filter="all">
+                    <i class="fa fa-border-all"></i> Tout
+                </button>
+                <button class="tl-filter-btn" data-filter="cdi">
+                    <i class="fa fa-briefcase"></i> CDI
+                </button>
+                <button class="tl-filter-btn" data-filter="dev">
+                    <i class="fa fa-code"></i> Développement
+                </button>
+                <button class="tl-filter-btn" data-filter="infra">
+                    <i class="fa fa-server"></i> Infra &amp; Réseaux
+                </button>
+                <button class="tl-filter-btn" data-filter="decouverte">
+                    <i class="fa fa-eye"></i> Découverte
+                </button>
+            </div>
+
             <div class="tl-wrap">
                 <div class="tl-line">
                     <div class="tl-progress-fill" aria-hidden="true"></div>
                 </div>
 
                 <!-- ── La Poste — CDI (gauche) ── -->
-                <div class="tl-entry tl-left reveal-right">
+                <div class="tl-entry tl-left reveal-right" data-type="cdi">
                     <div class="tl-dot"></div>
                     <div class="tl-card tl-card--cdi">
                         <div class="tl-header-row">
@@ -181,7 +202,7 @@
                 </div>
 
                 <!-- ── Broussaud Textile — Stage BTS 2 (droite) ── -->
-                <div class="tl-entry tl-right reveal-left">
+                <div class="tl-entry tl-right reveal-left" data-type="dev">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">
@@ -218,7 +239,7 @@
                 </div>
 
                 <!-- ── LC-NETWORK — Stage BTS 1 (gauche) ── -->
-                <div class="tl-entry tl-left reveal-right">
+                <div class="tl-entry tl-left reveal-right" data-type="dev">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">
@@ -255,7 +276,7 @@
                 </div>
 
                 <!-- ── Arène Informatique — Stage Terminale (droite) ── -->
-                <div class="tl-entry tl-right reveal-left">
+                <div class="tl-entry tl-right reveal-left" data-type="infra">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">
@@ -285,7 +306,7 @@
                 </div>
 
                 <!-- ── LC-NETWORK — Stage Terminale 2 (gauche) ── -->
-                <div class="tl-entry tl-left reveal-right">
+                <div class="tl-entry tl-left reveal-right" data-type="dev">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">
@@ -319,7 +340,7 @@
                 </div>
 
                 <!-- ── Micro-Rezo — Stage Première (droite) ── -->
-                <div class="tl-entry tl-right reveal-left">
+                <div class="tl-entry tl-right reveal-left" data-type="infra">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">
@@ -344,7 +365,7 @@
                 </div>
 
                 <!-- ── Lycée Maryse Bastié — Stage Première (gauche) ── -->
-                <div class="tl-entry tl-left reveal-right">
+                <div class="tl-entry tl-left reveal-right" data-type="infra">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">
@@ -369,7 +390,7 @@
                 </div>
 
                 <!-- ── Safran — Stage 3ème (droite) ── -->
-                <div class="tl-entry tl-right reveal-left">
+                <div class="tl-entry tl-right reveal-left" data-type="decouverte">
                     <div class="tl-dot tl-dot--stage"></div>
                     <div class="tl-card tl-card--stage">
                         <div class="tl-header-row">

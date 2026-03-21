@@ -98,6 +98,50 @@
   }
 
   /* ─────────────────────────────────────────────
+   * READING BAR — progression de lecture
+   * ───────────────────────────────────────────── */
+  function initReadingBar() {
+    var bar = document.getElementById('reading-bar');
+    if (!bar) return;
+    function update() {
+      var scrollTop  = window.scrollY || window.pageYOffset;
+      var docHeight  = document.documentElement.scrollHeight - window.innerHeight;
+      var progress   = docHeight > 0 ? (scrollTop / docHeight * 100) : 0;
+      bar.style.width = Math.min(progress, 100).toFixed(1) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  /* ─────────────────────────────────────────────
+   * TIMELINE FILTERS — filtrage par type
+   * ───────────────────────────────────────────── */
+  function initTimelineFilters() {
+    var btns    = document.querySelectorAll('.tl-filter-btn');
+    var entries = document.querySelectorAll('#Experiences .tl-entry[data-type]');
+    if (!btns.length || !entries.length) return;
+
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var filter = btn.getAttribute('data-filter');
+
+        /* Active le bouton cliqué */
+        btns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        /* Filtre les entrées */
+        entries.forEach(function (entry) {
+          if (filter === 'all' || entry.getAttribute('data-type') === filter) {
+            entry.classList.remove('tl-filtered-out');
+          } else {
+            entry.classList.add('tl-filtered-out');
+          }
+        });
+      });
+    });
+  }
+
+  /* ─────────────────────────────────────────────
    * SCROLLSPY — surligne l'item nav actif
    * selon la section visible à l'écran
    * ───────────────────────────────────────────── */
@@ -156,5 +200,7 @@
     initTimelineFills();
     initScrollspy();
     initSkillBars();
+    initReadingBar();
+    initTimelineFilters();
   });
 })();

@@ -660,6 +660,83 @@ body.dark-mode .parc-learn {
 }
 
 /* ══════════════════════════════════════════════
+   BARRE DE LECTURE — scroll progress
+   ══════════════════════════════════════════════ */
+
+.reading-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, #7c3aed 0%, #06b6d4 60%, #ec4899 100%);
+  z-index: 9999;
+  pointer-events: none;
+  border-radius: 0 2px 2px 0;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(124,58,237,0.5);
+}
+
+/* ══════════════════════════════════════════════
+   FILTRES TIMELINE
+   ══════════════════════════════════════════════ */
+
+.tl-filter-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.tl-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  font-family: inherit;
+}
+
+.tl-filter-btn:hover {
+  border-color: rgba(124,58,237,0.30);
+  color: #7c3aed;
+  background: rgba(124,58,237,0.05);
+  transform: translateY(-1px);
+}
+
+.tl-filter-btn.active {
+  border-color: rgba(124,58,237,0.40);
+  color: #7c3aed;
+  background: rgba(124,58,237,0.08);
+  box-shadow: 0 2px 8px rgba(124,58,237,0.12);
+}
+
+.tl-filter-btn i { font-size: 0.68rem; }
+
+/* Entrée filtrée — masquée avec transition */
+.tl-entry.tl-filtered-out {
+  opacity: 0;
+  transform: scale(0.95) translateY(-8px);
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.4s ease, margin 0.3s ease;
+}
+
+.tl-entry {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ══════════════════════════════════════════════
    STACK CHIPS — rangée de tech dans une carte
    ══════════════════════════════════════════════ */
 
@@ -943,4 +1020,59 @@ body.dark-mode .parc-recap {
 
 body.dark-mode .parc-next {
   background: rgba(22,22,22,0.95) !important;
+}
+
+/* ══════════════════════════════════════════════
+   CARTE HOVER — glow coloré selon type
+   ══════════════════════════════════════════════ */
+
+.tl-card--cdi:hover {
+  box-shadow: 0 8px 32px rgba(124,58,237,0.18), 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.tl-card--stage:hover {
+  box-shadow: 0 8px 32px rgba(245,158,11,0.14), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.tl-card--edu:hover {
+  box-shadow: 0 8px 32px rgba(6,182,212,0.14), 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ══════════════════════════════════════════════
+   SECTION HEADER — ligne décorative sous le tag
+   ══════════════════════════════════════════════ */
+
+.profil-section-header { position: relative; }
+
+/* ══════════════════════════════════════════════
+   KPI WRAP — ligne séparatrice bottom
+   ══════════════════════════════════════════════ */
+
+.parc-kpi-wrap {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ══════════════════════════════════════════════
+   DOT — couleur CDI
+   ══════════════════════════════════════════════ */
+
+.tl-entry[data-type="cdi"] .tl-dot {
+  background: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.20);
+}
+
+.tl-entry[data-type="decouverte"] .tl-dot {
+  background: #6b7280;
+  box-shadow: 0 0 0 3px rgba(107,114,128,0.20);
+}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE FILTRES
+   ══════════════════════════════════════════════ */
+
+@media (max-width: 575px) {
+  .tl-filter-bar { gap: 0.35rem; }
+  .tl-filter-btn { padding: 0.35rem 0.75rem; font-size: 0.7rem; }
 }
