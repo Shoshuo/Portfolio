@@ -958,8 +958,9 @@ body.dark-mode .wave-fill {
 /* ── Reveal — translate + opacity ────────────── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateY(32px);
+  transition: opacity 0.70s cubic-bezier(0.16,1,0.3,1),
+              transform 0.70s cubic-bezier(0.16,1,0.3,1);
 }
 
 .reveal.visible {
@@ -970,7 +971,7 @@ body.dark-mode .wave-fill {
 /* Reveal wipe (clip-path) — pour titres et tags */
 .reveal-wipe {
   clip-path: inset(0 0 100% 0);
-  transition: clip-path 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: clip-path 0.80s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-wipe.visible {
@@ -980,8 +981,9 @@ body.dark-mode .wave-fill {
 /* Reveal depuis la gauche */
 .reveal-left {
   opacity: 0;
-  transform: translateX(-36px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateX(-40px);
+  transition: opacity 0.70s cubic-bezier(0.16,1,0.3,1),
+              transform 0.70s cubic-bezier(0.16,1,0.3,1);
 }
 
 .reveal-left.visible {
@@ -992,8 +994,9 @@ body.dark-mode .wave-fill {
 /* Reveal depuis la droite */
 .reveal-right {
   opacity: 0;
-  transform: translateX(36px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
+  transform: translateX(40px);
+  transition: opacity 0.70s cubic-bezier(0.16,1,0.3,1),
+              transform 0.70s cubic-bezier(0.16,1,0.3,1);
 }
 
 .reveal-right.visible {
@@ -1001,9 +1004,9 @@ body.dark-mode .wave-fill {
   transform: translateX(0);
 }
 
-.reveal-delay-1 { transition-delay: 0.18s; }
-.reveal-delay-2 { transition-delay: 0.36s; }
-.reveal-delay-3 { transition-delay: 0.54s; }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
 
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 991px) {
@@ -1340,7 +1343,9 @@ body.dark-mode .intro-job-card {
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   padding: 1.25rem 1.5rem;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.40s cubic-bezier(0.34,1.56,0.64,1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
 .tl-card:hover {
