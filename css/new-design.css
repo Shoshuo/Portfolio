@@ -84,25 +84,18 @@ h1, h2, h3, h4 { font-size: unset !important; }
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(124, 58, 237, 0.15) !important;
   padding: 0 !important;
-  height: 64px !important;
-  display: flex !important;
-  align-items: center !important;
   transition: var(--transition) !important;
 }
 
-.header > .container,
-.transparent-header > .container {
-  height: 100%;
-  display: flex !important;
-  align-items: center !important;
-}
-
-/* Neutralise Bootstrap's .navbar vertical padding + force consistent height */
-.navbar {
+/* Force navbar à une hauteur fixe identique sur toutes les pages.
+   Bootstrap .navbar a padding:.5rem 1rem par défaut — on le remplace
+   par un min-height explicite pour éviter toute variation. */
+.header .navbar,
+.transparent-header .navbar {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  min-height: 64px !important;
   align-items: center !important;
-  width: 100% !important;
 }
 
 .navbar-brand {
