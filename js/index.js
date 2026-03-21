@@ -424,9 +424,12 @@
     }
 
     /* ── Étape 2 : fixer la largeur de chaque span ──
-       Le layout ne bougera plus pendant le scramble. */
+       width strict (pas minWidth) : ni rétrécissement ni dépassement.
+       white-space: nowrap sur le parent pour bloquer tout retour à la ligne. */
+    el.style.whiteSpace = 'nowrap';
     spans.forEach(function (s) {
-      s.style.minWidth = s.offsetWidth + 'px';
+      s.style.width    = s.offsetWidth + 'px';
+      s.style.overflow = 'hidden';
     });
 
     /* ── Étape 3 : afficher le bruit initial ── */
@@ -452,6 +455,7 @@
         if (locked >= len) {
           clearInterval(iv);
           /* Nettoyer les spans — remettre le texte brut */
+          el.style.whiteSpace = '';
           el.textContent = target;
         }
       }, TICK_MS);
