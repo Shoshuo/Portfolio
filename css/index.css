@@ -1182,7 +1182,9 @@ body.dark-mode .intro-job-card {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.42s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
   position: relative;
   overflow: hidden;
 }
@@ -1191,20 +1193,21 @@ body.dark-mode .intro-job-card {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 56px;
-  background: linear-gradient(to bottom, rgba(124,58,237,0.04), transparent);
+  height: 80px;
+  background: linear-gradient(to bottom, rgba(124,58,237,0.06), transparent);
   pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .proj-card--1 { border-top-color: #7c3aed; }
 .proj-card--2 { border-top-color: #06b6d4; }
 .proj-card--3 { border-top-color: #f59e0b; }
 
-.proj-card:hover { transform: translateY(-6px); }
+.proj-card:hover { transform: translateY(-8px); }
 
-.proj-card--1:hover { box-shadow: var(--shadow-card), 0 12px 40px rgba(124,58,237,0.15); }
-.proj-card--2:hover { box-shadow: var(--shadow-card), 0 12px 40px rgba(6,182,212,0.12);  }
-.proj-card--3:hover { box-shadow: var(--shadow-card), 0 12px 40px rgba(245,158,11,0.12); }
+.proj-card--1:hover { box-shadow: var(--shadow-card), 0 16px 48px rgba(124,58,237,0.20); }
+.proj-card--2:hover { box-shadow: var(--shadow-card), 0 16px 48px rgba(6,182,212,0.16);  }
+.proj-card--3:hover { box-shadow: var(--shadow-card), 0 16px 48px rgba(245,158,11,0.16); }
 
 .proj-card-header {
   display: flex;
@@ -1465,6 +1468,10 @@ body.dark-mode .intro-job-card {
 .stack-group:hover {
   border-color: var(--border-strong);
   box-shadow: var(--shadow-card);
+  transition: border-color 0.25s ease,
+              box-shadow 0.40s cubic-bezier(0.34,1.56,0.64,1),
+              transform 0.40s cubic-bezier(0.34,1.56,0.64,1);
+  transform: translateY(-4px);
 }
 
 .stack-group-header {
@@ -1510,8 +1517,13 @@ body.dark-mode .intro-job-card {
 
 .stack-item:hover {
   border-color: var(--accent-purple);
-  background: rgba(124,58,237,0.06);
-  transform: translateY(-2px);
+  background: rgba(124,58,237,0.08);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 4px 12px rgba(124,58,237,0.14);
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              box-shadow 0.25s ease,
+              border-color 0.2s ease,
+              background 0.2s ease;
 }
 
 .stack-item img {

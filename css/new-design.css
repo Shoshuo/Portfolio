@@ -99,18 +99,39 @@ h1, h2, h3, h4 { font-size: unset !important; }
 
 /* Nav links always use dark-navbar palette */
 .navbar-inverse .navbar-nav .nav-link {
+  position: relative !important;
   color: #94a3b8 !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   padding: 6px 12px !important;
   border-radius: 6px;
-  transition: var(--transition) !important;
+  transition: color 0.25s ease, background 0.25s ease !important;
   letter-spacing: 0.3px;
+  overflow: hidden;
+}
+
+/* Underline animé */
+.navbar-inverse .navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 12px; right: 12px;
+  height: 1.5px;
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.30s cubic-bezier(0.16,1,0.3,1);
+}
+
+.navbar-inverse .navbar-nav .nav-link:hover::after,
+.navbar-inverse .navbar-nav li.active > .nav-link::after,
+.navbar-inverse .navbar-nav .nav-link.active::after {
+  transform: scaleX(1);
 }
 
 .navbar-inverse .navbar-nav .nav-link:hover {
   color: #f0f6fc !important;
-  background: rgba(124, 58, 237, 0.1) !important;
+  background: rgba(124, 58, 237, 0.08) !important;
 }
 
 .navbar-inverse .navbar-nav li.active > .nav-link,
@@ -2220,4 +2241,170 @@ body:not(.dark-mode) .page-tag {
   background: rgba(124,58,237,0.10) !important;
   border: 1px solid rgba(124,58,237,0.22) !important;
   color: #5b21b6 !important;
+}
+
+/* ══════════════════════════════════════════════
+   POLISH GLOBAL — round 4
+   ══════════════════════════════════════════════ */
+
+/* ── Nav link underline sur dark header : toujours actif ── */
+
+/* ── Hero — icônes flottantes (hfi) en mode clair ── */
+body:not(.dark-mode) .hfi {
+  opacity: 0.15;
+  filter: grayscale(0.3);
+}
+
+/* ── Hero rings — plus visibles en mode clair ── */
+body:not(.dark-mode) .hr-2 {
+  border-color: rgba(124,58,237,0.18);
+}
+body:not(.dark-mode) .hr-3 {
+  border-color: rgba(6,182,212,0.14);
+}
+body:not(.dark-mode) .shape-ring {
+  border-color: rgba(124,58,237,0.22);
+  opacity: 0.75;
+}
+
+/* ── Profile card (hero) — mode clair ── */
+body:not(.dark-mode) .profile-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f5f3ff 100%) !important;
+  box-shadow: 0 8px 32px rgba(124,58,237,0.12), 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+
+body:not(.dark-mode) .profile-initials {
+  box-shadow: 0 6px 20px rgba(124,58,237,0.40), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+/* Glow pulsé amplifié mode clair */
+@keyframes glow-pulse-light {
+  0%, 100% { box-shadow: 0 8px 32px rgba(124,58,237,0.12), 0 2px 8px rgba(0,0,0,0.06); }
+  50% {
+    box-shadow: 0 8px 32px rgba(124,58,237,0.22),
+                0 2px 8px rgba(0,0,0,0.06),
+                0 0 40px rgba(124,58,237,0.12);
+  }
+}
+body:not(.dark-mode) .profile-card {
+  animation: float-card 6s ease-in-out infinite,
+             glow-pulse-light 4s ease-in-out infinite !important;
+}
+
+/* ── Hero domains pills — mode clair ── */
+body:not(.dark-mode) .hero-domain {
+  background: rgba(255,255,255,0.80) !important;
+  border-color: rgba(124,58,237,0.22) !important;
+  color: #374151 !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  backdrop-filter: blur(4px);
+}
+body:not(.dark-mode) .hero-domain:hover {
+  background: rgba(124,58,237,0.10) !important;
+  border-color: rgba(124,58,237,0.40) !important;
+  color: #5b21b6 !important;
+  box-shadow: 0 2px 8px rgba(124,58,237,0.15);
+}
+body:not(.dark-mode) .hero-domain i { color: #7c3aed; }
+
+/* ── Stack groups — mode clair ── */
+body:not(.dark-mode) .stack-group {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 4px 16px rgba(0,0,0,0.07) !important;
+}
+body:not(.dark-mode) .stack-group:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 12px 32px rgba(124,58,237,0.12) !important;
+}
+body:not(.dark-mode) .stack-group-header {
+  background: rgba(124,58,237,0.05) !important;
+  border-bottom-color: rgba(124,58,237,0.12) !important;
+}
+body:not(.dark-mode) .stack-gh--dev   { background: rgba(124,58,237,0.06) !important; }
+body:not(.dark-mode) .stack-gh--front { background: rgba(6,182,212,0.05)  !important; }
+body:not(.dark-mode) .stack-gh--ops   { background: rgba(245,158,11,0.05) !important; }
+body:not(.dark-mode) .stack-gh--tools { background: rgba(236,72,153,0.05) !important; }
+
+body:not(.dark-mode) .stack-item {
+  background: rgba(255,255,255,0.85) !important;
+  border-color: rgba(124,58,237,0.14) !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+body:not(.dark-mode) .stack-item span { color: #374151 !important; }
+body:not(.dark-mode) .stack-item:hover {
+  background: rgba(124,58,237,0.07) !important;
+  border-color: rgba(124,58,237,0.35) !important;
+}
+
+/* ── Proj cards — mode clair amplification ── */
+body:not(.dark-mode) .proj-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%) !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05), 0 6px 20px rgba(0,0,0,0.08) !important;
+}
+body:not(.dark-mode) .proj-card--1::before {
+  background: linear-gradient(to bottom, rgba(124,58,237,0.08), transparent) !important;
+}
+body:not(.dark-mode) .proj-card--2::before {
+  background: linear-gradient(to bottom, rgba(6,182,212,0.07), transparent) !important;
+}
+body:not(.dark-mode) .proj-card--3::before {
+  background: linear-gradient(to bottom, rgba(245,158,11,0.07), transparent) !important;
+}
+body:not(.dark-mode) .proj-card--1:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.07), 0 20px 56px rgba(124,58,237,0.22) !important;
+}
+body:not(.dark-mode) .proj-card--2:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.07), 0 20px 56px rgba(6,182,212,0.18) !important;
+}
+body:not(.dark-mode) .proj-card--3:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.07), 0 20px 56px rgba(245,158,11,0.18) !important;
+}
+body:not(.dark-mode) .proj-tag {
+  background: rgba(124,58,237,0.07) !important;
+  border-color: rgba(124,58,237,0.18) !important;
+  color: #5b21b6 !important;
+}
+
+/* ── Aurora section Contact — mode clair visible ── */
+body:not(.dark-mode) .ctct-aurora {
+  opacity: 0.12 !important;
+}
+
+/* ── Stack grid background — mode clair ── */
+body:not(.dark-mode) .stack-grid-bg {
+  opacity: 0.4 !important;
+}
+
+/* ── profil-section-tag — shimmer subtil ── */
+@keyframes tag-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.profil-section-tag {
+  background-size: 200% auto !important;
+}
+
+/* ── Titre de section : soulignement dégradé ── */
+body:not(.dark-mode) .profil-section-title::after {
+  display: none !important; /* évite doublon avec profil-section-header::after */
+}
+
+/* ── Hero stat separator ── */
+body:not(.dark-mode) .hero-stats {
+  border-top-color: rgba(124,58,237,0.20) !important;
+}
+
+/* ── Profil card wrapper — orbes déco ── */
+body:not(.dark-mode) .profile-card-wrapper::before,
+body:not(.dark-mode) .profile-card-wrapper::after {
+  opacity: 0.35 !important;
+}
+
+/* ── tl-achievements — icônes plus colorées ── */
+body:not(.dark-mode) .tl-achievements li i {
+  color: #7c3aed !important;
+}
+
+/* ── wave fill — harmonisée avec bg-secondary ── */
+body:not(.dark-mode) .wave-fill {
+  fill: #e6e8f5 !important;
 }
