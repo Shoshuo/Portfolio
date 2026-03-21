@@ -397,6 +397,7 @@
    * ───────────────────────────────────────────── */
   function scrambleEl(el, startDelay) {
     var target = el.getAttribute('data-text') || el.textContent;
+    /* Lettres majuscules uniquement — largeurs homogènes dans Poppins */
     var chars  = 'ABCDEFGHJKLMNOPQRSTUVWXYZ';
     var len    = target.length;
     var locked = 0;
@@ -405,32 +406,21 @@
 
     function rand() { return chars[Math.floor(Math.random() * chars.length)]; }
 
-    /* ── Spacer + noise ────────────────────────────────────────────
-       Le spacer (visibility:hidden) garde le texte original en place :
-       le layout ne change jamais d'un pixel, aucun reflow.
-       Le noise (position:absolute) se superpose sans affecter le flux.
-       On ne touche PAS à display → pas de changement de baseline/taille. */
-    el.style.position = 'relative';
+    /* Verrouille la hauteur du h2 avant de toucher quoi que ce soit
+       → rien autour ne peut bouger pendant l'animation */
+    var h2 = el.closest ? el.closest('h2') : el.parentNode;
+    if (h2) h2.style.height = h2.offsetHeight + 'px';
 
-    var spacer = document.createElement('span');
-    spacer.textContent = target;
-    spacer.setAttribute('aria-hidden', 'true');
-    spacer.style.cssText = 'visibility:hidden;white-space:nowrap;';
-
-    var noise = document.createElement('span');
-    noise.setAttribute('aria-hidden', 'true');
-    noise.style.cssText = 'position:absolute;left:0;top:0;white-space:nowrap;pointer-events:none;';
-
-    el.textContent = '';
-    el.appendChild(spacer);
-    el.appendChild(noise);
+    /* nowrap : empêche le retour à la ligne si un char aléatoire est
+       légèrement plus large que l'original */
+    el.style.whiteSpace = 'nowrap';
 
     function render() {
       var out = '';
       for (var i = 0; i < len; i++) {
         out += (i < locked || target[i] === '-' || target[i] === ' ') ? target[i] : rand();
       }
-      noise.textContent = out;
+      el.textContent = out;
     }
 
     render();
@@ -442,8 +432,12 @@
         render();
         if (locked >= len) {
           clearInterval(iv);
-          el.style.position = '';
-          el.textContent    = target;
+          el.style.whiteSpace = '';
+          el.textContent      = target;
+          /* Libère la hauteur du h2 une fois les deux spans terminés */
+          if (h2 && !h2.querySelector('.js-scramble[style*="nowrap"]')) {
+            h2.style.height = '';
+          }
         }
       }, 42);
     }, startDelay || 0);
