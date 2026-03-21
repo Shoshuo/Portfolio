@@ -390,6 +390,58 @@
     });
   }
 
+  /* ─────────────────────────────────────────────
+   * SCRAMBLE TEXT — effet "hacker" sur le nom hero
+   * Les lettres s'affichent aléatoirement puis se
+   * figent une par une de gauche à droite.
+   * ───────────────────────────────────────────── */
+  function scrambleEl(el, startDelay) {
+    var target   = el.getAttribute('data-text') || el.textContent;
+    var chars    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
+    var len      = target.length;
+    var locked   = 0;
+    var tick     = 0;
+    var TICK_MS  = 38;   /* intervalle entre chaque frame                  */
+    var LOCK_EVERY = 2;  /* verrouille 1 char toutes les LOCK_EVERY frames */
+    var iv;
+
+    function rand() { return chars[Math.floor(Math.random() * chars.length)]; }
+
+    function render() {
+      var out = '';
+      for (var i = 0; i < len; i++) {
+        out += i < locked ? target[i] : rand();
+      }
+      el.textContent = out;
+    }
+
+    /* Affiche du bruit immédiatement */
+    render();
+
+    setTimeout(function () {
+      iv = setInterval(function () {
+        tick++;
+        if (tick % LOCK_EVERY === 0) locked++;
+        render();
+        if (locked >= len) {
+          clearInterval(iv);
+          el.textContent = target; /* garantit le texte final exact */
+        }
+      }, TICK_MS);
+    }, startDelay || 0);
+  }
+
+  function initScramble() {
+    var els = document.querySelectorAll('.js-scramble');
+    if (!els.length) return;
+    /* Petit délai initial pour laisser le hero s'afficher */
+    var base = 320;
+    var gap  = els[0] ? (els[0].getAttribute('data-text').length * 38 * 0.55) : 300;
+    els.forEach(function (el, i) {
+      scrambleEl(el, base + i * gap);
+    });
+  }
+
   /* ── Scroll indicator ────────────────────────── */
   function initScrollIndicator() {
     var el = document.querySelector('.scroll-indicator');
@@ -479,6 +531,7 @@
     initScrollIndicator();
     initSpotlight();
     initSectionEffects();
+    initScramble();
 
     /* Démarrage de la boucle RAF */
     rafId = requestAnimationFrame(tick);
