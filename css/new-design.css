@@ -83,15 +83,26 @@ h1, h2, h3, h4 { font-size: unset !important; }
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
   border-bottom: 1px solid rgba(124, 58, 237, 0.15) !important;
-  padding: 10px 0 !important;
+  padding: 0 !important;
+  height: 64px !important;
+  display: flex !important;
+  align-items: center !important;
   transition: var(--transition) !important;
 }
 
-/* Neutralise Bootstrap's .navbar vertical padding so .header padding-top/bottom
-   is the only source of truth — prevents height from differing page to page */
+.header > .container,
+.transparent-header > .container {
+  height: 100%;
+  display: flex !important;
+  align-items: center !important;
+}
+
+/* Neutralise Bootstrap's .navbar vertical padding + force consistent height */
 .navbar {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
+  align-items: center !important;
+  width: 100% !important;
 }
 
 .navbar-brand {
