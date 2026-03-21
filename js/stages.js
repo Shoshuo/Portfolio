@@ -122,35 +122,6 @@
     });
   }
 
-  /* ── Card 3D tilt ──────────────────────────── */
-  function initCardTilt() {
-    /* Only on devices with fine pointer (mouse) */
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-
-    var cards = document.querySelectorAll('.stg-card');
-
-    cards.forEach(function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var rect  = card.getBoundingClientRect();
-        var cx    = rect.left + rect.width  / 2;
-        var cy    = rect.top  + rect.height / 2;
-        var dx    = (e.clientX - cx) / (rect.width  / 2);
-        var dy    = (e.clientY - cy) / (rect.height / 2);
-        var rotY  =  dx * 3.5;
-        var rotX  = -dy * 1.8;
-        card.style.transform = [
-          'translateY(-6px)',
-          'perspective(900px)',
-          'rotateX(' + rotX + 'deg)',
-          'rotateY(' + rotY + 'deg)'
-        ].join(' ');
-      });
-
-      card.addEventListener('mouseleave', function () {
-        card.style.transform = '';
-      });
-    });
-  }
 
   /* ── Init ──────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
@@ -158,6 +129,5 @@
     initReveal();
     initKpi();
     initFilters();
-    initCardTilt();
   });
 })();

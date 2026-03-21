@@ -355,6 +355,7 @@ body:not(.dark-mode) .stg-result-count strong { color: #7c3aed; }
 
 .stg-card:hover {
   border-color: var(--border-strong);
+  transform: none;
 }
 
 /* Left accent bar */
@@ -501,8 +502,8 @@ body:not(.dark-mode) .stg-badge.decouverte  { color: #92400e; }
 }
 
 .stg-company-logo {
-  width: 58px; height: 58px;
-  border-radius: 13px;
+  width: 80px; height: 80px;
+  border-radius: 14px;
   overflow: hidden;
   flex-shrink: 0;
   background: var(--bg-secondary);
@@ -514,7 +515,6 @@ body:not(.dark-mode) .stg-badge.decouverte  { color: #92400e; }
               box-shadow 0.35s ease;
 }
 .stg-card:hover .stg-company-logo {
-  transform: scale(1.05);
   box-shadow: 0 4px 14px rgba(124,58,237,0.15);
 }
 
