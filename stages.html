@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stages — Joshua BETHOULE-VOISIN</title>
-    <meta name="description" content="Expériences de stages de Joshua BETHOULE-VOISIN.">
+    <meta name="description" content="Expériences de stages de Joshua BETHOULE-VOISIN, étudiant BTS SIO SLAM.">
 
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -13,15 +13,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/atom.css" rel="stylesheet">
     <link href="css/portfolio.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="css/modals.css" rel="stylesheet">
     <link href="css/card.css" rel="stylesheet">
+    <link href="css/footer.css" rel="stylesheet">
     <link href="css/new-design.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/stages.css" rel="stylesheet">
 </head>
 <body>
 <script>(function(){var t=localStorage.getItem('theme');if(t==='dark')document.body.classList.add('dark-mode');})()</script>
+
+<!-- Reading bar -->
+<div id="reading-bar"></div>
+
 <div id="wrapper">
 
     <!-- ==================== NAVBAR ==================== -->
@@ -59,244 +67,564 @@
         </div>
     </header>
 
-    <!-- ==================== PAGE HEADER ==================== -->
-    <div class="page-header-section">
+    <!-- ==================== HERO HEADER ==================== -->
+    <section class="stg-hero">
+        <!-- Orbs décoratifs -->
+        <div class="stg-orb stg-orb-1"></div>
+        <div class="stg-orb stg-orb-2"></div>
+        <div class="stg-orb stg-orb-3"></div>
+
         <div class="container">
-            <div class="page-tag">Expériences</div>
-            <h1>Mes Stages</h1>
-            <p class="page-sub">6 expériences professionnelles depuis 2019</p>
+            <div class="stg-hero-inner">
+                <div class="stg-tag"><i class="fa fa-briefcase"></i> Expériences professionnelles</div>
+                <h1>Mes Stages</h1>
+                <p class="stg-hero-sub">
+                    De la 3ème au BTS, chaque stage m'a permis de découvrir,
+                    de créer et de progresser dans l'univers du numérique.
+                </p>
+
+                <!-- KPI -->
+                <div class="stg-kpi-wrap">
+                    <div class="stg-kpi-stat">
+                        <span class="stg-kpi-num">6</span>
+                        <span class="stg-kpi-label">Expériences</span>
+                    </div>
+                    <div class="stg-kpi-sep"></div>
+                    <div class="stg-kpi-stat">
+                        <span class="stg-kpi-num">6</span>
+                        <span class="stg-kpi-label">Années</span>
+                    </div>
+                    <div class="stg-kpi-sep"></div>
+                    <div class="stg-kpi-stat">
+                        <span class="stg-kpi-num">4</span>
+                        <span class="stg-kpi-label">Entreprises</span>
+                    </div>
+                    <div class="stg-kpi-sep"></div>
+                    <div class="stg-kpi-stat">
+                        <span class="stg-kpi-num">3</span>
+                        <span class="stg-kpi-label">Domaines</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
     <!-- ==================== STAGES ==================== -->
-    <section id="Stage" class="section">
+    <section class="stg-section">
         <div class="container">
 
-            <!-- STAGE BTS 2 - Broussaud Textile -->
-            <div class="card-interest-all">
-                <div class="card-interest">
-                    <div class="interest-header">
-                        Stage BTS 2ème Année — 20 Janvier 2025 · 21 Février 2025
-                    </div>
-                    <div class="interest-body mt-5">
-                        <div class="img-interest">
-                            <img src="images/broussaud.png" alt="Broussaud Textile">
-                            <a href="https://maisonbroussaud.fr/" target="_blank">Visiter le site</a>
-                        </div>
-                        <div class="interest-content-l">
-                            <div>
-                                <h5><i class="fa fa-info-circle" style="color:#a78bfa;margin-right:8px;"></i>Détails du Stage</h5>
-                                <p><strong style="color:#c4b5fd">Entreprise :</strong> Broussaud Textile, Les Cars</p>
-                                <p><strong style="color:#c4b5fd">Durée :</strong> 20 Janvier 2025 — 21 Février 2025 (5 semaines)</p>
-                                <p><strong style="color:#c4b5fd">Mission :</strong> Développement d'applications web internes à l'entreprise.</p>
+            <!-- Filter bar -->
+            <div class="stg-filter-bar">
+                <button class="stg-filter-btn active" data-filter="all">
+                    <span class="stg-filter-dot" style="background:linear-gradient(135deg,#7c3aed,#06b6d4);"></span>
+                    Tous
+                </button>
+                <button class="stg-filter-btn" data-filter="dev">
+                    <span class="stg-filter-dot dev"></span>
+                    Développement
+                </button>
+                <button class="stg-filter-btn" data-filter="maintenance">
+                    <span class="stg-filter-dot maintenance"></span>
+                    IT &amp; Réseaux
+                </button>
+                <button class="stg-filter-btn" data-filter="decouverte">
+                    <span class="stg-filter-dot decouverte"></span>
+                    Découverte
+                </button>
+            </div>
+
+            <!-- Cards grid -->
+            <div class="stg-grid">
+
+                <!-- ══════════════════════════════════════════════
+                     STAGE 1 — Broussaud Textile (BTS 2, Jan-Fév 2025)
+                     ══════════════════════════════════════════════ -->
+                <div class="stg-card stg-reveal" data-type="dev">
+                    <div class="stg-card-inner">
+
+                        <!-- Header -->
+                        <div class="stg-card-head">
+                            <div class="stg-card-head-left">
+                                <span class="stg-badge dev"><i class="fa fa-code"></i> Développement</span>
+                                <span class="stg-level">BTS 2ème année</span>
                             </div>
-                            <div style="margin-top:1rem;">
-                                <h5><i class="fa fa-building" style="color:#a78bfa;margin-right:8px;"></i>Présentation</h5>
-                                <p>
-                                    Fondée en 1938, Broussaud Textiles est une entreprise familiale française spécialisée dans la fabrication de chaussettes et de collants.
-                                    Labellisée <strong style="color:#c4b5fd">Entreprise du Patrimoine Vivant (EPV)</strong>, elle perpétue depuis trois générations un savoir-faire artisanal reconnu par l'État.
+                            <span class="stg-duration">
+                                <i class="fa fa-calendar"></i>
+                                Jan 2025 — Fév 2025 &nbsp;·&nbsp; 5 semaines
+                            </span>
+                        </div>
+
+                        <!-- Company -->
+                        <div class="stg-company-row">
+                            <div class="stg-company-logo">
+                                <img src="images/broussaud.png" alt="Broussaud Textile">
+                            </div>
+                            <div class="stg-company-info">
+                                <p class="stg-company-name">Broussaud Textile</p>
+                                <div class="stg-company-meta">
+                                    <i class="fa fa-map-marker-alt"></i> Les Cars, Haute-Vienne
+                                    &nbsp;·&nbsp; Industrie textile / EPV
+                                </div>
+                            </div>
+                            <a href="https://maisonbroussaud.fr/" target="_blank" class="stg-company-link">
+                                <i class="fa fa-external-link-alt"></i> Visiter
+                            </a>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="stg-card-body">
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-building"></i> Contexte
+                                </div>
+                                <p class="stg-mission">
+                                    Fondée en <strong>1938</strong>, Broussaud Textiles est une entreprise familiale française
+                                    labellisée <strong>Entreprise du Patrimoine Vivant (EPV)</strong>, spécialisée dans la
+                                    fabrication de chaussettes et collants. Mission principale :
+                                    <strong>développement d'applications web internes</strong> pour moderniser les processus métier.
                                 </p>
                             </div>
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-check-double"></i> Réalisations
+                                </div>
+                                <ul class="stg-achievements">
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Formulaire partenaire en <strong>Symfony 7 + React.js</strong> — BDD MariaDB, bcrypt, conformité RGPD
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Service de lecture de fichiers <strong>Excel (.xlsx)</strong> via PHPSpreadsheet
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Jeu de bataille PHP pour consolider la POO et les bonnes pratiques
+                                    </li>
+                                    <li>
+                                        <span class="stg-check warn"><i class="fa fa-times"></i></span>
+                                        API C# (sync MSSQL/MariaDB/PostgreSQL/Sage) — projet abandonné en cours de stage
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="interest-subject mt-5 mb-4">
-                        <div>
-                            <h5><i class="fa fa-tools" style="color:#a78bfa;margin-right:8px;"></i>Compétences Acquises</h5>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Conception et développement d'un formulaire d'ajout de partenaire en <strong style="color:#c4b5fd">Symfony 7</strong> avec <strong style="color:#c4b5fd">React.js</strong>.</p>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Lecture et récupération de données depuis des fichiers Excel (.xlsx) via <strong style="color:#c4b5fd">PHPSpreadsheet</strong>.</p>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Projet PHP (jeu de bataille) pour renforcer la POO et les bonnes pratiques.</p>
-                            <p><i class="fa fa-times-circle" style="color:#f87171;margin-right:8px;"></i>Participation à une API C# pour la synchronisation de bases (MSSQL, MariaDB, PostgreSQL, Sage) — projet abandonné.</p>
+
+                        <!-- Stack chips -->
+                        <div class="stg-chips">
+                            <span class="stg-chip violet"><i class="fa fa-code"></i> Symfony 7</span>
+                            <span class="stg-chip cyan"><i class="fa fa-atom"></i> React.js</span>
+                            <span class="stg-chip violet">PHP</span>
+                            <span class="stg-chip slate">MariaDB</span>
+                            <span class="stg-chip green">PHPSpreadsheet</span>
+                            <span class="stg-chip rose">C#</span>
+                            <span class="stg-chip amber">RGPD</span>
                         </div>
-                        <div style="margin-top:1rem;">
-                            <h5><i class="fa fa-star" style="color:#a78bfa;margin-right:8px;"></i>Projets Clés</h5>
-                            <p><strong style="color:#c4b5fd">Formulaire partenaire :</strong> Développement complet de la BDD MariaDB à l'interface React.js, chiffrement bcrypt, conformité RGPD.</p>
-                            <p><strong style="color:#c4b5fd">Lecture Excel :</strong> Service de lecture/validation, contrôleur Symfony, interface JS pour l'envoi et l'affichage des résultats.</p>
-                        </div>
+
                     </div>
                 </div>
-            </div>
 
-            <!-- STAGE BTS 1 - LC-NETWORK -->
-            <div class="card-interest-all">
-                <div class="card-interest">
-                    <div class="interest-header">
-                        Stage BTS 1ère Année — 13 Mai 2024 · 14 Juin 2024
-                    </div>
-                    <div class="interest-body mt-5">
-                        <div class="interest-content-r">
-                            <div>
-                                <h5><i class="fa fa-info-circle" style="color:#a78bfa;margin-right:8px;"></i>Détails du Stage</h5>
-                                <p><strong style="color:#c4b5fd">Entreprise :</strong> LC-NETWORK, Nexon</p>
-                                <p><strong style="color:#c4b5fd">Durée :</strong> 13 Mai 2024 — 14 Juin 2024</p>
-                                <p><strong style="color:#c4b5fd">Mission :</strong> Développement d'applications web Symfony pour la domotique.</p>
+                <!-- ══════════════════════════════════════════════
+                     STAGE 2 — LC-NETWORK (BTS 1, Mai-Juin 2024)
+                     ══════════════════════════════════════════════ -->
+                <div class="stg-card stg-reveal" data-type="dev">
+                    <div class="stg-card-inner">
+
+                        <div class="stg-card-head">
+                            <div class="stg-card-head-left">
+                                <span class="stg-badge dev"><i class="fa fa-code"></i> Développement</span>
+                                <span class="stg-level">BTS 1ère année</span>
                             </div>
-                            <div style="margin-top:1rem;">
-                                <h5><i class="fa fa-building" style="color:#a78bfa;margin-right:8px;"></i>Présentation</h5>
-                                <p>
-                                    LC-Network est spécialisée dans le développement d'applications web.
-                                    Son produit phare est <strong style="color:#c4b5fd">UbiCaisse</strong>, une application de caisse enregistreuse pour commerçants.
+                            <span class="stg-duration">
+                                <i class="fa fa-calendar"></i>
+                                Mai 2024 — Juin 2024 &nbsp;·&nbsp; 5 semaines
+                            </span>
+                        </div>
+
+                        <div class="stg-company-row">
+                            <div class="stg-company-logo">
+                                <img src="images/lcnetwork.jpg" alt="LC-Network">
+                            </div>
+                            <div class="stg-company-info">
+                                <p class="stg-company-name">LC-NETWORK</p>
+                                <div class="stg-company-meta">
+                                    <i class="fa fa-map-marker-alt"></i> Nexon, Haute-Vienne
+                                    &nbsp;·&nbsp; Développement web &amp; domotique
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stg-card-body">
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-building"></i> Contexte
+                                </div>
+                                <p class="stg-mission">
+                                    LC-Network développe des applications web, dont son produit phare
+                                    <strong>UbiCaisse</strong>. Mission : développement d'outils Symfony
+                                    pour la <strong>supervision de panneaux photovoltaïques</strong>
+                                    et gestion d'un système de domotique connecté.
                                 </p>
                             </div>
-                        </div>
-                        <div class="img-interest">
-                            <img src="images/lcnetwork.jpg" alt="LC-Network">
-                        </div>
-                    </div>
-                    <div class="interest-subject mt-5 mb-4">
-                        <div>
-                            <h5><i class="fa fa-tools" style="color:#a78bfa;margin-right:8px;"></i>Compétences Acquises</h5>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Configuration d'un environnement macOS pour le développement.</p>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Système de notifications sonores pour panneaux photovoltaïques (AppleScript, LUA, PHP).</p>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Algorithmes PHP de prédiction de tendances de production solaire.</p>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Interface web d'historique de production avec graphiques et calendrier jQuery.</p>
-                            <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Système de login sécurisé avec Symfony (gestion rôles &amp; permissions).</p>
-                        </div>
-                        <div style="margin-top:1rem;">
-                            <h5><i class="fa fa-star" style="color:#a78bfa;margin-right:8px;"></i>Projets Clés</h5>
-                            <p><strong style="color:#c4b5fd">Notifications sonores :</strong> AppleScript + module Fibaro + app PHP.</p>
-                            <p><strong style="color:#c4b5fd">Analyse solaire :</strong> Calcul de moyennes/variances, visualisation web.</p>
-                            <p><strong style="color:#c4b5fd">Historique de production :</strong> Interface avec graphiques interactifs.</p>
-                            <p><strong style="color:#c4b5fd">Login Symfony :</strong> Authentification sécurisée, hachage des mots de passe.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STAGE Terminale - Arène Informatique -->
-            <div class="card-interest-all">
-                <div class="card-interest">
-                    <div class="interest-header">
-                        Stage Terminale — Janvier 2023 · Février 2023
-                    </div>
-                    <div class="interest-body mt-5">
-                        <div class="img-interest">
-                            <img src="images/areneinfo.jpg" alt="Arène Informatique">
-                            <a href="https://arenesinfo.fr/" target="_blank">Visiter le site</a>
-                        </div>
-                        <div class="interest-content-l">
                             <div>
-                                <h5><i class="fa fa-info-circle" style="color:#a78bfa;margin-right:8px;"></i>Détails du Stage</h5>
-                                <p><strong style="color:#c4b5fd">Entreprise :</strong> Arène-Informatique, Limoges</p>
-                                <p><strong style="color:#c4b5fd">Durée :</strong> Janvier 2023 — Février 2023</p>
-                                <p><strong style="color:#c4b5fd">Mission :</strong> Assistance et résolution de problèmes techniques.</p>
-                            </div>
-                            <div style="margin-top:1rem;">
-                                <h5><i class="fa fa-building" style="color:#a78bfa;margin-right:8px;"></i>Présentation</h5>
-                                <p>Service de deux employés spécialisé dans le dépannage et la maintenance informatique clients.</p>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-check-double"></i> Réalisations
+                                </div>
+                                <ul class="stg-achievements">
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Notifications sonores pour panneaux photovoltaïques (AppleScript + LUA + PHP)
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Algorithmes PHP de prédiction de tendances de production solaire
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Interface web d'historique avec graphiques jQuery interactifs
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Login <strong>Symfony</strong> sécurisé — gestion des rôles &amp; permissions
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="interest-subject mt-5 mb-4">
-                        <h5><i class="fa fa-tools" style="color:#a78bfa;margin-right:8px;"></i>Compétences Acquises</h5>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Diagnostic et résolution de pannes matérielles et logicielles.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Installation et mise à jour de logiciels et systèmes d'exploitation.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Configuration et dépannage d'imprimantes et périphériques.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Sauvegardes et protection antivirus.</p>
+
+                        <div class="stg-chips">
+                            <span class="stg-chip violet">Symfony</span>
+                            <span class="stg-chip violet">PHP</span>
+                            <span class="stg-chip amber">AppleScript</span>
+                            <span class="stg-chip cyan">LUA</span>
+                            <span class="stg-chip cyan">jQuery</span>
+                            <span class="stg-chip slate">macOS</span>
+                            <span class="stg-chip green">Domotique</span>
+                        </div>
+
                     </div>
                 </div>
-            </div>
 
-            <!-- STAGE Terminale - LC-NETWORK -->
-            <div class="card-interest-all">
-                <div class="card-interest">
-                    <div class="interest-header">
-                        Stage Terminale — Octobre 2022 · Novembre 2022
-                    </div>
-                    <div class="interest-body mt-5">
-                        <div class="interest-content-r">
+                <!-- ══════════════════════════════════════════════
+                     STAGE 3 — Arène Informatique (Terminale, Jan-Fév 2023)
+                     ══════════════════════════════════════════════ -->
+                <div class="stg-card stg-reveal" data-type="maintenance">
+                    <div class="stg-card-inner">
+
+                        <div class="stg-card-head">
+                            <div class="stg-card-head-left">
+                                <span class="stg-badge maintenance"><i class="fa fa-tools"></i> IT &amp; Maintenance</span>
+                                <span class="stg-level">Terminale</span>
+                            </div>
+                            <span class="stg-duration">
+                                <i class="fa fa-calendar"></i>
+                                Jan 2023 — Fév 2023 &nbsp;·&nbsp; 4 semaines
+                            </span>
+                        </div>
+
+                        <div class="stg-company-row">
+                            <div class="stg-company-logo">
+                                <img src="images/areneinfo.jpg" alt="Arène Informatique">
+                            </div>
+                            <div class="stg-company-info">
+                                <p class="stg-company-name">Arène Informatique</p>
+                                <div class="stg-company-meta">
+                                    <i class="fa fa-map-marker-alt"></i> Limoges, Haute-Vienne
+                                    &nbsp;·&nbsp; Dépannage &amp; maintenance
+                                </div>
+                            </div>
+                            <a href="https://arenesinfo.fr/" target="_blank" class="stg-company-link">
+                                <i class="fa fa-external-link-alt"></i> Visiter
+                            </a>
+                        </div>
+
+                        <div class="stg-card-body">
                             <div>
-                                <h5><i class="fa fa-info-circle" style="color:#a78bfa;margin-right:8px;"></i>Détails du Stage</h5>
-                                <p><strong style="color:#c4b5fd">Entreprise :</strong> LC-NETWORK, Nexon</p>
-                                <p><strong style="color:#c4b5fd">Durée :</strong> Octobre 2022 — Novembre 2022</p>
-                                <p><strong style="color:#c4b5fd">Mission :</strong> Développement du site vitrine "Le Jardin de Ginette".</p>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-building"></i> Contexte
+                                </div>
+                                <p class="stg-mission">
+                                    Service à deux employés spécialisé dans le <strong>dépannage et la maintenance
+                                    informatique</strong> pour particuliers et professionnels. Mission : assistance
+                                    technique terrain et résolution de pannes au quotidien.
+                                </p>
                             </div>
-                            <div style="margin-top:1rem;">
-                                <h5><i class="fa fa-building" style="color:#a78bfa;margin-right:8px;"></i>Présentation</h5>
-                                <p>"Le Jardin de Ginette" souhaitait un site web pour présenter ses espaces et collections de plantes.</p>
-                            </div>
-                        </div>
-                        <div class="img-interest">
-                            <img src="images/lcnetwork.jpg" alt="LC-Network">
-                        </div>
-                    </div>
-                    <div class="interest-subject mt-5 mb-4">
-                        <h5><i class="fa fa-tools" style="color:#a78bfa;margin-right:8px;"></i>Compétences Acquises</h5>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Analyse des besoins client.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Conception visuelle et architecture du site.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Développement HTML, CSS, JavaScript.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Responsive design.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- STAGE Première - Micro-Rezo -->
-            <div class="card-interest-all">
-                <div class="card-interest">
-                    <div class="interest-header">
-                        Stage Première — 14 Mars 2022 · 15 Avril 2022
-                    </div>
-                    <div class="interest-body mt-5">
-                        <div class="img-interest">
-                            <img src="images/microrezo.jpg" alt="Micro-Rezo">
-                            <a href="https://micro-rezo.com/" target="_blank">Visiter le site</a>
-                        </div>
-                        <div class="interest-content-l">
                             <div>
-                                <h5><i class="fa fa-info-circle" style="color:#a78bfa;margin-right:8px;"></i>Détails du Stage</h5>
-                                <p><strong style="color:#c4b5fd">Entreprise :</strong> Micro-Rezo, Limoges</p>
-                                <p><strong style="color:#c4b5fd">Durée :</strong> 14 Mars 2022 — 15 Avril 2022</p>
-                                <p><strong style="color:#c4b5fd">Mission :</strong> Assistance au service de dépannage informatique.</p>
-                            </div>
-                            <div style="margin-top:1rem;">
-                                <h5><i class="fa fa-building" style="color:#a78bfa;margin-right:8px;"></i>Présentation</h5>
-                                <p>Équipe de deux professionnels spécialisée dans la maintenance et dépannage informatique.</p>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-check-double"></i> Réalisations
+                                </div>
+                                <ul class="stg-achievements">
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Diagnostic et résolution de pannes matérielles et logicielles
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Installation et mise à jour de systèmes d'exploitation (Windows, Linux)
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Configuration d'imprimantes, périphériques et antivirus
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Sauvegardes clients et récupération de données
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="interest-subject mt-5 mb-4">
-                        <h5><i class="fa fa-tools" style="color:#a78bfa;margin-right:8px;"></i>Compétences Acquises</h5>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Diagnostic et résolution de problèmes techniques.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Configuration antivirus et systèmes d'exploitation.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Remplacement de pièces informatiques.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Sauvegarde de données clients.</p>
+
+                        <div class="stg-chips">
+                            <span class="stg-chip rose">Windows</span>
+                            <span class="stg-chip slate">Linux</span>
+                            <span class="stg-chip cyan">Réseaux</span>
+                            <span class="stg-chip amber">Antivirus</span>
+                            <span class="stg-chip green">Sauvegarde</span>
+                            <span class="stg-chip rose">Dépannage</span>
+                        </div>
+
                     </div>
                 </div>
-            </div>
 
-            <!-- STAGE 3ème - Safran -->
-            <div class="card-interest-all">
-                <div class="card-interest">
-                    <div class="interest-header">
-                        Stage de Découverte 3ème — 18 Novembre 2019 · 22 Novembre 2019
-                    </div>
-                    <div class="interest-body mt-5">
-                        <div class="interest-content-r">
+                <!-- ══════════════════════════════════════════════
+                     STAGE 4 — LC-NETWORK (Terminale, Oct-Nov 2022)
+                     ══════════════════════════════════════════════ -->
+                <div class="stg-card stg-reveal" data-type="dev">
+                    <div class="stg-card-inner">
+
+                        <div class="stg-card-head">
+                            <div class="stg-card-head-left">
+                                <span class="stg-badge dev"><i class="fa fa-code"></i> Développement</span>
+                                <span class="stg-level">Terminale</span>
+                            </div>
+                            <span class="stg-duration">
+                                <i class="fa fa-calendar"></i>
+                                Oct 2022 — Nov 2022 &nbsp;·&nbsp; 4 semaines
+                            </span>
+                        </div>
+
+                        <div class="stg-company-row">
+                            <div class="stg-company-logo">
+                                <img src="images/lcnetwork.jpg" alt="LC-Network">
+                            </div>
+                            <div class="stg-company-info">
+                                <p class="stg-company-name">LC-NETWORK</p>
+                                <div class="stg-company-meta">
+                                    <i class="fa fa-map-marker-alt"></i> Nexon, Haute-Vienne
+                                    &nbsp;·&nbsp; Développement web
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stg-card-body">
                             <div>
-                                <h5><i class="fa fa-info-circle" style="color:#a78bfa;margin-right:8px;"></i>Détails du Stage</h5>
-                                <p><strong style="color:#c4b5fd">Entreprise :</strong> Safran Filtration Systems, Nexon</p>
-                                <p><strong style="color:#c4b5fd">Durée :</strong> 18 Novembre 2019 — 22 Novembre 2019</p>
-                                <p><strong style="color:#c4b5fd">Mission :</strong> Découverte des métiers de l'aéronautique et de l'informatique.</p>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-building"></i> Contexte
+                                </div>
+                                <p class="stg-mission">
+                                    Première expérience de développement web en entreprise.
+                                    Projet client : création du site vitrine <strong>"Le Jardin de Ginette"</strong>
+                                    pour présenter les espaces et collections de plantes du client.
+                                    Travail en <strong>autonomie</strong> sous supervision du responsable.
+                                </p>
                             </div>
-                            <div style="margin-top:1rem;">
-                                <h5><i class="fa fa-building" style="color:#a78bfa;margin-right:8px;"></i>Présentation</h5>
-                                <p>Safran Filtration Systems — conception et fabrication de systèmes de filtration pour l'aéronautique et le spatial.</p>
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-check-double"></i> Réalisations
+                                </div>
+                                <ul class="stg-achievements">
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Analyse des besoins client et conception de l'architecture
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Conception visuelle complète (wireframes, maquettes)
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Développement HTML, CSS, JavaScript from scratch
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Intégration responsive — mobile first
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="img-interest">
-                            <img src="images/safran.jpg" alt="Safran">
-                            <a href="https://www.safran-group.com/fr" target="_blank">Visiter le site</a>
+
+                        <div class="stg-chips">
+                            <span class="stg-chip amber">HTML</span>
+                            <span class="stg-chip cyan">CSS</span>
+                            <span class="stg-chip cyan">JavaScript</span>
+                            <span class="stg-chip green">Responsive</span>
+                            <span class="stg-chip slate">UX Design</span>
                         </div>
-                    </div>
-                    <div class="interest-subject mt-5 mb-4">
-                        <h5><i class="fa fa-tools" style="color:#a78bfa;margin-right:8px;"></i>Découverte des Métiers</h5>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Bureau d'études : modélisation 3D de pièces d'hélicoptères, conception de filtres spatiaux.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Informatique : observation des serveurs, démontage/remontage d'un ordinateur.</p>
-                        <p><i class="fa fa-check-circle" style="color:#4ade80;margin-right:8px;"></i>Usinage, assemblage, soudure, contrôle qualité.</p>
+
                     </div>
                 </div>
-            </div>
 
-        </div>
+                <!-- ══════════════════════════════════════════════
+                     STAGE 5 — Micro-Rezo (Première, Mar-Avr 2022)
+                     ══════════════════════════════════════════════ -->
+                <div class="stg-card stg-reveal" data-type="maintenance">
+                    <div class="stg-card-inner">
+
+                        <div class="stg-card-head">
+                            <div class="stg-card-head-left">
+                                <span class="stg-badge maintenance"><i class="fa fa-tools"></i> IT &amp; Maintenance</span>
+                                <span class="stg-level">Première</span>
+                            </div>
+                            <span class="stg-duration">
+                                <i class="fa fa-calendar"></i>
+                                Mar 2022 — Avr 2022 &nbsp;·&nbsp; 5 semaines
+                            </span>
+                        </div>
+
+                        <div class="stg-company-row">
+                            <div class="stg-company-logo">
+                                <img src="images/microrezo.jpg" alt="Micro-Rezo">
+                            </div>
+                            <div class="stg-company-info">
+                                <p class="stg-company-name">Micro-Rezo</p>
+                                <div class="stg-company-meta">
+                                    <i class="fa fa-map-marker-alt"></i> Limoges, Haute-Vienne
+                                    &nbsp;·&nbsp; Maintenance &amp; dépannage
+                                </div>
+                            </div>
+                            <a href="https://micro-rezo.com/" target="_blank" class="stg-company-link">
+                                <i class="fa fa-external-link-alt"></i> Visiter
+                            </a>
+                        </div>
+
+                        <div class="stg-card-body">
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-building"></i> Contexte
+                                </div>
+                                <p class="stg-mission">
+                                    Équipe de deux professionnels spécialisée dans la <strong>maintenance
+                                    et le dépannage informatique</strong>. Première confrontation avec
+                                    le terrain, auprès de clients particuliers et professionnels.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-check-double"></i> Réalisations
+                                </div>
+                                <ul class="stg-achievements">
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Diagnostic et résolution de problèmes techniques
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Configuration antivirus et systèmes d'exploitation
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Remplacement de pièces informatiques (RAM, HDD/SSD, ventilateurs)
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Sauvegarde et restauration de données clients
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="stg-chips">
+                            <span class="stg-chip rose">Windows</span>
+                            <span class="stg-chip slate">Hardware</span>
+                            <span class="stg-chip amber">Antivirus</span>
+                            <span class="stg-chip green">Sauvegarde</span>
+                            <span class="stg-chip rose">Dépannage</span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- ══════════════════════════════════════════════
+                     STAGE 6 — Safran (3ème, Nov 2019)
+                     ══════════════════════════════════════════════ -->
+                <div class="stg-card stg-reveal" data-type="decouverte">
+                    <div class="stg-card-inner">
+
+                        <div class="stg-card-head">
+                            <div class="stg-card-head-left">
+                                <span class="stg-badge decouverte"><i class="fa fa-rocket"></i> Découverte</span>
+                                <span class="stg-level">3ème</span>
+                            </div>
+                            <span class="stg-duration">
+                                <i class="fa fa-calendar"></i>
+                                18 Nov 2019 — 22 Nov 2019 &nbsp;·&nbsp; 1 semaine
+                            </span>
+                        </div>
+
+                        <div class="stg-company-row">
+                            <div class="stg-company-logo">
+                                <img src="images/safran.jpg" alt="Safran">
+                            </div>
+                            <div class="stg-company-info">
+                                <p class="stg-company-name">Safran Filtration Systems</p>
+                                <div class="stg-company-meta">
+                                    <i class="fa fa-map-marker-alt"></i> Nexon, Haute-Vienne
+                                    &nbsp;·&nbsp; Aéronautique &amp; spatial
+                                </div>
+                            </div>
+                            <a href="https://www.safran-group.com/fr" target="_blank" class="stg-company-link">
+                                <i class="fa fa-external-link-alt"></i> Visiter
+                            </a>
+                        </div>
+
+                        <div class="stg-card-body">
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-building"></i> Contexte
+                                </div>
+                                <p class="stg-mission">
+                                    Safran Filtration Systems conçoit et fabrique des systèmes de filtration
+                                    pour l'<strong>aéronautique et le spatial</strong>. Stage de découverte
+                                    en classe de 3ème — première rencontre avec le monde de l'entreprise
+                                    et la culture du <strong>secteur haute technologie</strong>.
+                                </p>
+                            </div>
+                            <div>
+                                <div class="stg-section-title">
+                                    <i class="fa fa-check-double"></i> Découvertes
+                                </div>
+                                <ul class="stg-achievements">
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Bureau d'études : modélisation 3D de pièces d'hélicoptères
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Conception de filtres spatiaux — observation des processus R&amp;D
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Service informatique : serveurs, démontage/remontage PC
+                                    </li>
+                                    <li>
+                                        <span class="stg-check ok"><i class="fa fa-check"></i></span>
+                                        Atelier : usinage, assemblage, soudure et contrôle qualité
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="stg-chips">
+                            <span class="stg-chip amber">Modélisation 3D</span>
+                            <span class="stg-chip cyan">Aéronautique</span>
+                            <span class="stg-chip rose">Spatial</span>
+                            <span class="stg-chip slate">Hardware</span>
+                            <span class="stg-chip green">Qualité</span>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- /.stg-grid -->
+        </div><!-- /.container -->
     </section>
 
     <!-- ==================== FOOTER ==================== -->
@@ -324,6 +652,7 @@
 <script src="js/snippet.js"></script>
 <script src="js/modals.js"></script>
 <script src="js/theme.js"></script>
+<script src="js/stages.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
