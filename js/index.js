@@ -396,75 +396,56 @@
    * figent une par une de gauche à droite.
    * ───────────────────────────────────────────── */
   function scrambleEl(el, startDelay) {
-    var target     = el.getAttribute('data-text') || el.textContent;
-    /* Seulement des majuscules — largeurs similaires dans Poppins,
-       aucun caractère spécial qui ferait varier la largeur brutalement */
-    var chars      = 'ABCDEFGHJKLMNOPQRSTUVWXYZ';
-    var len        = target.length;
-    var locked     = 0;
-    var tick       = 0;
-    var TICK_MS    = 42;
-    var LOCK_EVERY = 2;
+    var target = el.getAttribute('data-text') || el.textContent;
+    var chars  = 'ABCDEFGHJKLMNOPQRSTUVWXYZ';
+    var len    = target.length;
+    var locked = 0;
+    var tick   = 0;
     var iv;
-    var spans      = [];
 
     function rand() { return chars[Math.floor(Math.random() * chars.length)]; }
 
-    /* ── Étape 1 : verrouiller la taille du conteneur entier ──
-       On mesure AVANT de toucher quoi que ce soit.
-       Kerning, ligatures, tout est déjà inclus dans cette mesure.
-       Après ça, la div ne peut plus bouger. */
-    el.style.display    = 'inline-block';
-    el.style.width      = el.offsetWidth  + 'px';
-    el.style.whiteSpace = 'nowrap';
+    /* ── Spacer + noise ────────────────────────────────────────────
+       Le spacer (visibility:hidden) garde le texte original en place :
+       le layout ne change jamais d'un pixel, aucun reflow.
+       Le noise (position:absolute) se superpose sans affecter le flux.
+       On ne touche PAS à display → pas de changement de baseline/taille. */
+    el.style.position = 'relative';
 
-    /* ── Étape 2 : construire un <span> par caractère ── */
+    var spacer = document.createElement('span');
+    spacer.textContent = target;
+    spacer.setAttribute('aria-hidden', 'true');
+    spacer.style.cssText = 'visibility:hidden;white-space:nowrap;';
+
+    var noise = document.createElement('span');
+    noise.setAttribute('aria-hidden', 'true');
+    noise.style.cssText = 'position:absolute;left:0;top:0;white-space:nowrap;pointer-events:none;';
+
     el.textContent = '';
-    for (var i = 0; i < len; i++) {
-      var s = document.createElement('span');
-      s.style.display   = 'inline-block';
-      s.style.textAlign = 'center';
-      s.textContent     = target[i];
-      el.appendChild(s);
-      spans.push(s);
+    el.appendChild(spacer);
+    el.appendChild(noise);
+
+    function render() {
+      var out = '';
+      for (var i = 0; i < len; i++) {
+        out += (i < locked || target[i] === '-' || target[i] === ' ') ? target[i] : rand();
+      }
+      noise.textContent = out;
     }
 
-    /* ── Étape 3 : fixer la largeur individuelle de chaque span ──
-       width strict pour que les chars larges (W, M) ne dépassent pas. */
-    spans.forEach(function (s) {
-      s.style.width    = s.offsetWidth + 'px';
-      s.style.overflow = 'hidden';
-    });
+    render();
 
-    /* ── Étape 3 : afficher le bruit initial ── */
-    spans.forEach(function (s, i) {
-      if (target[i] === '-' || target[i] === ' ') return; /* ponctuation fixe */
-      s.textContent = rand();
-    });
-
-    /* ── Étape 4 : boucle de verrouillage progressif ── */
     setTimeout(function () {
       iv = setInterval(function () {
         tick++;
-        if (tick % LOCK_EVERY === 0 && locked < len) locked++;
-
-        spans.forEach(function (s, i) {
-          if (i < locked) {
-            s.textContent = target[i]; /* lettre définitive */
-          } else if (target[i] !== '-' && target[i] !== ' ') {
-            s.textContent = rand();    /* encore du bruit   */
-          }
-        });
-
+        if (tick % 2 === 0 && locked < len) locked++;
+        render();
         if (locked >= len) {
           clearInterval(iv);
-          /* Nettoyer les spans — remettre le texte brut */
-          el.style.width      = '';
-          el.style.display    = '';
-          el.style.whiteSpace = '';
-          el.textContent      = target;
+          el.style.position = '';
+          el.textContent    = target;
         }
-      }, TICK_MS);
+      }, 42);
     }, startDelay || 0);
   }
 
