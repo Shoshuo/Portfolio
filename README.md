@@ -13,7 +13,9 @@
 [![License](https://img.shields.io/badge/Licence-Personnel-blue?style=flat-square)](#)
 [![Status](https://img.shields.io/badge/Statut-Actif-success?style=flat-square)](#)
 
-[**🌐 Voir le site en ligne**](https://lanua.fr/portfolio) · [**📧 Me contacter**](mailto:joshuabv2005@gmail.com) · [**💼 LinkedIn**](https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/)
+[**🌐 Voir le site en ligne**](https://lanua.fr/portfolio)
+
+> 🔄 **Projet vivant** — ce portfolio est mis à jour et maintenu régulièrement.
 
 </div>
 
@@ -120,16 +122,18 @@ Puis ouvrez **http://localhost:8000** dans votre navigateur.
 
 ---
 
+## 🔄 Maintenance
+
+Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au fil de mes nouveaux stages, projets et compétences acquises durant ma formation.
+
+---
+
 ## 👨‍💻 Auteur
 
 <div align="center">
 
 **Joshua Bethoule-Voisin**
 *Étudiant BTS SIO — option SLAM*
-
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shoshuo)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:joshuabv2005@gmail.com)
 
 </div>
 
