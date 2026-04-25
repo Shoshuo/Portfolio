@@ -2,7 +2,7 @@
 
 # Portfolio — Joshua Bethoule-Voisin
 
-**Portfolio personnel statique — BTS SIO option SLAM**
+**Portfolio personnel statique — Analyste d'Exploitation @ Le Groupe La Poste**
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/CSS)
@@ -23,11 +23,13 @@
 
 ## ✨ À propos
 
-Portfolio développé dans le cadre du **BTS SIO** (Services Informatiques aux Organisations) option **SLAM** — Solutions Logicielles et Applications Métiers.
+Portfolio personnel présentant mon parcours, mes expériences et mes compétences techniques.
 
-Il présente mon parcours scolaire et professionnel, le détail de mes **6 stages** (de la 3ème au BTS2), mes compétences techniques, ainsi que les projets réalisés en formation et à titre personnel.
+Diplômé du **BTS SIO** (Services Informatiques aux Organisations) option **SLAM** — Solutions Logicielles et Applications Métiers, je travaille aujourd'hui en tant qu'**Analyste d'Exploitation** chez **Le Groupe La Poste**.
 
-Le site est entièrement statique, sans framework lourd ni étape de build — tout est chargé directement par le navigateur, ce qui en fait un bon exemple de maîtrise des fondamentaux du web.
+Le site retrace mon parcours scolaire et professionnel, le détail de mes **6 stages** (de la 3ème au BTS2), mes compétences techniques, ainsi que les projets réalisés en formation et à titre personnel.
+
+Il est entièrement statique, sans framework lourd ni étape de build — tout est chargé directement par le navigateur, ce qui en fait un bon exemple de maîtrise des fondamentaux du web.
 
 ---
 
@@ -124,7 +126,7 @@ Puis ouvrez **http://localhost:8000** dans votre navigateur.
 
 ## 🔄 Maintenance
 
-Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au fil de mes nouveaux stages, projets et compétences acquises durant ma formation.
+Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au fil de mes nouveaux projets, expériences professionnelles et compétences acquises.
 
 ---
 
@@ -133,7 +135,8 @@ Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au f
 <div align="center">
 
 **Joshua Bethoule-Voisin**
-*Étudiant BTS SIO — option SLAM*
+*Analyste d'Exploitation — Le Groupe La Poste*
+*Diplômé BTS SIO option SLAM*
 
 </div>
 
