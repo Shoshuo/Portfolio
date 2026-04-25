@@ -1,79 +1,142 @@
+<div align="center">
+
 # Portfolio — Joshua Bethoule-Voisin
 
-Portfolio personnel statique présentant mon parcours, mes stages, mes compétences et mes projets dans le cadre du **BTS SIO** (Services Informatiques aux Organisations).
+**Portfolio personnel statique — BTS SIO option SLAM**
 
-🔗 **Site en ligne :** [joshuabv.fr](https://joshuabv.fr) <!-- adapte si besoin -->
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/fr/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
+
+[![Site](https://img.shields.io/badge/Site-lanua.fr%2Fportfolio-7C3AED?style=flat-square)](https://lanua.fr/portfolio)
+[![License](https://img.shields.io/badge/Licence-Personnel-blue?style=flat-square)](#)
+[![Status](https://img.shields.io/badge/Statut-Actif-success?style=flat-square)](#)
+
+[**🌐 Voir le site en ligne**](https://lanua.fr/portfolio) · [**📧 Me contacter**](mailto:joshuabv2005@gmail.com) · [**💼 LinkedIn**](https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/)
+
+</div>
 
 ---
 
-## Aperçu
+## ✨ À propos
 
-Site multi-pages en HTML/CSS/JS vanilla, sans build system. Design dark-first avec mode clair, animations CSS soignées, et accent sur la lisibilité du contenu technique.
+Portfolio développé dans le cadre du **BTS SIO** (Services Informatiques aux Organisations) option **SLAM** — Solutions Logicielles et Applications Métiers.
 
-## Pages
+Il présente mon parcours scolaire et professionnel, le détail de mes **6 stages** (de la 3ème au BTS2), mes compétences techniques, ainsi que les projets réalisés en formation et à titre personnel.
 
-| Page | Contenu |
-|------|---------|
-| `index.html` | Profil — accueil, présentation, domaines |
-| `parcours.html` | Parcours scolaire et professionnel (timeline) |
-| `stages.html` | Détail des 6 stages effectués (3ème → BTS2) |
-| `competences.html` | Stack technique et compétences maîtrisées |
-| `projet.html` | Projets réalisés en formation et personnels |
-| `documents.html` | CV, certifications, documents téléchargeables |
-| `veille.html` | Veille technologique |
+Le site est entièrement statique, sans framework lourd ni étape de build — tout est chargé directement par le navigateur, ce qui en fait un bon exemple de maîtrise des fondamentaux du web.
 
-## Stack
+---
 
-- **HTML5 / CSS3** — sans framework, design system custom (variables CSS, dark/light mode)
-- **JavaScript vanilla** — animations légères, IntersectionObserver, scroll progress
+## 🎯 Caractéristiques
+
+- 🌙 **Dark / light mode** — toggle persistant via `localStorage`
+- 🎨 **Design system custom** — tokens CSS, palette violette/cyan, typographie Poppins
+- ⚡ **Animations fluides** — IntersectionObserver, scroll progress, parallax, scramble text
+- 📱 **Responsive** — adapté mobile, tablette et desktop via media queries
+- ♿ **Accessible** — sémantique HTML, contraste, navigation clavier
+- 🚫 **Zéro bundler** — pas de Node, pas de Webpack, pas de Vite
+
+---
+
+## 📑 Pages
+
+| Page | Description |
+|------|-------------|
+| 🏠 `index.html` | Accueil — présentation, domaines de prédilection, hero animé |
+| 🛤️ `parcours.html` | Parcours scolaire et professionnel sur timeline interactive |
+| 💼 `stages.html` | Détail des **6 stages** (Broussaud Textile, LC-Network, Arène Info, Micro-Rezo, Safran...) |
+| 🛠️ `competences.html` | Stack technique et compétences maîtrisées |
+| 🚀 `projet.html` | Projets de formation et projets personnels |
+| 📄 `documents.html` | CV, certifications, documents téléchargeables |
+| 📰 `veille.html` | Veille technologique |
+
+---
+
+## 🧰 Stack technique
+
+<div align="center">
+
+| Frontend | Outils | Hébergement |
+|:--:|:--:|:--:|
+| HTML5 · CSS3 · JS vanilla | Git · PhpStorm · VS Code | NAS Synology · Cloudflare |
+| Bootstrap 4 · Font Awesome | Gitea (auto-sync GitHub) | Domaine custom |
+
+</div>
+
+**Détails :**
+
+- **HTML5 / CSS3** — design system custom (variables CSS, `@property`, dark/light mode)
+- **JavaScript vanilla** — `IntersectionObserver`, `requestAnimationFrame`, scroll progress, scramble text
 - **Bootstrap 4 alpha** — grille et navbar de base
 - **Font Awesome** — iconographie
 - **Poppins** (Google Fonts) — typographie
 
-Pas de bundler, pas de Node — tout est chargé directement par le navigateur.
+---
 
-## Structure
+## 📂 Structure du projet
 
 ```
 portfolio/
-├── *.html                # Pages
-├── style.css             # Styles base hérités
+├── *.html                  # 7 pages principales
+├── style.css               # Styles base hérités
 ├── css/
-│   ├── new-design.css    # Design system principal (tokens, navbar, hero, sections)
-│   ├── index.css         # Styles spécifiques à index.html
-│   ├── parcours.css      # Spécifiques parcours
-│   ├── stages.css        # Spécifiques stages
-│   ├── responsive.css    # Media queries
-│   └── ...
+│   ├── new-design.css      # Design system principal (tokens, navbar, hero)
+│   ├── index.css           # Styles spécifiques à l'accueil
+│   ├── parcours.css        # Timeline parcours
+│   ├── stages.css          # Cards stages, filtres, reading bar
+│   ├── competences.css     # Grille compétences
+│   ├── projet.css          # Showcase projets
+│   ├── responsive.css      # Media queries
+│   └── atom.css            # Animation atome (hero)
 ├── js/
-│   ├── theme.js          # Toggle dark/light mode
-│   ├── index.js          # Scramble text, animations hero
-│   ├── stages.js         # Filtres, count-up, reading bar
-│   ├── parcours.js       # Timeline interactive
-│   └── ...
-└── images/               # Assets visuels
+│   ├── theme.js            # Toggle dark/light mode + persistance
+│   ├── index.js            # Scramble text, animations hero, RAF loop
+│   ├── stages.js           # Filtres, count-up, reading bar
+│   ├── parcours.js         # Timeline interactive
+│   └── responsive.js       # Comportement mobile
+├── images/                 # Logos entreprises, screenshots projets, icônes
+└── upload/                 # CV et documents
 ```
 
-## Lancer en local
+---
 
-Aucune installation, juste un serveur HTTP statique :
+## 🚀 Lancer en local
+
+Aucune installation requise — juste un serveur HTTP statique :
 
 ```bash
-# Avec Python
+# Avec Python (recommandé)
 python -m http.server 8000
 
-# Avec Node (si installé)
+# Avec Node
 npx serve
 
 # Ou ouvrir directement index.html dans le navigateur
 ```
 
-Puis : `http://localhost:8000`
+Puis ouvrez **http://localhost:8000** dans votre navigateur.
 
-## Auteur
+---
 
-**Joshua Bethoule-Voisin** — Étudiant BTS SIO option SLAM
+## 👨‍💻 Auteur
 
-- LinkedIn : [linkedin.com/in/joshua-bethoule-voisin](https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/)
-- GitHub : [@Shoshuo](https://github.com/Shoshuo)
-- Email : joshuabv2005@gmail.com
+<div align="center">
+
+**Joshua Bethoule-Voisin**
+*Étudiant BTS SIO — option SLAM*
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joshua-bethoule-voisin-097549292/)
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Shoshuo)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:joshuabv2005@gmail.com)
+
+</div>
+
+---
+
+<div align="center">
+
+*Conçu et développé avec ❤️ — sans framework, sans build, juste du web qui marche.*
+
+</div>
