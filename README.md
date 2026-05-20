@@ -146,4 +146,6 @@ Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au f
 
 *Conçu et développé avec ❤️ — sans framework, sans build, juste du web qui marche.*
 
+
+
 </div>
