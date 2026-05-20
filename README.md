@@ -145,7 +145,4 @@ Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au f
 <div align="center">
 
 *Conçu et développé avec ❤️ — sans framework, sans build, juste du web qui marche.*
-
-
-
 </div>
