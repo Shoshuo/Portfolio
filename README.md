@@ -22,7 +22,7 @@
 
 Portfolio personnel présentant mon parcours, mes expériences et mes compétences techniques.
 
-Diplômé du **BTS SIO** (Services Informatiques aux Organisations) option **SLAM** — Solutions Logicielles et Applications Métiers, je travaille aujourd'hui en tant qu'**Analyste d'Exploitation** chez **Le Groupe La Poste**.
+Diplômé du **BTS SIO** (Services Informatiques aux Organisations) option **SLAM** — Solutions Logicielles et Applications Métiers, je travaille aujourd'hui en tant qu'**Analyste d'Exploitation**
 
 Le site retrace mon parcours scolaire et professionnel, le détail de mes **6 stages** (de la 3ème au BTS2), mes compétences techniques, ainsi que les projets réalisés en formation et à titre personnel.
 
