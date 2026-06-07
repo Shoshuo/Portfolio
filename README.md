@@ -1,6 +1,6 @@
 <div align="center">
 
-# Portfolio — Joshua Bethoule-Voisin
+# Portfolio — Joshua
 
 **Portfolio personnel statique — Analyste d'Exploitation @ Le Groupe La Poste**
 
@@ -12,8 +12,6 @@
 [![Site](https://img.shields.io/badge/Site-lanua.fr%2Fportfolio-7C3AED?style=flat-square)](https://lanua.fr/portfolio)
 [![License](https://img.shields.io/badge/Licence-Personnel-blue?style=flat-square)](#)
 [![Status](https://img.shields.io/badge/Statut-Actif-success?style=flat-square)](#)
-
-[**🌐 Voir le site en ligne**](https://lanua.fr/portfolio)
 
 > 🔄 **Projet vivant** — ce portfolio est mis à jour et maintenu régulièrement.
 
@@ -134,9 +132,7 @@ Ce portfolio est **activement maintenu** et **mis à jour régulièrement** au f
 
 <div align="center">
 
-**Joshua Bethoule-Voisin**
-*Analyste d'Exploitation — Le Groupe La Poste*
-*Diplômé BTS SIO option SLAM*
+**Joshua / Shoshuo**
 
 </div>
 
