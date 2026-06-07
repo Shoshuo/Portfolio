@@ -9,7 +9,6 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/fr/docs/Web/JavaScript)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-[![Site](https://img.shields.io/badge/Site-lanua.fr%2Fportfolio-7C3AED?style=flat-square)](https://lanua.fr/portfolio)
 [![License](https://img.shields.io/badge/Licence-Personnel-blue?style=flat-square)](#)
 [![Status](https://img.shields.io/badge/Statut-Actif-success?style=flat-square)](#)
 
